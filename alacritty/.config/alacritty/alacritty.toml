@@ -1,0 +1,7 @@
+import = ["~/.config/alacritty/catppuccin-mocha.toml"]
+[window]
+decorations = "none"
+padding = {x = 10, y = 10}
+startup_mode = "Maximized"
+[font]
+size = 12

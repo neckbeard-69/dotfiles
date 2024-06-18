@@ -14,7 +14,6 @@ set $mod Mod4
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:monospace 0
-
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
@@ -192,7 +191,6 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -200,4 +198,16 @@ bar {
         font pango:monospace 14
         mode hide
         modifier Mod1
+colors {
+  background #1e2030
+  statusline #cdd6f4
+  focused_statusline #cad3f5
+  focused_separator #1e1e2e
+  focused_workspace #1e1e2e #f4dbd6 #181926
+  active_workspace #1e1e2e #1e1e2e #89b4fa
+  inactive_workspace #1e1e2e #363a4f #cad3f5
+  urgent_workspace #1e1e2e #ed8796 #1e2030
+  binding_mode #1e1e2e #1e1e2e #313244
+
+}
 }

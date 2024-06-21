@@ -48,16 +48,6 @@ return {
 		-- set keymaps
 		local keymap = vim.keymap -- for conciseness
 
-		-- Define keymap to toggle focus between Nvim Tree and active buffer
-		vim.api.nvim_set_keymap("n", "<C-n>", ":lua ToggleNvimTreeFocus()<CR>", { noremap = true, silent = true })
-
-		function ToggleNvimTreeFocus()
-			if vim.bo.filetype == "NvimTree" then
-				vim.cmd("wincmd p")
-			else
-				vim.cmd("NvimTreeFindFile")
-			end
-		end
 		keymap.set("n", "<C-b>", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" }) -- toggle file explorer
 		keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
 	end,

@@ -15,7 +15,7 @@ return {
 			':lua require("harpoon.mark").add_file()<CR>',
 			{ desc = "harpoon - add current file" }
 		)
-		keymap.set("n", "<A-j>", ':lua require("harpoon.ui").nav_next()<CR>', { desc = "harpoon - next" })
-		keymap.set("n", "<A-k>", ':lua require("harpoon.ui").nav_prev()<CR>', { desc = "harpoon - previous" })
+		keymap.set("n", "<C-n>", ':lua require("harpoon.ui").nav_next()<CR>', { desc = "harpoon - next" })
+		keymap.set("n", "<C-m>", ':lua require("harpoon.ui").nav_prev()<CR>', { desc = "harpoon - previous" })
 	end,
 }

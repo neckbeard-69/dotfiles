@@ -3,10 +3,12 @@
 
 alias nv=nvim
 alias gti=git
-
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="xiong-chiamiov-plus"
 
+ZSH_THEME="robbyrussell"
 plugins=( 
     git
     archlinux

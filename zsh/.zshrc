@@ -3,6 +3,8 @@
 
 alias nv=nvim
 alias gti=git
+alias fnv='nvim $(fzf -m --preview="bat --color=always {}")'
+
 alias .="cd .."
 alias ..="cd ../.."
 alias ...="cd ../../.."
@@ -20,7 +22,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Check archlinux plugin commands here
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/archlinux
-
+BAT_THEME="Catppuccin Mocha"
 
 nerdfetch
 export EDITOR=nvim

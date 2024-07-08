@@ -1,6 +1,5 @@
 return {
 	{ "neanias/everforest-nvim" },
-	{ "dgox16/oldworld.nvim" },
 	{ "projekt0n/caret.nvim" },
 	{
 		"catppuccin/nvim",

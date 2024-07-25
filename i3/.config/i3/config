@@ -52,19 +52,9 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# Set gaps
-gaps inner 10
-gaps outer 10
-
-# Set specific gaps for different scenarios
-# Gaps for windows in tiling mode
-gaps inner 10
-gaps outer 10
-
-# Smart gaps - only display outer gaps when there is more than one container
-smart_gaps on
 # Set custom border colors for Catppuccin theme
-client.focused          #c6aaed #c6aaed #c6aaed #c6aaed   
+client.focused          #b4befe #b4befe #b4befe #b4befe
+
 client.unfocused        #232634 #232634 #232634 #232634   
 client.focused_inactive #b4be82 #b4be82 #b4be82 #b4be82   
 client.urgent           #eb6f92 #eb6f92 #eb6f92 #eb6f92   

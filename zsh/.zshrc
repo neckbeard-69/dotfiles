@@ -3,11 +3,12 @@
 
 alias nv=nvim
 alias gti=git
-alias fnv='nvim $(fzf -m --preview="bat --color=always {}")'
+alias fv='nvim $(fzf -m --preview="bat --color=always {}")'
 
 alias .="cd .."
 alias ..="cd ../.."
 alias ...="cd ../../.."
+alias c="clear"
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
@@ -25,6 +26,7 @@ source $ZSH/oh-my-zsh.sh
 BAT_THEME="Catppuccin Mocha"
 
 nerdfetch
+tmux
 export EDITOR=nvim
 export VISUAL=nvim
 ### From this line is for pywal-colors
@@ -52,4 +54,5 @@ go() {
         command go "$@"
     fi
 }
+export HYPRLAND_INSTANCE_SIGNATURE=$(date +%s)
 

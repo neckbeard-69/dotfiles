@@ -22,7 +22,3 @@ family = "JetBrainsMono Nerd Font"
 style = "Regular"
 [env]
 TERM = "xterm-256color"
-# [[keyboard.bindings]]
-# key = "l"
-# mods = "Alt"
-# action = "None"

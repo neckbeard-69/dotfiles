@@ -30,6 +30,7 @@ bindsym $mod+x exec --no-startup-id ~/.screenlayout/external.sh
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id picom
 exec --no-startup-id ulauncher
+exec --no-startup-id polybar
 bindsym $mod+b exec com.brave.Browser 
 bindsym $mod+f exec nautilus
 exec --no-startup-id xmodmap ~/.Xmodmap
@@ -51,6 +52,22 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
+# Set gaps
+gaps inner 10
+gaps outer 10
+
+# Set specific gaps for different scenarios
+# Gaps for windows in tiling mode
+gaps inner 10
+gaps outer 10
+
+# Smart gaps - only display outer gaps when there is more than one container
+smart_gaps on
+# Set custom border colors for Catppuccin theme
+client.focused          #c6aaed #c6aaed #c6aaed #c6aaed   
+client.unfocused        #232634 #232634 #232634 #232634   
+client.focused_inactive #b4be82 #b4be82 #b4be82 #b4be82   
+client.urgent           #eb6f92 #eb6f92 #eb6f92 #eb6f92   
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -195,9 +212,8 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         status_command i3status
-        font pango:monospace 14
+        font pango:monospace 13
         mode hide
-        modifier Mod1
 colors {
   background #1e2030
   statusline #cdd6f4

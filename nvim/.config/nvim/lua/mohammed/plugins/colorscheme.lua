@@ -11,4 +11,5 @@ return {
 		end,
 	},
 	{ "ellisonleao/gruvbox.nvim" },
+	{ "folke/tokyonight.nvim" },
 }

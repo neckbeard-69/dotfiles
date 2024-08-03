@@ -29,13 +29,12 @@ exec --no-startup-id xrdb --merge ~/.Xresources
 bindsym $mod+x exec --no-startup-id ~/.screenlayout/external.sh
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id picom
-exec --no-startup-id ulauncher
 exec --no-startup-id polybar
-bindsym $mod+b exec com.brave.Browser 
+exec --no-startup-id ulauncher
+bindsym $mod+b exec brave
 bindsym $mod+f exec nautilus
 exec --no-startup-id xmodmap ~/.Xmodmap
 bindsym Print exec flameshot gui
-bindsym $mod+d exec rofi -show
 bindsym Mod1 bar mode toggle
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.

@@ -26,7 +26,6 @@ source $ZSH/oh-my-zsh.sh
 BAT_THEME="Catppuccin Mocha"
 
 nerdfetch
-tmux
 export EDITOR=nvim
 export VISUAL=nvim
 ### From this line is for pywal-colors

@@ -13,7 +13,7 @@ window#waybar {
     color: @overlay0;
     transition-property: background-color;
     transition-duration: 0.1s;
-    border-top: 1px solid @overlay1;
+    border-bottom: 1px solid @overlay1;
 }
 
 #window {
@@ -40,8 +40,8 @@ button:hover {
 
 #workspaces button.focused {
     background-color: rgba(0, 0, 0, 0.3);
-    color: @mauve;
-    border-top: 2px solid @mauve;
+    color: @rosewater;
+    border-top: 2px solid @rosewater;
 }
 
 #workspaces button.active {

@@ -45,7 +45,7 @@ I recommend using **GNU Stow** to manage the dotfiles. You can also copy them ma
 First, clone the repository:
 
 ```bash
- git clone https://github.com/your-username/dotfiles.git
+ git clone https://github.com/neckbeard-69/dotfiles.git
  cd dotfiles
  ```
 

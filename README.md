@@ -36,7 +36,8 @@ I recommend using **GNU Stow** to manage the dotfiles. You can also copy them ma
    ```
 
 4. **On Windows**:
-    Currently, there’s no direct support for GNU Stow on Windows. You might consider using [WSL (Windows Subsystem for Linux)](https://docs.microsoft.com/en-us/windows/wsl/) if you need a Unix-like environment.
+    JK 🐸 
+    There’s no direct support for GNU Stow on Windows. You might consider using [WSL (Windows Subsystem for Linux)](https://docs.microsoft.com/en-us/windows/wsl/) if you need a Unix-like environment.
 
 **Note**: You can install Stow on any system using your package manager, even if it's not listed above.
 

@@ -9,7 +9,7 @@ alias .="cd .."
 alias ..="cd ../.."
 alias ...="cd ../../.."
 alias c="clear"
-alias vite="npm create vite@latest"
+alias vite-new="npm create vite@latest"
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
@@ -26,7 +26,6 @@ source $ZSH/oh-my-zsh.sh
 # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/archlinux
 BAT_THEME="Catppuccin Mocha"
 
-nerdfetch
 export EDITOR=nvim
 export VISUAL=nvim
 ### From this line is for pywal-colors
@@ -42,7 +41,7 @@ export VISUAL=nvim
 # To add support for TTYs this line can be optionally added.
 #source ~/.cache/wal/colors-tty.sh
 
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 go() {
     if [ "$1" = "test" ]; then
         shift

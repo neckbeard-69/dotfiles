@@ -1,38 +1,24 @@
-import = [
-  "/usr/lib/node_modules/alacritty-themes/themes/Monokai-Pro.toml"
-]
-
+import = ["~/.config/alacritty/catppuccin-mocha.toml"]
 [window]
 decorations = "none"
+padding = {x = 10, y = 10}
 startup_mode = "Maximized"
-
-  [window.padding]
-  x = 10
-  y = 10
-
 [font]
 size = 12
-  [font.bold]
+[font.bold]
 family = "JetBrainsMono Nerd Font"
 style = "Bold"
 
-  [font.bold_italic]
+[font.bold_italic]
 family = "JetBrainsMono Nerd Font"
 style = "Bold Italic"
 
-  [font.italic]
+[font.italic]
 family = "JetBrainsMono Nerd Font"
 style = "Italic"
 
-  [font.normal]
+[font.normal]
 family = "JetBrainsMono Nerd Font"
 style = "Regular"
-
 [env]
 TERM = "xterm-256color"
-
-[cursor.style]
-blinking = "Always"
-[cursor]
-blink_timeout = 0
-

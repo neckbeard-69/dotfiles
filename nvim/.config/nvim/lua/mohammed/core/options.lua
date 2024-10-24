@@ -43,3 +43,5 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 150 })
 	end,
 })
+
+-- vim.g.transparent_enabled = true

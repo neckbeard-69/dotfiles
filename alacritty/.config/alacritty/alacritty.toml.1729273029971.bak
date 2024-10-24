@@ -1,6 +1,4 @@
-import = [
-  "/usr/lib/node_modules/alacritty-themes/themes/Monokai-Pro.toml"
-]
+import = [ "/usr/lib/node_modules/alacritty-themes/themes/Bitmute.toml" ]
 
 [window]
 decorations = "none"
@@ -31,3 +29,9 @@ size = 12
 
 [env]
 TERM = "xterm-256color"
+
+[cursor]
+blink_timeout = 0
+
+  [cursor.style]
+  blinking = "Always"

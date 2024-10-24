@@ -1,9 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-alias nv=nvim
+alias v=nvim
 alias gti=git
-alias fv='nvim $(fzf -m --preview="bat --color=always {}")'
+alias vf='nvim $(fzf -m --preview="bat --color=always {}")'
 
 alias .="cd .."
 alias ..="cd ../.."

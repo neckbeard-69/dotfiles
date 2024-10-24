@@ -9,11 +9,14 @@ return {
 				typescript = { "prettier" },
 				javascriptreact = { "prettier" },
 				typescriptreact = { "prettier" },
+                html = {"prettier"},
+                ino = { "clang-format" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
 				async = false,
 				timeout_ms = 1000,
+                
 			},
 		})
 		vim.keymap.set({ "n", "v" }, "<leader>mp", function()

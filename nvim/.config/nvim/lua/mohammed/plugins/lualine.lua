@@ -7,7 +7,7 @@ return {
 			options = {
 				theme = "auto",
 				globalstatus = true,
-				section_separators = { left = "", right = "" },
+				section_separators = { right = "", left = "" },
 			},
 		})
 	end,

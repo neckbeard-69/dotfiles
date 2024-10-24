@@ -1,5 +1,5 @@
 import = [
-  "/usr/lib/node_modules/alacritty-themes/themes/Catppuccin-Mocha.toml"
+  "/usr/lib/node_modules/alacritty-themes/themes/Tokyonight_Night.toml"
 ]
 
 [window]

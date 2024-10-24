@@ -1,6 +1,4 @@
-import = [
-  "/usr/lib/node_modules/alacritty-themes/themes/Catppuccin-Mocha.toml"
-]
+import = [ "/usr/lib/node_modules/alacritty-themes/themes/Fedora.toml" ]
 
 [window]
 decorations = "none"

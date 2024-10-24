@@ -135,6 +135,7 @@ return {
 						"scss",
 						"less",
 						"svelte",
+                        
 					},
 				})
 			end,

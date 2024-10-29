@@ -1,11 +1,11 @@
-import = [
+general.import = [
+
   "/usr/lib/node_modules/alacritty-themes/themes/Catppuccin-Mocha.toml"
 ]
 
 [window]
 decorations = "none"
 startup_mode = "Maximized"
-
   [window.padding]
   x = 10
   y = 10

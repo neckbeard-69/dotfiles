@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 
 local keymap = vim.keymap -- for conciseness
-keymap.set({ "v", "i" }, "jk", "<ESC>", { desc = "Go to normal mode" })
+keymap.set({ "i" }, "jk", "<ESC>", { desc = "Go to normal mode" })
 
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
@@ -30,7 +30,8 @@ keymap.set("i", "<C-s>", "<Esc>:w<CR>a")
 
 -- Fix original commands
 keymap.set({ "n", "i", "v" }, "<C-z>", "")
-
+keymap.set({"v"}, "p", "P")
 -- language specific keymaps
 -- GO:
 keymap.set("n", "<leader>ee", "oif error != nil {\n\treturn error\n}<ESC>")
+

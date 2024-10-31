@@ -135,7 +135,6 @@ return {
 						"scss",
 						"less",
 						"svelte",
-                        
 					},
 				})
 			end,
@@ -159,4 +158,3 @@ return {
 		})
 	end,
 }
-

@@ -5,6 +5,7 @@ vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a T
 vim.o.softtabstop = 4 -- Number of spaces inserted instead of a TAB character
 vim.o.shiftwidth = 4 -- Number of spaces inserted when indenting
 
+
 -- to resolve a conflict
 local keymap = vim.keymap
 keymap.set({ "n", "v" }, "<C-j>", "G", { desc = "Go to the end of the file" })

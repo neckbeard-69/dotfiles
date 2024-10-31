@@ -1,3 +1,4 @@
+
 return {
 	"williamboman/mason.nvim",
 	dependencies = {

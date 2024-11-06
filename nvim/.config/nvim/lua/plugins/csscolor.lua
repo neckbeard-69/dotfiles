@@ -1,5 +1,5 @@
 return {
-	"brenoprata10/nvim-highlight-colors",
+	{ "brenoprata10/nvim-highlight-colors",
 	config = function()
 		require("nvim-highlight-colors").setup({
 			---Render style
@@ -56,4 +56,11 @@ return {
 			exclude_buftypes = {},
 		})
 	end,
+ },
+ {
+     	"NTBBloodbath/color-converter.nvim",
+	config = function()
+		vim.keymap.set("n", "<leader>cc", "<Plug>ColorConvertCycle")
+	end,
+ }
 }

@@ -56,3 +56,5 @@ go() {
 export HYPRLAND_INSTANCE_SIGNATURE=$(date +%s)
 
 export PATH=$PATH:$HOME/go/bin
+
+PATH=~/.console-ninja/.bin:$PATH

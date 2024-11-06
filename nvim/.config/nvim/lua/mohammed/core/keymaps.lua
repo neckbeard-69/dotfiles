@@ -13,8 +13,21 @@ keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }
 keymap.set("n", "<leader>th", "<cmd>Telescope colorscheme<CR>") -- show available color schemes
 -- panes navigation
 keymap.set("n", "<A-h>", ":wincmd h<CR>")
-keymap.set("n", "<A-k>", ":wincmd k<CR>")
-keymap.set("n", "<A-j>", ":wincmd j<CR>")
+keymap.set("n", "<M-j>", function()
+    if vim.opt.diff:get() then
+        vim.cmd([[normal! ]c]])
+    else
+        vim.cmd([[m .+1<CR>==]])
+    end
+end)
+
+keymap.set("n", "<M-k>", function()
+    if vim.opt.diff:get() then
+        vim.cmd([[normal! [c]])
+    else
+        vim.cmd([[m .-2<CR>==]])
+    end
+end)
 keymap.set("n", "<A-l>", ":wincmd l<CR>")
 
 keymap.set("i", "<A-h>", "<Esc>:wincmd h<CR>")

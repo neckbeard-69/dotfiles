@@ -53,12 +53,14 @@ return {
 						semanticTokensProvider = vim.NIL,
 					},
 				},
-
+				html_lsp = { manual_install = true },
+				emmet_language_server = true,
 				bashls = true,
 				rust_analyzer = true,
 				svelte = true,
 				templ = true,
 				taplo = true,
+
 				intelephense = true,
 				pyright = true,
 				mojo = { manual_install = true },
@@ -282,6 +284,8 @@ return {
 				formatters_by_ft = {
 					lua = { "stylua" },
 					blade = { "blade-formatter" },
+					javascript = { "prettier" },
+					typesript = { "prettier" },
 				},
 			})
 
@@ -310,7 +314,6 @@ return {
 					})
 				end,
 			})
-
 			require("lsp_lines").setup()
 			vim.diagnostic.config({ virtual_text = true, virtual_lines = false })
 
@@ -324,5 +327,4 @@ return {
 			end, { desc = "Toggle lsp_lines" })
 		end,
 	},
-    
 }

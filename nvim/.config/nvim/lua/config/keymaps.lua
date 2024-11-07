@@ -1,5 +1,3 @@
-vim.g.mapleader = " "
-
 local keymap = vim.keymap
 
 keymap.set({ "i" }, "jk", "<ESC>", { desc = "Go to normal mode" })
@@ -52,9 +50,9 @@ keymap.set("n", "d<C-l>", "d$", { desc = "Delete to the end of the current line"
 keymap.set({ "n", "v" }, "<C-h>", "0", { desc = "Go to the start of the current line" })
 keymap.set("n", "y<C-h>", "y0", { desc = "Copy to the start of the current line" })
 keymap.set("n", "d<C-h>", "d0", { desc = "Delete to the start of the current line" })
-keymap.set({ "n", "v" }, "<C-u>", "<C-u>zz") -- center the cursor automatically
+keymap.set({ "n", "v" }, "<C-u>", "<C-u>zz")
 -- Custom commands for speed
-keymap.set("n", "<C-s>", ":w<CR>") -- save the file
+keymap.set("n", "<C-s>", ":w<CR>")
 keymap.set("i", "<C-s>", "<Esc>:w<CR>a")
 
 -- Fix original commands

@@ -9,11 +9,6 @@ fi
 
 directories=$(find . -maxdepth 1 -type d -not -path '.' -exec basename {} \;)
 
-for dir in $directories; do
-    echo "Installing package: $dir"
-    pacman -S --noconfirm $dir
-done
-
 echo "Installing stow"
 pacman -S --noconfirm stow
 
@@ -22,6 +17,13 @@ for dir in $directories; do
     stow $dir
 done
 
-echo "Installation and stowing complete."
+echo "Stowing complete. Now installing packages."
+
+for dir in $directories; do
+    echo "Installing package: $dir"
+    pacman -S --noconfirm $dir
+done
+
+echo "Installation complete."
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

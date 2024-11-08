@@ -45,4 +45,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
--- vim.g.transparent_enabled = true
+vim.g.transparent_enabled = true
+function enable_transparency()
+	vim.cmd([[
+        highlight Normal guibg=none
+        highlight NonText guibg=none
+        highlight Normal ctermbg=none
+        highlight NonText ctermbg=none
+    ]])
+end
+
+-- enable_transparency()

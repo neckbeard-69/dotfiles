@@ -3,13 +3,15 @@
 
 alias v=nvim
 alias gti=git
-alias vf='nvim $(fzf -m --preview="bat --color=always {}")'
 
 alias .="cd .."
 alias ..="cd ../.."
 alias ...="cd ../../.."
 alias c="clear"
 alias vite-new="npm create vite@latest"
+bindkey -s '^F' 'cd "$(dirname "$(find . -type f -o -type d | fzf)")"\n' # cd into the containing dir of a file or dir
+bindkey -s '^V' 'nvim $(fzf -m --preview="bat --color=always {}")\n' # open a file in neovim
+
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"

@@ -30,7 +30,7 @@ set("n", "<space>ft", builtin.git_files)
 set("n", "<space>fh", builtin.help_tags)
 set("n", "<space>fs", builtin.grep_string)
 set("n", "<space>fb", builtin.buffers)
-set("n", "<leader>/", function()
+set("n", "<leader>fi", function()
 	builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
 		winblend = 10,
 		previewer = false,

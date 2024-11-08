@@ -53,7 +53,6 @@ return {
 						semanticTokensProvider = vim.NIL,
 					},
 				},
-				html_lsp = { manual_install = true },
 				emmet_language_server = true,
 				bashls = true,
 				rust_analyzer = true,
@@ -215,6 +214,7 @@ return {
 				"stylua",
 				"lua_ls",
 				"delve",
+				"html-lsp",
 				-- "tailwind-language-server",
 			}
 

@@ -12,7 +12,7 @@ opt.shiftwidth = 4 -- 2 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = false -- copy indent from current line when starting new one
 opt.wrap = false
-
+vim.o.mouse = "v"
 -- search settings
 opt.ignorecase = true
 opt.smartcase = true
@@ -23,7 +23,6 @@ opt.termguicolors = true
 opt.background = "dark" -- colorschemes that can be light or dark will be made dark
 opt.signcolumn = "yes" -- show sign column so that text doesn't shift
 
-vim.cmd("colorscheme kanagawa")
 -- backspace
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
 

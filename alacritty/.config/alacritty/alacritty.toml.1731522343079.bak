@@ -5,7 +5,6 @@ import = ["/usr/lib/node_modules/alacritty-themes/themes/Kanagawa.toml"]
 [window]
 decorations = "none"
 startup_mode = "Maximized"
-
 [window.padding]
 x = 10
 y = 10

@@ -5,6 +5,7 @@ return {
 		dependencies = {
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 
+			"andrew-george/telescope-themes",
 			"nvim-telescope/telescope-smart-history.nvim",
 			"nvim-telescope/telescope-ui-select.nvim",
 		},

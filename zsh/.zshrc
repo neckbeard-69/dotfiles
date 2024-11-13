@@ -2,13 +2,12 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 alias v=nvim
-alias gti=git
-
 alias .="cd .."
 alias ..="cd ../.."
 alias ...="cd ../../.."
 alias c="clear"
 alias vite-new="npm create vite@latest"
+
 bindkey -s '^F' 'cd "$(dirname "$(find . -type f -o -type d | fzf)")"\n' # cd into the containing dir of a file or dir
 bindkey -s '^V' 'nvim $(fzf -m --preview="bat --color=always {}")\n' # open a file in neovim
 
@@ -24,26 +23,9 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# Check archlinux plugin commands here
-# https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/archlinux
-BAT_THEME="Catppuccin Mocha"
 
 export EDITOR=nvim
 export VISUAL=nvim
-### From this line is for pywal-colors
-# Import colorscheme from 'wal' asynchronously
-# &   # Run the process in the background.
-# ( ) # Hide shell job control messages.
-# Not supported in the "fish" shell.
-#(cat ~/.cache/wal/sequences &)
-
-# Alternative (blocks terminal for 0-3ms)
-#cat ~/.cache/wal/sequences
-
-# To add support for TTYs this line can be optionally added.
-#source ~/.cache/wal/colors-tty.sh
-
-# eval "$(starship init zsh)"
 go() {
     if [ "$1" = "test" ]; then
         shift
@@ -60,3 +42,10 @@ export HYPRLAND_INSTANCE_SIGNATURE=$(date +%s)
 export PATH=$PATH:$HOME/go/bin
 
 PATH=~/.console-ninja/.bin:$PATH
+
+# bun completions
+[ -s "/home/mohammed/.oh-my-zsh/completions/_bun" ] && source "/home/mohammed/.oh-my-zsh/completions/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

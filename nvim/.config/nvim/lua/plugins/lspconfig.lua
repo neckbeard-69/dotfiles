@@ -30,7 +30,6 @@ return {
 			end
 
 			local lspconfig = require("lspconfig")
-
 			local servers = {
 				gopls = {
 					settings = {
@@ -53,14 +52,15 @@ return {
 						semanticTokensProvider = vim.NIL,
 					},
 				},
-				emmet_language_server = true,
+				emmet_language_server = {
+					filetypes = { "html", "php" },
+				},
 				bashls = true,
 				rust_analyzer = true,
 				svelte = true,
 				templ = true,
 				taplo = true,
-
-				intelephense = true,
+				zls = true,
 				pyright = true,
 				mojo = { manual_install = true },
 
@@ -86,11 +86,7 @@ return {
 				},
 
 				html = true,
-				cssls = {
-					server_capabilities = {
-						documentFormattingProvider = false,
-					},
-				},
+				cssls = true,
 
 				yamlls = {
 					settings = {
@@ -139,30 +135,10 @@ return {
 
 					-- TODO: Check if i still need the filtypes stuff i had before
 				},
-
+				intelephense = true,
 				gleam = {
 					manual_install = true,
 				},
-
-				-- elixirls = {
-				--   cmd = { "/home/tjdevries/.local/share/nvim/mason/bin/elixir-ls" },
-				--   root_dir = require("lspconfig.util").root_pattern { "mix.exs" },
-				--   server_capabilities = {
-				--     -- completionProvider = true,
-				--     -- definitionProvider = false,
-				--     documentFormattingProvider = false,
-				--   },
-				-- },
-
-				-- lexical = {
-				--   cmd = { "/home/tjdevries/.local/share/nvim/mason/bin/lexical", "server" },
-				--   root_dir = require("lspconfig.util").root_pattern { "mix.exs" },
-				--   server_capabilities = {
-				--     completionProvider = vim.NIL,
-				--     definitionProvider = false,
-				--   },
-				-- },
-
 				clangd = {
 					-- cmd = { "clangd", unpack(require("custom.clangd").flags) },
 					-- TODO: Could include cmd, but not sure those were all relevant flags.
@@ -215,6 +191,7 @@ return {
 				"lua_ls",
 				"delve",
 				"html-lsp",
+				"css-lsp",
 				-- "tailwind-language-server",
 			}
 

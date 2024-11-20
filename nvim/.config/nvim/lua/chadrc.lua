@@ -1,13 +1,13 @@
 local options = {
 	base46 = {
-		theme = "gruvchad",
+		theme = "everblush",
 		transparency = false,
 		theme_toggle = { "kanagawa", "gruvbox" },
 	},
 	ui = {
 		cmp = {
-			style = "atom",
-			icons_left = true,
+			lspkind_text = true,
+			style = "default", -- default/flat_light/flat_dark/atom/atom_colored
 		},
 		telescope = { style = "bordered" },
 		statusline = {
@@ -17,6 +17,11 @@ local options = {
 		tabufline = {
 			enabled = false,
 		},
+		colorify = {
+			enabled = false,
+			highlight = { hex = false, hsl = false },
+		},
+		lsp = { signature = true },
 	},
 }
 

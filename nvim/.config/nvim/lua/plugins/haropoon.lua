@@ -19,7 +19,11 @@ return {
 		keymap.set("n", "<C-m>", ':lua require("harpoon.ui").nav_prev()<CR>', { desc = "harpoon - previous" })
 
 		for i = 1, 9 do
-			keymap.set("n", string.format("<C-%d>", i), string.format(":lua require('harpoon.ui').nav_file(%d)<CR>", i))
+			keymap.set(
+				"n",
+				string.format("<leader>%d", i),
+				string.format(":lua require('harpoon.ui').nav_file(%d)<CR>", i)
+			)
 		end
 	end,
 }

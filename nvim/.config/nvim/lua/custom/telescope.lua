@@ -31,7 +31,7 @@ set("n", "<space>ft", builtin.git_files)
 set("n", "<space>fh", builtin.help_tags)
 set("n", "<space>fs", builtin.grep_string)
 set("n", "<space>fb", builtin.buffers)
-set("n", "<leader>th", ":Telescope themes<CR>", { noremap = true, silent = true, desc = "Theme Switcher" })
+-- set("n", "<leader>th", ":Telescope themes<CR>", { noremap = true, silent = true, desc = "Theme Switcher" })
 set("n", "<leader>fi", function()
 	builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
 		winblend = 10,

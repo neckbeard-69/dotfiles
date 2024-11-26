@@ -125,3 +125,14 @@ button:hover {
     padding-left: 6px;
     padding-right: 6px;
 }
+
+/*#waybar {*/
+/*    opacity: 0;*/
+/*    visibility: hidden;*/
+/*    transition: opacity 0.3s ease, visibility 0.3s ease;*/
+/*}*/
+/**/
+/*#waybar.visible {*/
+/*    opacity: 1;*/
+/*    visibility: visible;*/
+/*}*/

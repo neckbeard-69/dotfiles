@@ -6,7 +6,23 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
-
+			{
+				"nvimdev/lspsaga.nvim",
+				config = function()
+					require("lspsaga").setup({
+						symbol_in_winbar = {
+							enable = false,
+						},
+						code_action = {
+							show_server_name = true,
+						},
+						lightbulb = {
+							enable = false,
+						},
+					})
+					vim.keymap.set("n", "<leader>te", ":Lspsaga term_toggle<CR>")
+				end,
+			},
 			{ "j-hui/fidget.nvim", opts = {} },
 			{ "https://git.sr.ht/~whynothugo/lsp_lines.nvim" },
 
@@ -53,7 +69,7 @@ return {
 					},
 				},
 				emmet_language_server = {
-					filetypes = { "html", "php" },
+					filetypes = { "html", "php", "templ", "jsx", "tsx" },
 				},
 				bashls = true,
 				rust_analyzer = true,
@@ -63,15 +79,11 @@ return {
 				zls = true,
 				pyright = true,
 				mojo = { manual_install = true },
-
+				ts_ls = {
+					filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
+				},
 				-- Enabled biome formatting, turn off all the other ones generally
 				biome = true,
-
-				ts_ls = {
-					server_capabilities = {
-						documentFormattingProvider = false,
-					},
-				},
 
 				jsonls = {
 					server_capabilities = {
@@ -191,6 +203,7 @@ return {
 				"delve",
 				"html-lsp",
 				"css-lsp",
+
 				-- "tailwind-language-server",
 			}
 
@@ -229,40 +242,10 @@ return {
 					vim.keymap.set("n", "gr", builtin.lsp_references, { buffer = 0 })
 					vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { buffer = 0 })
 					vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, { buffer = 0 })
-					vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
+					vim.keymap.set("n", "K", ":Lspsaga hover_doc<CR>", { buffer = 0 })
 
-					vim.keymap.set("n", "<space>rn", function()
-						local api = vim.api
-						local var = vim.fn.expand("<cword>")
-						local buf = api.nvim_create_buf(false, true)
-						local opts = { height = 1, style = "minimal", border = "single", row = 1, col = 1 }
-
-						opts.relative, opts.width = "cursor", #var + 15
-						opts.title, opts.title_pos = { { " Smart rename ", "@comment.danger" } }, "center"
-
-						local win = api.nvim_open_win(buf, true, opts)
-						vim.wo[win].winhl = "Normal:Normal,FloatBorder:Removed"
-						api.nvim_set_current_win(win)
-
-						api.nvim_buf_set_lines(buf, 0, -1, true, { " " .. var })
-						vim.api.nvim_input("A")
-
-						vim.keymap.set({ "i", "n" }, "<Esc>", "<cmd>q<CR>", { buffer = buf })
-
-						vim.keymap.set("i", "<CR>", function()
-							local newName = vim.trim(api.nvim_get_current_line())
-							api.nvim_win_close(win, true)
-
-							if #newName > 0 and newName ~= var then
-								local params = vim.lsp.util.make_position_params()
-								params.newName = newName
-								vim.lsp.buf_request(0, "textDocument/rename", params)
-							end
-
-							vim.cmd.stopinsert()
-						end, { buffer = buf })
-					end, { buffer = 0 })
-					vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, { buffer = 0 })
+					vim.keymap.set("n", "<space>rn", ":Lspsaga rename<CR>", { buffer = 0 })
+					vim.keymap.set("n", "<space>ca", ":Lspsaga code_action<CR>", { buffer = 0 })
 					vim.keymap.set("n", "<space>wd", builtin.lsp_document_symbols, { buffer = 0 })
 
 					local filetype = vim.bo[bufnr].filetype

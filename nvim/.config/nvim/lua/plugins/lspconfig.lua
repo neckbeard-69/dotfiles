@@ -68,17 +68,13 @@ return {
 						semanticTokensProvider = vim.NIL,
 					},
 				},
-				emmet_language_server = {
-					filetypes = { "html", "php", "templ", "jsx", "tsx" },
+				emmet_ls = {
+					filetypes = { "html", "php", "templ", "javascriptreact", "typescriptreact" },
 				},
 				bashls = true,
 				rust_analyzer = true,
-				svelte = true,
 				templ = true,
-				taplo = true,
 				zls = true,
-				pyright = true,
-				mojo = { manual_install = true },
 				ts_ls = {
 					filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
 				},
@@ -100,57 +96,7 @@ return {
 				html = true,
 				cssls = true,
 
-				yamlls = {
-					settings = {
-						yaml = {
-							schemaStore = {
-								enable = false,
-								url = "",
-							},
-							-- schemas = require("schemastore").yaml.schemas(),
-						},
-					},
-				},
-
-				ols = {},
-
-				ocamllsp = {
-					manual_install = true,
-					cmd = { "dune", "exec", "ocamllsp" },
-					settings = {
-						codelens = { enable = true },
-						inlayHints = { enable = true },
-						syntaxDocumentation = { enable = true },
-					},
-
-					get_language_id = function(_, lang)
-						print("LANG:", lang)
-						local map = {
-							["ocaml.mlx"] = "ocaml",
-						}
-						return map[lang] or lang
-					end,
-
-					filetypes = {
-						"ocaml",
-						"ocaml.interface",
-						"ocaml.menhir",
-						"ocaml.cram",
-						"ocaml.mlx",
-						"ocaml.ocamllex",
-						"reason",
-					},
-
-					server_capabilities = {
-						semanticTokensProvider = false,
-					},
-
-					-- TODO: Check if i still need the filtypes stuff i had before
-				},
-				intelephense = true,
-				gleam = {
-					manual_install = true,
-				},
+				-- TODO: Check if i still need the filtypes stuff i had before
 				clangd = {
 					-- cmd = { "clangd", unpack(require("custom.clangd").flags) },
 					-- TODO: Could include cmd, but not sure those were all relevant flags.
@@ -203,7 +149,8 @@ return {
 				"delve",
 				"html-lsp",
 				"css-lsp",
-
+				"gopls",
+				"ts_ls",
 				-- "tailwind-language-server",
 			}
 
@@ -247,7 +194,6 @@ return {
 					vim.keymap.set("n", "<space>rn", ":Lspsaga rename<CR>", { buffer = 0 })
 					vim.keymap.set("n", "<space>ca", ":Lspsaga code_action<CR>", { buffer = 0 })
 					vim.keymap.set("n", "<space>wd", builtin.lsp_document_symbols, { buffer = 0 })
-
 					local filetype = vim.bo[bufnr].filetype
 					if disable_semantic_tokens[filetype] then
 						client.server_capabilities.semanticTokensProvider = nil

@@ -5,12 +5,17 @@ local lspkind = require("lspkind")
 lspkind.init({})
 
 local cmp = require("cmp")
+require("luasnip.loaders.from_vscode").lazy_load()
+
 cmp.setup({
 	sources = {
 		{ name = "nvim_lsp" },
-		{ name = "cody" },
+		{ name = "luasnip" },
 		{ name = "path" },
 		{ name = "buffer" },
+	},
+	completion = {
+		completeopt = "menu,menuone,preview,noselect",
 	},
 	mapping = {
 		["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),

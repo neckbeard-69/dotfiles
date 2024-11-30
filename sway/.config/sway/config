@@ -1,0 +1,125 @@
+set $mod Mod4
+set $terminal kitty
+set $file_manager nautilus
+floating_modifier $mod
+
+# start on load:
+
+exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id waypaper --restore 
+exec --no-startup-id swaync 
+# for_window [app_id=".*"] border none
+
+# options: 
+
+default_border pixel 2
+default_floating_border pixel 2
+hide_edge_borders smart
+gaps inner 1
+
+input "type:touchpad" {
+    dwt enabled
+    tap enabled
+    middle_emulation enabled
+    natural_scroll enabled
+}
+
+input "type:keyboard" {
+    xkb_options caps:ctrl_modifier
+}
+
+bar {
+        status_command i3status
+        mode hide
+        modifier Mod1
+}
+
+# keybinds:
+
+bindsym $mod+Shift+x exec "swaymsg output eDP-1 disable; swaymsg output HDMI-A-1 resolution 1920x1080 position 0 0"
+bindsym $mod+b exec brave
+bindsym $mod+f exec $file_manager 
+bindsym Print exec sway-screenshot -m region -o ~/Pictures
+bindsym $mod+t exec $terminal 
+bindsym ctrl+space exec wofi --show drun 
+bindsym Mod1+q kill
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+# split in horizontal orientation
+bindsym $mod+Mod1+h split h
+# split in vertical orientation
+bindsym $mod+Mod1+v split v
+bindsym $mod+m fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+
+# switch to workspace
+bindsym Mod1+1 workspace number 1
+bindsym Mod1+2 workspace number 2
+bindsym Mod1+3 workspace number 3
+bindsym Mod1+4 workspace number 4
+bindsym Mod1+5 workspace number 5
+bindsym Mod1+6 workspace number 6
+bindsym Mod1+7 workspace number 7
+bindsym Mod1+8 workspace number 8
+bindsym Mod1+9 workspace number 9
+
+# Move current container to workspace N
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+
+# reload the configujation file
+bindsym $mod+Shift+r reload
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+mode "resize" {
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"

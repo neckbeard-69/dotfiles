@@ -1,7 +1,0 @@
-clear Lock
-clear Control
-keycode 66 = Control_R
-keycode 105 = Caps_Lock
-add Lock = Caps_Lock
-add Control = Control_R Control_L
-

@@ -16,7 +16,7 @@ cmp.setup({
 	mapping = {
 		["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
 		["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-		["<C-Space>"] = cmp.mapping.complete(),
+		["<A-Space>"] = cmp.mapping.complete(),
 		["<C-e>"] = cmp.mapping.close(),
 		["<CR>"] = cmp.mapping(
 			cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),

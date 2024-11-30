@@ -54,4 +54,4 @@ function enable_transparency()
     ]])
 end
 
-enable_transparency()
+-- enable_transparency()

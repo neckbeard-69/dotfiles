@@ -6,6 +6,9 @@ return {
 			options = {
 				globalstatus = true,
 				section_separators = { right = "", left = "" },
+				color = {
+					gui = "bold",
+				},
 			},
 		})
 	end,

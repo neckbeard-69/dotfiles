@@ -1,10 +1,10 @@
 local ls = require("luasnip")
 local set = vim.keymap.set
 
-set({ "i", "s" }, "<C-l>", function()
+set({ "i", "s" }, "<C-k>", function()
 	ls.jump(1)
 end, { silent = true })
-set({ "i", "s" }, "<C-h>", function()
+set({ "i", "s" }, "<C-j>", function()
 	ls.jump(-1)
 end, { silent = true })
 

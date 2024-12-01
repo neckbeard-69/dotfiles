@@ -8,6 +8,9 @@ floating_modifier $mod
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id waypaper --restore 
 exec --no-startup-id swaync 
+exec --no-startup-id dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+# exec systemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
+exec dbus-update-activation-environment WAYLAND_DISPLAY
 # for_window [app_id=".*"] border none
 
 # options: 
@@ -40,7 +43,7 @@ bindsym $mod+b exec brave
 bindsym $mod+f exec $file_manager 
 bindsym Print exec sway-screenshot -m region -o ~/Pictures
 bindsym $mod+t exec $terminal 
-bindsym ctrl+space exec wofi --show drun 
+bindsym ctrl+space exec rofi -show drun 
 bindsym Mod1+q kill
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status

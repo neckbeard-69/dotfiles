@@ -2,10 +2,6 @@
 
 # NOTE: this script only works for Arch Linux
 
-if [ "$EUID" -ne 0 ]; then
-    echo "Please run as root"
-    exit 1
-fi
 
 directories=$(find . -maxdepth 1 -type d -not -path '.' -exec basename {} \;)
 

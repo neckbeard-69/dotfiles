@@ -29,8 +29,8 @@ input "type:touchpad" {
 }
 
 input "type:keyboard" {
-    xkb_layout us,ara
-    xkb_options caps:ctrl_modifier,grp:alt_shift_toggle
+    xkb_layout us,iq
+    xkb_options caps:ctrl_modifier,shift:both_capslock,grp:alt_shift_toggle
 }
 
 bar {

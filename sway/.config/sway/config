@@ -6,6 +6,7 @@ set $mod Mod4
 
 set $terminal kitty
 set $file_manager nautilus
+set $browser firefox-developer-edition
 floating_modifier $mod
 
 # start on load:
@@ -43,7 +44,7 @@ bar {
 # keybinds:
 
 bindsym $mod+Shift+x exec "swaymsg output eDP-1 disable; swaymsg output HDMI-A-1 resolution 1920x1080 position 0 0"
-bindsym $mod+b exec brave
+bindsym $mod+b exec $browser 
 bindsym $mod+f exec $file_manager 
 bindsym Print exec sway-screenshot -m region -o ~/Pictures
 bindsym $mod+t exec $terminal 

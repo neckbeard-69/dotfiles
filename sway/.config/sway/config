@@ -14,6 +14,7 @@ floating_modifier $mod
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id waypaper --restore 
 exec --no-startup-id swaync 
+exec --no-startup-id autotiling 
 # for_window [app_id=".*"] border none
 
 # options: 
@@ -35,10 +36,10 @@ input "type:keyboard" {
 }
 
 bar {
-        status_command i3status
-        mode hide
-        modifier Mod1
-        font pango:JetBrainsMono Nerd Font 10
+    status_command i3status
+    mode hide
+    modifier Mod1
+    font pango:JetBrainsMono Nerd Font 10
 }
 
 # keybinds:
@@ -47,7 +48,7 @@ bindsym $mod+Shift+x exec "swaymsg output eDP-1 disable; swaymsg output HDMI-A-1
 bindsym $mod+b exec $browser 
 bindsym $mod+f exec $file_manager 
 bindsym Print exec sway-screenshot -m region -o ~/Pictures
-bindsym $mod+t exec $terminal 
+bindsym $mod+return exec $terminal 
 bindsym ctrl+space exec rofi -show drun 
 bindsym Mod1+q kill
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status

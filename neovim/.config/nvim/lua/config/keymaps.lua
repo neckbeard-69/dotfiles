@@ -1,6 +1,6 @@
 local keymap = vim.keymap
 
-keymap.set({ "i", "v" }, "<C-i>", "<ESC>", { desc = "Go to normal mode" })
+keymap.set({ "i"}, "jk", "<ESC>", { desc = "Go to normal mode" })
 
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 

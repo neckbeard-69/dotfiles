@@ -27,7 +27,7 @@ echo "Installation complete."
 
 
 echo "Installing extra packages ..."
-sudo pacman -S --noconfirm git swaybg rofi xdg-desktop-portal xdg-desktop-portal-wlr wireplumber
+sudo pacman -S --noconfirm swaybg rofi i3 xdg-desktop-portal xdg-desktop-portal-wlr wireplumber blueman bluez discord autotiling brightnessctl swaync
 
 echo "Installing yay..."
 sudo pacman -S --needed --noconfirm base-devel
@@ -37,7 +37,7 @@ makepkg -si --noconfirm
 cd ..
 
 echo "Installing extra AUR packages..."
-yay -S --noconfirm waypaper sway-screenshot ttf-rubik ttf-jetbrains-mono-nerd
+yay -S --noconfirm waypaper sway-screenshot ttf-rubik ttf-jetbrains-mono-nerd 
 
 echo "Installing Oh My Zsh..."
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -52,4 +52,6 @@ rm ~/.zshenv
 stow zsh
 source ~/.zshrc
 bat cache --build
+sudo systemctl enable bluetooth
+sudo systemctl start bluetooth
 echo "Setup complete."

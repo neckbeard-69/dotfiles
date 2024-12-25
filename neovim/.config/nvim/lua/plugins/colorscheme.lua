@@ -62,5 +62,4 @@ return {
 			})
 		end,
 	},
-	{ "ellisonleao/gruvbox.nvim" },
 }

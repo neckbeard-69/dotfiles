@@ -27,7 +27,7 @@ echo "Installation complete."
 
 
 echo "Installing extra packages ..."
-sudo pacman -S --noconfirm swaybg rofi i3 xdg-desktop-portal xdg-desktop-portal-wlr wireplumber blueman bluez discord autotiling brightnessctl swaync
+sudo pacman -S --noconfirm swaybg rofi i3 xdg-desktop-portal xdg-desktop-portal-wlr wireplumber blueman bluez discord autotiling brightnessctl swaync fzf zsh
 
 echo "Installing yay..."
 sudo pacman -S --needed --noconfirm base-devel
@@ -38,15 +38,7 @@ cd ..
 
 echo "Installing extra AUR packages..."
 yay -S --noconfirm waypaper sway-screenshot ttf-rubik ttf-jetbrains-mono-nerd 
-
-echo "Installing Oh My Zsh..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-echo "Installing zsh-syntax-highlighting..."
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
-
-echo "Installing zsh-autosuggestions..."
-git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
+chsh -s /usr/bin/zsh
 rm ~/.zshrc
 rm ~/.zshenv
 stow zsh

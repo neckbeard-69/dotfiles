@@ -38,7 +38,7 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-rust
 ### End of Zinit's installer chunk
 
-bindkey -v
+# bindkey -v
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 

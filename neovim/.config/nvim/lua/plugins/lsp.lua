@@ -5,6 +5,7 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"stevearc/conform.nvim",
+            "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 			{
 				"nvimdev/lspsaga.nvim",
 				config = function()

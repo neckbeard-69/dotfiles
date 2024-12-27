@@ -62,4 +62,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			set_lsp_keymap("n", "<leader>dr", builtin.diagnostics)
 		end
 	end,
+    vim.keymap.set("", "<leader>l", function()
+        local config = vim.diagnostic.config() or {}
+        if config.virtual_text then
+          vim.diagnostic.config { virtual_text = false, virtual_lines = true }
+        else
+          vim.diagnostic.config { virtual_text = true, virtual_lines = false }
+        end
+      end, { desc = "Toggle lsp_lines" })
 })

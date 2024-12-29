@@ -1,0 +1,5 @@
+window-decoration = false
+shell-integration-features = no-cursor
+cursor-style = block
+theme = kanagawabones
+cursor-style-blink = true

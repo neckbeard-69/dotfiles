@@ -24,6 +24,7 @@ alias .="cd .."
 alias ..="cd ../.."
 alias ...="cd ../../.."
 alias ls='ls --color'
+alias ~="cd ~"
 alias c="clear"
 alias e="exit"
 bindkey -s '^F' 'cd "$(dirname "$(find . -type f -o -type d | fzf)")"\n' # cd into the containing dir of a file or dir

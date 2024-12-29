@@ -1,4 +1,28 @@
 window-decoration = false
 shell-integration-features = no-cursor
-cursor-style = block
-theme = kanagawabones
+cursor-style = block 
+theme = Adventure
+cursor-style-blink = true
+window-padding-y = 0
+font-size = 13
+gtk-titlebar = false
+gtk-adwaita = false
+
+Zeybind = ctrl+a>c=new_tab
+keybind = ctrl+a>q=close_window
+keybind = ctrl+a>j=next_tab
+keybind = ctrl+a>k=previous_tab
+keybind = ctrl+a>h=new_split:right
+keybind = ctrl+a>v=new_split:down
+keybind = ctrl+alt+l=goto_split:right
+keybind = ctrl+alt+h=goto_split:left
+keybind = ctrl+alt+j=goto_split:bottom
+keybind = ctrl+alt+k=goto_split:top
+keybind = ctrl+a>r=reload_config
+
+keybind = ctrl+a>1=goto_tab:1
+keybind = ctrl+a>2=goto_tab:2
+keybind = ctrl+a>3=goto_tab:3
+keybind = ctrl+a>4=goto_tab:4
+keybind = ctrl+a>5=goto_tab:5
+keybind = ctrl+a>6=goto_tab:6

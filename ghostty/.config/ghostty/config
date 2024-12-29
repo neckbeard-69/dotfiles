@@ -8,7 +8,7 @@ font-size = 13
 gtk-titlebar = false
 gtk-adwaita = false
 
-Zeybind = ctrl+a>c=new_tab
+keybind = ctrl+a>c=new_tab
 keybind = ctrl+a>q=close_window
 keybind = ctrl+a>j=next_tab
 keybind = ctrl+a>k=previous_tab

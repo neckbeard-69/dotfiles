@@ -1,5 +1,6 @@
 #!/bin/bash
 # AN ARCH LINUX ONLY SCRIPT (BTW :3)
+
 echo -n "Are you sure you want to proceed with the installation? (y/n)"
 read -r answer
 if [[ "$answer" != "y" && "$answer" != "Y" ]]; then
@@ -44,7 +45,8 @@ cd ..
 echo "Installing extra AUR packages..."
 yay -S --noconfirm waypaper sway-screenshot ttf-rubik ttf-jetbrains-mono-nerd keyd-git 
 sudo cp ./default.conf /etc/keyd/
-sudo systemctl enable keyd sudo systemctl start keyd --now
+sudo systemctl enable keyd
+sudo systemctl start keyd --now
 sudo keyd reload
 chsh -s /usr/bin/zsh
 rm ~/.zshrc

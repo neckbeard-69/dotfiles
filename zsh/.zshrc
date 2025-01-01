@@ -18,7 +18,6 @@ source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-
 alias v=nvim
 alias .="cd .."
 alias ..="cd ../.."
@@ -37,12 +36,10 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-as-monitor \
     zdharma-continuum/zinit-annex-bin-gem-node \
     zdharma-continuum/zinit-annex-patch-dl \
-    zdharma-continuum/zinit-annex-rust
+    zdharma-continuum/zinit-annex-rust \
+    jeffreytse/zsh-vi-mode
 ### End of Zinit's installer chunk
 
-# bindkey -v
-bindkey '^p' history-search-backward
-bindkey '^n' history-search-forward
 
 HISTFILE=~/.histfile
 HISTSIZE=1000

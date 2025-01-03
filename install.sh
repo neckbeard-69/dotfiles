@@ -33,7 +33,7 @@ echo "Installation complete."
 
 
 echo "Installing extra packages ..."
-sudo pacman -S --noconfirm swaybg rofi i3 xdg-desktop-portal xdg-desktop-portal-wlr wireplumber blueman bluez discord autotiling brightnessctl swaync fzf zsh bat
+sudo pacman -S --noconfirm swaybg rofi i3 xdg-desktop-portal xdg-desktop-portal-wlr wireplumber blueman bluez discord autotiling brightnessctl swaync fzf zsh bat zoxide
 
 echo "Installing yay..."
 sudo pacman -S --needed --noconfirm base-devel

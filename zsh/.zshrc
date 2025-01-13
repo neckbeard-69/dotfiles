@@ -76,3 +76,4 @@ zinit cdreplay -q
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 bindkey '^K' autosuggest-accept
+export PATH=$PATH:$HOME/go/bin

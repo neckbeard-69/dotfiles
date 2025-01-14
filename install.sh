@@ -43,7 +43,7 @@ makepkg -si --noconfirm
 cd ..
 
 echo "Installing extra AUR packages..."
-yay -S --noconfirm waypaper sway-screenshot ttf-rubik ttf-jetbrains-mono-nerd keyd-git 
+yay -S --noconfirm waypaper sway-screenshot ttf-rubik ttf-jetbrains-mono-nerd keyd-git waterfox-bin
 sudo cp ./default.conf /etc/keyd/
 sudo systemctl enable keyd
 sudo systemctl start keyd --now

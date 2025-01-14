@@ -1,7 +1,5 @@
 local keymap = vim.keymap
 
--- keymap.set({ "i" }, "jk", "<ESC>", { desc = "Go to normal mode" })
-
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- window management

@@ -6,7 +6,7 @@ set $mod Mod4
 
 set $terminal ghostty
 set $file_manager cosmic-files 
-set $browser firefox-developer-edition
+set $browser waterfox
 floating_modifier $mod
 
 # start on load:

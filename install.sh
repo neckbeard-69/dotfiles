@@ -33,7 +33,7 @@ echo "Installation complete."
 
 
 echo "Installing extra packages ..."
-sudo pacman -S --noconfirm swaybg rofi i3 xdg-desktop-portal xdg-desktop-portal-wlr wireplumber blueman bluez discord autotiling brightnessctl swaync fzf zsh bat zoxide gammastep
+sudo pacman -S --noconfirm swaybg rofi i3 xdg-desktop-portal xdg-desktop-portal-wlr wireplumber blueman bluez discord autotiling brightnessctl swaync fzf zsh bat zoxide gammastepyazi noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
 
 echo "Installing yay..."
 sudo pacman -S --needed --noconfirm base-devel
@@ -43,7 +43,7 @@ makepkg -si --noconfirm
 cd ..
 
 echo "Installing extra AUR packages..."
-yay -S --noconfirm waypaper sway-screenshot ttf-rubik ttf-jetbrains-mono-nerd keyd-git waterfox-bin
+yay -S --noconfirm waypaper sway-screenshot ttf-jetbrains-mono-nerd keyd-git waterfox-bin
 sudo cp ./default.conf /etc/keyd/
 sudo systemctl enable keyd
 sudo systemctl start keyd --now
@@ -56,3 +56,9 @@ source ~/.zshrc
 bat cache --build
 sudo systemctl enable bluetooth
 sudo systemctl start bluetooth echo "Setup complete."
+
+
+# configuring fonts to work system wide
+mkdir -p ~/.config/fontconfig
+cp fonts.conf ~/.config/fontconfig/
+fc-cache -fv

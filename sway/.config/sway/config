@@ -5,7 +5,7 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 set $mod Mod4
 
 set $terminal ghostty
-set $file_manager cosmic-files 
+set $file_manager nautilus
 set $browser zen-browser 
 floating_modifier $mod
 
@@ -15,6 +15,7 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id waypaper --restore 
 exec --no-startup-id swaync 
 exec --no-startup-id autotiling 
+exec --no-startup-id bash ~/dotfiles/battery-alert.sh 
 # for_window [app_id=".*"] border none
 
 # options: 

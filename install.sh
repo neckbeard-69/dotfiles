@@ -44,6 +44,7 @@ cd ..
 
 echo "Installing extra AUR packages..."
 yay -S --noconfirm waypaper sway-screenshot ttf-jetbrains-mono-nerd keyd-git zen-browser-bin
+w 
 sudo cp ./default.conf /etc/keyd/
 sudo systemctl enable keyd
 sudo systemctl start keyd --now

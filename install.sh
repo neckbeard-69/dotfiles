@@ -33,7 +33,7 @@ echo "Installation complete."
 
 
 echo "Installing extra packages ..."
-sudo pacman -S --noconfirm swaybg rofi i3 xdg-desktop-portal xdg-desktop-portal-wlr wireplumber blueman bluez discord autotiling brightnessctl swaync fzf zsh bat zoxide gammastepyazi noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
+sudo pacman -S --noconfirm swaybg rofi i3 xdg-desktop-portal xdg-desktop-portal-wlr wireplumber blueman bluez discord autotiling brightnessctl swaync fzf zsh bat zoxide gammastep yazi noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
 
 echo "Installing yay..."
 sudo pacman -S --needed --noconfirm base-devel
@@ -56,7 +56,8 @@ stow zsh
 source ~/.zshrc
 bat cache --build
 sudo systemctl enable bluetooth
-sudo systemctl start bluetooth echo "Setup complete."
+sudo systemctl start bluetooth 
+echo "Setup complete."
 
 
 # configuring fonts to work system wide

@@ -33,18 +33,12 @@ echo "Installation complete."
 
 
 echo "Installing extra packages ..."
-sudo pacman -S --noconfirm swaybg rofi i3 xdg-desktop-portal xdg-desktop-portal-wlr wireplumber blueman bluez discord autotiling brightnessctl swaync fzf zsh bat zoxide gammastep yazi noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
+sudo pacman -S --noconfirm swaybg rofi i3 xdg-desktop-portal xdg-desktop-portal-wlr wireplumber blueman bluez discord autotiling brightnessctl swaync fzf zsh bat zoxide gammastep yazi
 
-echo "Installing yay..."
-sudo pacman -S --needed --noconfirm base-devel
-git clone https://aur.archlinux.org/yay-bin.git
-cd yay-bin
-makepkg -si --noconfirm
-cd ..
 
 echo "Installing extra AUR packages..."
-yay -S --noconfirm waypaper sway-screenshot ttf-jetbrains-mono-nerd keyd-git zen-browser-bin
-w 
+paru -S --noconfirm waypaper sway-screenshot ttf-jetbrains-mono-nerd keyd-git zen-browser-bin
+ 
 sudo cp ./default.conf /etc/keyd/
 sudo systemctl enable keyd
 sudo systemctl start keyd --now
@@ -60,7 +54,3 @@ sudo systemctl start bluetooth
 echo "Setup complete."
 
 
-# configuring fonts to work system wide
-mkdir -p ~/.config/fontconfig
-cp fonts.conf ~/.config/fontconfig/
-fc-cache -fv

@@ -50,7 +50,7 @@ bindsym $mod+b exec $browser
 bindsym $mod+f exec $file_manager 
 bindsym Print exec sway-screenshot -m region -o ~/Pictures
 bindsym $mod+return exec $terminal 
-bindsym ctrl+space exec rofi -show drun 
+bindsym ctrl+space exec rofi -show drun -theme gruvbox-dark-hard
 bindsym $mod+shift+b exec gammastep -l 0:0 -O 4500:4500
 bindsym Mod1+q kill
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status

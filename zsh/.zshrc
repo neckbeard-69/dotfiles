@@ -27,9 +27,8 @@ alias ls='ls --color'
 alias ~="cd ~"
 alias c="clear"
 alias e="exit"
-bindkey -s '^F' 'cd "$(dirname "$(find . -type f -o -type d | fzf)")"\n' # cd into the containing dir of a file or dir
+bindkey -s '^N' 'cd "$(dirname "$(find . -type f -o -type d | fzf)")"\n' # cd into the containing dir of a file or dir
 bindkey -s '^V' 'nvim $(fzf -m --preview="bat --color=always {}")\n' # open a file in neovim
-bindkey '^K' autosuggest-accept
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
@@ -74,6 +73,10 @@ zinit cdreplay -q
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
+addToPath(){
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$PATH:$1
+    fi
+}
 bindkey '^K' autosuggest-accept
-export PATH=$PATH:$HOME/go/bin
+addToPath $HOME/.local/bin/zig

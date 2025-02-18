@@ -33,7 +33,7 @@ echo "Installation complete."
 
 
 echo "Installing extra packages ..."
-sudo pacman -S --noconfirm swaybg rofi i3 xdg-desktop-portal xdg-desktop-portal-wlr wireplumber blueman bluez discord autotiling brightnessctl swaync fzf zsh bat zoxide gammastep yazi
+sudo pacman -S --noconfirm swaybg rofi i3 xdg-desktop-portal xdg-desktop-portal-wlr wireplumber blueman bluez discord autotiling brightnessctl swaync fzf zsh bat zoxide gammastep
 
 
 echo "Installing extra AUR packages..."
@@ -48,6 +48,8 @@ rm ~/.zshrc
 rm ~/.zshenv
 stow zsh
 source ~/.zshrc
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+tmux source ~/.tmux.conf
 bat cache --build
 sudo systemctl enable bluetooth
 sudo systemctl start bluetooth 

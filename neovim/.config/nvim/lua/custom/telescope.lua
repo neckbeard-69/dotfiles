@@ -1,19 +1,31 @@
 local actions = require("telescope.actions")
-
+dofile(vim.g.base46_cache .. "telescope")
 require("telescope").setup({
-	defaults = {
-		mappings = {
-			i = {
-				["<C-k>"] = actions.move_selection_previous,
-				["<C-j>"] = actions.move_selection_next,
-			},
-		},
-	},
-	pickers = {
-		find_files = {
-			find_command = { "fd", "--type", "f", "--exclude", "node_modules" },
-		},
-	},
+    defaults = {
+        mappings = {
+            i = {
+                ["<C-k>"] = actions.move_selection_previous,
+                ["<C-j>"] = actions.move_selection_next,
+            },
+        },
+        prompt_prefix = "   ",
+        selection_caret = " ",
+        entry_prefix = " ",
+        sorting_strategy = "ascending",
+        layout_config = {
+            horizontal = {
+                prompt_position = "top",
+                preview_width = 0.55,
+            },
+            width = 0.87,
+            height = 0.80,
+        },
+        pickers = {
+            find_files = {
+                find_command = { "fd", "--type", "f", "--exclude", "node_modules" },
+            },
+        },
+    }
 })
 local builtin = require("telescope.builtin")
 local set = vim.keymap.set
@@ -33,10 +45,10 @@ set("n", "<space>fs", builtin.grep_string)
 set("n", "<space>fb", builtin.buffers)
 -- set("n", "<leader>th", ":Telescope themes<CR>", { noremap = true, silent = true, desc = "Theme Switcher" })
 set("n", "<leader>fi", function()
-	builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-		winblend = 10,
-		previewer = false,
-	}))
+    builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+        winblend = 10,
+        previewer = false,
+    }))
 end, { desc = "[/] Fuzzily search in current buffer" })
 
 -- set("n", "<space>fg", require("custom.telescope.multi-ripgrep"))

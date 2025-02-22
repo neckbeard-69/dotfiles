@@ -2,26 +2,25 @@ local keymap = vim.keymap
 
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
--- window management
 keymap.set("n", "<leader>sv", "<C-w>v")
 keymap.set("n", "<leader>sh", "<C-w>s")
 keymap.set("n", "<leader>sx", "<cmd>close<CR>")
 -- panes navigation
 keymap.set("n", "<A-h>", ":wincmd h<CR>")
 keymap.set("n", "<M-j>", function()
-    if vim.opt.diff:get() then
-        vim.cmd([[normal! ]c]])
-        return
-    end
-    vim.cmd([[m .+1<CR>==]])
+	if vim.opt.diff:get() then
+		vim.cmd([[normal! ]c]])
+		return
+	end
+	vim.cmd([[m .+1<CR>==]])
 end)
 
 keymap.set("n", "<A-k>", function()
-    if vim.opt.diff:get() then
-        vim.cmd([[normal! [c]])
-        return
-    end
-    vim.cmd([[m .-2<CR>==]])
+	if vim.opt.diff:get() then
+		vim.cmd([[normal! [c]])
+		return
+	end
+	vim.cmd([[m .-2<CR>==]])
 end)
 keymap.set("n", "<A-l>", ":wincmd l<CR>")
 keymap.set("n", "<leader>a", "<C-a>") -- doesn't work with tmux

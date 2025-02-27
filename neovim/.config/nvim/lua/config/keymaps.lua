@@ -53,3 +53,6 @@ keymap.set("i", "<C-s>", "<Esc>:w<CR>a")
 
 keymap.set({ "n", "i", "v" }, "<C-z>", "")
 keymap.set({ "v" }, "p", "P")
+keymap.set("n", "<leader>th", function()
+	require("nvchad.themes").open()
+end, { desc = "telescope nvchad themes" })

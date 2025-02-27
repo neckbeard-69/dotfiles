@@ -23,10 +23,11 @@ alias v=nvim
 alias .="cd .."
 alias ..="cd ../.."
 alias ...="cd ../../.."
-alias ls='ls --color'
+alias ls='exa'
 alias ~="cd ~"
 alias c="clear"
 alias e="exit"
+
 bindkey -s '^N' 'cd "$(dirname "$(find . -type f -o -type d | fzf)")"\n' # cd into the containing dir of a file or dir
 bindkey -s '^V' 'nvim $(fzf -m --preview="bat --color=always {}")\n' # open a file in neovim
 
@@ -80,3 +81,4 @@ addToPath(){
 }
 bindkey '^K' autosuggest-accept
 addToPath $HOME/.local/bin/zig
+addToPath $HOME/.local/bin/gonm/

@@ -1,7 +1,7 @@
 shell-integration-features = no-cursor
 cursor-style = block 
-theme = kanagawabones 
-background = #000000
+theme = Everblush 
+background = #131a21
 cursor-style-blink = true
 font-size = 13
 

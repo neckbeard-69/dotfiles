@@ -1,7 +1,6 @@
 local options = {
-
 	base46 = {
-		theme = "gruvchad", -- default theme
+		theme = "pastelDark", -- default theme
 		hl_add = {},
 		hl_override = {},
 		integrations = {},

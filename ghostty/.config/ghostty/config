@@ -1,7 +1,7 @@
 shell-integration-features = no-cursor
 cursor-style = block 
-theme = Everblush 
-background = #131a21
+theme = GruvboxDark
+#background = #131a21
 cursor-style-blink = true
 font-size = 13
 

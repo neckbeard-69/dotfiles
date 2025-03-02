@@ -29,7 +29,7 @@
         {
             "key": "│ {#34}{icon} Distro  {#keys}│",
             "type": "os",
-            "format": "{2} {8}Btw"
+            "format": "{2} {8} Btw"
         },
         {
             "key": "│ {#35} Kernel  {#keys}│",

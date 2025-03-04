@@ -28,7 +28,7 @@ alias ~="cd ~"
 alias c="clear"
 alias e="exit"
 
-bindkey -s '^N' 'cd "$(dirname "$(find . -type f -o -type d | fzf)")"\n' # cd into the containing dir of a file or dir
+bindkey -s '^N' 'cd $(fzf | xargs dirname)\n' # cd into the containing dir of a file or dir
 bindkey -s '^V' 'nvim $(fzf -m --preview="bat --color=always {}")\n' # open a file in neovim
 
 # Load a few important annexes, without Turbo

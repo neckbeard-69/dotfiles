@@ -1,12 +1,11 @@
 shell-integration-features = no-cursor
 cursor-style = block 
-theme = GruvboxDark
-#background = #131a21
-cursor-style-blink = true
+theme = tokyonight 
+background = #11121d
 font-size = 13
 
 # window
-window-decoration = false
+window-decoration = true
 window-theme = ghostty
 gtk-single-instance = true
 gtk-tabs-location = bottom

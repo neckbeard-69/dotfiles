@@ -33,26 +33,31 @@ echo "Installation complete."
 
 
 echo "Installing extra packages ..."
-sudo pacman -S --noconfirm swaybg rofi i3 xdg-desktop-portal xdg-desktop-portal-wlr wireplumber blueman bluez discord autotiling brightnessctl swaync fzf zsh bat zoxide gammastep exa
-
+sudo pacman -S --noconfirm swaybg rofi i3 xdg-desktop-portal xdg-desktop-portal-wlr wireplumber blueman bluez discord autotiling brightnessctl swaync fzf zsh bat zoxide gammastep exa yay zen-browser-bin
+sudo pacman -Rns paru
 
 echo "Installing extra AUR packages..."
-paru -S --noconfirm waypaper sway-screenshot ttf-jetbrains-mono-nerd keyd-git zen-browser-bin
+yay -S --noconfirm waypaper sway-screenshot ttf-jetbrains-mono-nerd keyd-git 
  
 sudo cp ./default.conf /etc/keyd/
 sudo systemctl enable keyd
 sudo systemctl start keyd --now
 sudo keyd reload
-chsh -s /usr/bin/zsh
-rm ~/.zshrc
-rm ~/.zshenv
-stow zsh
-source ~/.zshrc
+chsh -s /usr/bin/fish
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ~/.tmux.conf
 bat cache --build
-sudo systemctl enable bluetooth
-sudo systemctl start bluetooth 
+
+# remove cahcyos garbage bloated config
+rm -rf ~/.config/fish
+rm -rf ~/.local/share/fish
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+stow fish
+fish -c "
+    fish_vi_key_bindings
+    fisher install vitallium/tokyonight-fish
+    fish_config theme save "TokyoNight Storm"
+"
 echo "Setup complete."
 
 

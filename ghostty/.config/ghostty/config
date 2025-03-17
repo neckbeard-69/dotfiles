@@ -5,7 +5,7 @@ background = #11121d
 font-size = 13
 
 # window
-window-decoration = true
+window-decoration = false
 window-theme = ghostty
 gtk-single-instance = true
 gtk-tabs-location = bottom

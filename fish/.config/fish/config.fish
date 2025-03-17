@@ -18,7 +18,7 @@ function addToPath
 end
 
 
-addToPath $HOME/.local/bin/zig
+addToPath $HOME/.local/bin/zig/
 addToPath $HOME/.local/bin/gonm/
 
 # Set environment variables

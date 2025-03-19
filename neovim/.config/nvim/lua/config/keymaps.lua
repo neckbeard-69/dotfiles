@@ -56,3 +56,7 @@ keymap.set({ "v" }, "p", "P")
 keymap.set("n", "<leader>th", function()
 	require("nvchad.themes").open()
 end, { desc = "telescope nvchad themes" })
+
+vim.keymap.set({ "n", "t" }, "<leader>tt", function()
+	require("nvchad.term").toggle({ pos = "float", id = "floatTerm" })
+end)

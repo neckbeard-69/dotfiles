@@ -7,7 +7,6 @@ if [[ "$answer" != "y" && "$answer" != "Y" ]]; then
     echo "Exitting ..."
     exit 1
 fi
-
 directories=$(find . -maxdepth 1 -type d -not -path '.' -exec basename {} \;)
 
 echo "Installing stow"
@@ -59,5 +58,4 @@ fish -c "
     fish_config theme save "TokyoNight Storm"
 "
 echo "Setup complete."
-
 

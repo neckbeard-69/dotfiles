@@ -11,15 +11,16 @@ alias ...="cd ../../.."
 alias ls='exa'
 alias c="clear"
 alias e="exit"
+
 function addToPath
-    if not echo $PATH | grep -q $argv[1]
-        set -Ux PATH $PATH:$argv[1]
+    set -l new_path (realpath $argv[1]) 
+    if not contains $new_path $PATH
+        set -gx PATH $PATH $new_path 
     end
 end
 
-
-addToPath $HOME/.local/bin/zig/
-addToPath $HOME/.local/bin/gonm/
+addToPath $HOME/.local/bin/zig
+addToPath $HOME/.local/bin/gonm
 
 # Set environment variables
 set -x QT_QPA_PLATFORM wayland

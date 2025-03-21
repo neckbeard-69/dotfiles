@@ -12,6 +12,12 @@ directories=$(find . -maxdepth 1 -type d -not -path '.' -exec basename {} \;)
 echo "Installing stow"
 sudo pacman -S --noconfirm stow
 
+# remove cahcyos garbage bloated config
+rm -rf ~/.config/fish
+rm -rf ~/.local/share/fish
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+stow fish
+
 for dir in $directories; do
     if [ -d "$dir" ] && [ "$(basename "$dir")" != ".git" ]; then
         echo "Stowing directory: $dir"
@@ -47,11 +53,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ~/.tmux.conf
 bat cache --build
 
-# remove cahcyos garbage bloated config
-rm -rf ~/.config/fish
-rm -rf ~/.local/share/fish
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-stow fish
 fish -c "
     fish_vi_key_bindings
     fisher install vitallium/tokyonight-fish

@@ -1,8 +1,6 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
-
-
 eval "$(zoxide init --cmd cd fish)"
 alias v=nvim
 alias .="cd .."
@@ -34,3 +32,4 @@ set -x WLR_DRM_NO_MODIFIERS 1
 set -x EDITOR nvim
 set -x VISUAL nvim
 eval (ssh-agent -c)
+clear

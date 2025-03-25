@@ -5,9 +5,12 @@ theme = "ctp-mocha"
 
 [icons]
 icons = "awesome4"
-[icons.overrides]
-bat = ["|E|", "|_|", "|=|", "|F|"]
-bat_charging = "|^| "
+
+[[block]]
+block = "battery"
+format = "$icon $percentage {$time_remaining.dur(hms:true, min_unit:m) |}"
+device = "DisplayDevice"
+driver = "upower"
 
 [[block]]
 block = "cpu"

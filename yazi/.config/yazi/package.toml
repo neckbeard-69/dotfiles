@@ -1,5 +1,7 @@
 [plugin]
 deps = []
 
-[flavor]
-deps = [{ use = "dangooddd/kanagawa", rev = "d98f0c3" }]
+[[flavor.deps]]
+use = "mingo99/tokyonight"
+rev = "c0e07b7"
+hash = "2b4ffd31c14f6e3fa58502a1262e22b9"

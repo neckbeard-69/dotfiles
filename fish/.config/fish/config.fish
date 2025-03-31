@@ -1,6 +1,7 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
+source ~/.local/bin/vulkansdk/setup.fish
 eval "$(zoxide init --cmd cd fish)"
 alias v=nvim
 alias .="cd .."
@@ -19,6 +20,7 @@ end
 
 addToPath $HOME/.local/bin/zig
 addToPath $HOME/.local/bin/gonm
+addToPath $HOME/.local/bin/vulkansdk
 
 # Set environment variables
 set -x QT_QPA_PLATFORM wayland
@@ -33,3 +35,7 @@ set -x EDITOR nvim
 set -x VISUAL nvim
 eval (ssh-agent -c)
 clear
+
+# keybinds
+bind ctrl-n 'fzf | xargs nvim'
+bind ctrl-f 'cd (fzf | xargs dirname)'

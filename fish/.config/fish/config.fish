@@ -1,7 +1,7 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
-source ~/.local/bin/vulkansdk/setup.fish
+# source ~/.local/bin/vulkansdk/setup.fish
 eval "$(zoxide init --cmd cd fish)"
 alias v=nvim
 alias .="cd .."
@@ -18,9 +18,15 @@ function addToPath
     end
 end
 
-addToPath $HOME/.local/bin/zig
-addToPath $HOME/.local/bin/gonm
-addToPath $HOME/.local/bin/vulkansdk
+if not pgrep -u (whoami) ssh-agent > /dev/null
+    eval (ssh-agent -c)
+end
+
+ssh-add ~/.ssh/id_ed25519 2>/dev/null
+
+# addToPath $HOME/.local/bin/zig
+# addToPath $HOME/.local/bin/gonm
+# addToPath $HOME/.local/bin/vulkansdk
 
 # Set environment variables
 set -x QT_QPA_PLATFORM wayland

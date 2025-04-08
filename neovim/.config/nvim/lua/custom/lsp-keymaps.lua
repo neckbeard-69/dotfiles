@@ -50,10 +50,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			set_lsp_keymap("n", "<leader>ws", builtin.lsp_workspace_symbols)
 		end
 
-		if client.supports_method("textDocument/hover") then
-			vim.keymap.set("n", "K", ":Lspsaga hover_doc<CR>", { buffer = 0 })
-		end
-
 		if client.supports_method("textDocument/signatureHelp") then
 			set_lsp_keymap("i", "<C-s>", vim.lsp.buf.signature_help)
 		end

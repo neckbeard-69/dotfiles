@@ -38,11 +38,12 @@ echo "Installation complete."
 
 
 echo "Installing extra packages ..."
-sudo pacman -S --noconfirm swaybg rofi xdg-desktop-portal xdg-desktop-portal-wlr wireplumber blueman bluez discord autotiling brightnessctl swaync fzf zsh bat zoxide gammastep exa yay zen-browser-bin nemo
-sudo pacman -Rns paru
+sudo pacman -S --noconfirm sway swaybg rofi xorg-xwayland xdg-desktop-portal xdg-desktop-portal-wlr wireplumber blueman bluez discord autotiling brightnessctl swaync fzf zsh bat zoxide gammastep exa yay zen-browser-bin nemo qt5-wayland qt6-wayland
+
+sudo pacman -Rns --noconfirm paru
 
 echo "Installing extra AUR packages..."
-yay -S --noconfirm waypaper sway-screenshot ttf-jetbrains-mono-nerd keyd-git 
+yay -S --noconfirm waypaper sway-screenshot ttf-jetbrains-mono-nerd keyd-git themechanger-git
  
 sudo cp ./default.conf /etc/keyd/
 sudo systemctl enable keyd

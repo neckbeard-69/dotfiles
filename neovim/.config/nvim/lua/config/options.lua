@@ -1,15 +1,13 @@
--- vim.cmd("let g:netrw_liststyle = 3")
-
 local opt = vim.opt
 
 opt.relativenumber = true
 opt.number = true
 
 -- tabs & indentation
-opt.tabstop = 4        -- 2 spaces for tabs (prettier default)
-opt.shiftwidth = 4     -- 2 spaces for indent width
-opt.expandtab = true   -- expand tab to spaces
-opt.autoindent = false -- copy indent from current line when starting new one
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.expandtab = true
+opt.autoindent = false
 opt.wrap = false
 vim.o.mouse = "v"
 -- search settings
@@ -26,9 +24,6 @@ opt.backspace = "indent,eol,start"
 
 opt.clipboard:append("unnamedplus")
 
--- split windows
-opt.splitright = true -- split vertical window to the right
-opt.splitbelow = true -- split horizontal window to the bottom
 
 opt.swapfile = false
 vim.api.nvim_create_autocmd("TextYankPost", {

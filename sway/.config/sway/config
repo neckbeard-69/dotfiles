@@ -5,7 +5,7 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 set $mod Mod4
 
 set $terminal ghostty
-set $file_manager nemo 
+set $file_manager thunar 
 set $browser zen-browser 
 floating_modifier $mod
 

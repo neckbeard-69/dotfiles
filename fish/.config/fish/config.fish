@@ -45,3 +45,10 @@ clear
 # keybinds
 bind ctrl-n 'fzf | xargs nvim'
 bind ctrl-f 'cd (fzf | xargs dirname)'
+
+# pnpm
+set -gx PNPM_HOME "/home/mohammed/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end

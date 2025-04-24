@@ -8,9 +8,8 @@ keymap.set({ "n", "x", "o" }, "<C-j>", "G")
 keymap.set({ "n", "x", "o" }, "<C-k>", "gg")
 keymap.set({ "n", "x", "o" }, "<C-l>", "$")
 keymap.set({ "n", "x", "o" }, "<C-h>", "0")
-keymap.set({ "n", "x", "o" }, "m", "%")
+keymap.set({ "n", "x", "o" }, "m", "%", { noremap = true })
 keymap.set({ "n", "v" }, "<C-u>", "<C-u>zz")
-
 keymap.set("n", "<C-s>", ":w<CR>")
 keymap.set("i", "<C-s>", "<Esc>:w<CR>a")
 

@@ -12,10 +12,10 @@ return {
             harpoon:list():add()
         end)
         set("n", "<leader>j", function()
-            harpoon:list():next()
+            harpoon:list():next({ ui_nav_wrap = true })
         end)
         set("n", "<leader>k", function()
-            harpoon:list():prev()
+            harpoon:list():prev({ ui_nav_wrap = true })
         end)
 
         for i = 1, 9 do

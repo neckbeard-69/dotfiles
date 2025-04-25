@@ -9,10 +9,12 @@ if [[ "$answer" != "y" && "$answer" != "Y" ]]; then
 fi
 directories=$(find . -maxdepth 1 -type d -not -path '.' -exec basename {} \;)
 
+cd ~
 echo "adding cachyos repos..."
 curl https://mirror.cachyos.org/cachyos-repo.tar.xz -o cachyos-repo.tar.xz
 tar xvf cachyos-repo.tar.xz && cd cachyos-repo
 sudo ./cachyos-repo.sh
+cd ~/dotfiles
 
 echo "Installing stow"
 sudo pacman -S --noconfirm stow

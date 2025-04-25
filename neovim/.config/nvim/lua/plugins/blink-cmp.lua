@@ -4,7 +4,6 @@ return {
         "L3MON4D3/LuaSnip",
         dependencies = { "rafamadriz/friendly-snippets" }
     },
-    version = "1.1.1",
     opts = {
         keymap = {
             ["<C-j>"] = { "select_next", "fallback" },
@@ -15,19 +14,17 @@ return {
             nerd_font_variant = 'mono',
             use_nvim_cmp_as_default = true,
         },
-
         completion = {
             documentation = { auto_show = true, auto_show_delay_ms = 0 },
             menu = {
                 draw = {
                     columns = {
-                        { "label",     "label_description", gap = 1 },
+                        { "label",     "label_description", gap = 3 },
                         { "kind_icon", "kind" }
                     }
                 }
             }
         },
-
         sources = {
             default = { 'lsp', 'path', 'snippets', 'buffer' },
         },
@@ -35,6 +32,5 @@ return {
 
         fuzzy = { implementation = "prefer_rust_with_warning" },
         signature = { enabled = true },
-
     },
 }

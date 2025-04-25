@@ -43,7 +43,7 @@ output "eDP-1" {
 bar {
     status_command i3status-rs ~/.config/i3status-rust/config.toml
     mode hide
-    modifier Mod1
+    modifier $mod
     font pango:JetBrainsMono Nerd Font, FontAwesome 12 
     colors {
         separator #666666
@@ -66,7 +66,7 @@ bindsym Print exec sway-screenshot -m region -o ~/Pictures
 bindsym $mod+return exec $terminal 
 bindsym ctrl+space exec rofi -show drun -theme gruvbox-dark-hard
 bindsym $mod+shift+b exec gammastep -l 0:0 -O 4500:4500
-bindsym Mod1+q kill
+bindsym $mod+q kill
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
@@ -75,20 +75,16 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
 
 # change focus
-bindsym Mod1+h focus left
-bindsym Mod1+j focus down
-bindsym Mod1+k focus up
-bindsym Mod1+l focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # move focused window
 bindsym $mod+Shift+l move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+h move right
-# split in horizontal orientation
-bindsym $mod+Mod1+h split h
-# split in vertical orientation
-bindsym $mod+Mod1+v split v
 bindsym $mod+m fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
@@ -106,16 +102,16 @@ bindsym $mod+a focus parent
 
 
 # switch to workspace
-bindsym Mod1+1 workspace number 1
-bindsym Mod1+2 workspace number 2
-bindsym Mod1+3 workspace number 3
-bindsym Mod1+4 workspace number 4
-bindsym Mod1+5 workspace number 5
-bindsym Mod1+6 workspace number 6
-bindsym Mod1+7 workspace number 7
-bindsym Mod1+8 workspace number 8
-bindsym Mod1+9 workspace number 9
-bindsym Mod1+0 workspace number 10
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
 
 # Move current container to workspace N
 bindsym $mod+Shift+1 move container to workspace number 1

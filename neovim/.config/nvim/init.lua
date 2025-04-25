@@ -10,5 +10,4 @@ for _, v in ipairs(vim.fn.readdir(vim.g.base46_cache)) do
 end
 require("config.lazy")
 require("config.options")
-
 require("config.keymaps")

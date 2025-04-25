@@ -9,6 +9,11 @@ if [[ "$answer" != "y" && "$answer" != "Y" ]]; then
 fi
 directories=$(find . -maxdepth 1 -type d -not -path '.' -exec basename {} \;)
 
+echo "adding cachyos repos..."
+curl https://mirror.cachyos.org/cachyos-repo.tar.xz -o cachyos-repo.tar.xz
+tar xvf cachyos-repo.tar.xz && cd cachyos-repo
+sudo ./cachyos-repo.sh
+
 echo "Installing stow"
 sudo pacman -S --noconfirm stow
 
@@ -35,12 +40,10 @@ echo "Installation complete."
 
 
 echo "Installing extra packages ..."
-sudo pacman -S --noconfirm sway swaybg rofi xorg-xwayland xdg-desktop-portal xdg-desktop-portal-wlr wireplumber blueman bluez discord autotiling brightnessctl swaync fzf zsh bat zoxide gammastep zen-browser-bin nemo nemo-fileroller qt5-wayland qt6-wayland
-
-sudo pacman -Rns --noconfirm alacritty
+sudo pacman -S --noconfirm sway swaybg rofi xorg-xwayland xdg-desktop-portal xdg-desktop-portal-wlr wireplumber blueman bluez discord autotiling brightnessctl swaync fzf zsh bat zoxide gammastep exa yay zen-browser-bin nemo nemo-fileroller qt5-wayland qt6-wayland cachyos-settings
 
 echo "Installing extra AUR packages..."
-yay -S --noconfirm waypaper sway-screenshot ttf-jetbrains-mono-nerd keyd-git themechanger-git zen-browser-bin
+yay -S --noconfirm waypaper sway-screenshot ttf-jetbrains-mono-nerd keyd-git themechanger-git
  
 sudo cp ./default.conf /etc/keyd/
 sudo systemctl enable keyd
@@ -58,4 +61,3 @@ fish -c "
     fish_config theme save "TokyoNight Storm"
 "
 echo "Setup complete."
-

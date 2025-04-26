@@ -6,7 +6,7 @@ set $mod Mod4
 
 set $terminal ghostty
 set $file_manager nemo 
-set $browser zen-browser 
+set $browser brave
 floating_modifier $mod
 
 # start on load:

@@ -9,7 +9,8 @@ if [[ "$answer" != "y" && "$answer" != "Y" ]]; then
 fi
 directories=$(find . -maxdepth 1 -type d -not -path '.' -exec basename {} \;)
 
-cd ~
+mkdir -p ~/cachyos-repos
+cd ~/cachyos-repos
 echo "adding cachyos repos..."
 curl https://mirror.cachyos.org/cachyos-repo.tar.xz -o cachyos-repo.tar.xz
 tar xvf cachyos-repo.tar.xz && cd cachyos-repo
@@ -18,7 +19,6 @@ cd ~/dotfiles
 
 echo "Installing stow"
 sudo pacman -S --noconfirm stow
-
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 stow fish
 
@@ -42,7 +42,7 @@ echo "Installation complete."
 
 
 echo "Installing extra packages ..."
-sudo pacman -S --noconfirm sway swaybg rofi xorg-xwayland xdg-desktop-portal xdg-desktop-portal-wlr wireplumber blueman bluez discord autotiling brightnessctl swaync fzf zsh bat zoxide gammastep exa yay zen-browser-bin nemo nemo-fileroller qt5-wayland qt6-wayland cachyos-settings
+sudo pacman -S --noconfirm sway swaybg rofi xorg-xwayland xdg-desktop-portal xdg-desktop-portal-wlr wireplumber blueman bluez discord autotiling brightnessctl swaync fzf zsh bat zoxide gammastep exa yay brave-bin nemo nemo-fileroller qt5-wayland qt6-wayland cachyos-settings noto-fonts noto-fonts-extra t5-base qt6-base
 
 echo "Installing extra AUR packages..."
 yay -S --noconfirm waypaper sway-screenshot ttf-jetbrains-mono-nerd keyd-git themechanger-git
@@ -56,7 +56,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ~/.tmux.conf
 ~/.tmux/plugins/tpm/bin/install_plugins # install tmux plugins
 bat cache --build
-
 fish -c "
     fish_vi_key_bindings
     fisher install vitallium/tokyonight-fish

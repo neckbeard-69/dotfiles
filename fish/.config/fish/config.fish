@@ -1,6 +1,4 @@
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-end
+set -g fish_greeting ""
 # source ~/.local/bin/vulkansdk/setup.fish
 eval "$(zoxide init --cmd cd fish)"
 alias v=nvim

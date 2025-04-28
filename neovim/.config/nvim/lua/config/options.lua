@@ -24,6 +24,7 @@ opt.backspace = "indent,eol,start"
 
 opt.clipboard:append("unnamedplus")
 
+vim.o.cmdheight = 0
 
 opt.swapfile = false
 vim.api.nvim_create_autocmd("TextYankPost", {

@@ -1,5 +1,6 @@
 return {
     'saghen/blink.cmp',
+    version = "1.*",
     dependencies = {
         "L3MON4D3/LuaSnip",
         dependencies = { "rafamadriz/friendly-snippets" }
@@ -30,7 +31,7 @@ return {
         },
         snippets = { preset = 'luasnip' },
 
-        fuzzy = { implementation = "prefer_rust_with_warning" },
+        fuzzy = { implementation = "lua" },
         signature = { enabled = true },
     },
 }

@@ -48,7 +48,7 @@ packages=(
   xorg-xwayland xdg-desktop-portal xdg-desktop-portal-wlr
   wireplumber blueman bluez
   rofi fzf bat zoxide ripgrep gammastep keyd
-  noto-fonts noto-fonts-extra ttf-jetbrains-mono-nerd font-manager
+  noto-fonts noto-fonts-extra noto-fonts-emoji ttf-jetbrains-mono-nerd font-manager
   qt5-base qt5-wayland qt6-base qt6-wayland
   nemo nemo-fileroller
   cachyos-settings

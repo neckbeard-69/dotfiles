@@ -32,14 +32,13 @@ local set = vim.keymap.set
 
 require("telescope").load_extension("ui-select")
 require("telescope").load_extension("fzf")
-require("telescope").load_extension("smart_history")
 require("telescope").load_extension("ui-select")
 require("telescope").load_extension("themes")
 
 set("n", "<leader>ff", builtin.find_files, {})
 set("n", "<leader>fg", builtin.live_grep, {})
 set("n", "<leader><leader>", builtin.oldfiles, {})
-set("n", "<space>ft", builtin.git_files)
+set("n", "<space>pf", builtin.git_files)
 set("n", "<space>fh", builtin.help_tags)
 set("n", "<space>fs", builtin.grep_string)
 set("n", "<space>fb", builtin.buffers)

@@ -16,11 +16,11 @@ function addToPath
     end
 end
 
-if not pgrep -u (whoami) ssh-agent > /dev/null
-    eval (ssh-agent -c)
-end
+# if not pgrep -u (whoami) ssh-agent > /dev/null
+#     eval (ssh-agent -c)
+# end
 
-ssh-add ~/.ssh/id_ed25519 2>/dev/null
+# ssh-add ~/.ssh/id_ed25519 2>/dev/null
 
 # addToPath $HOME/.local/bin/zig
 # addToPath $HOME/.local/bin/gonm
@@ -37,8 +37,8 @@ set -x QT_QPA_PLATFORMTHEME qt5ct
 set -x WLR_DRM_NO_MODIFIERS 1
 set -x EDITOR nvim
 set -x VISUAL nvim
-eval (ssh-agent -c)
-clear
+# eval (ssh-agent -c)
+# clear
 
 # keybinds
 bind ctrl-n 'fzf | xargs nvim'

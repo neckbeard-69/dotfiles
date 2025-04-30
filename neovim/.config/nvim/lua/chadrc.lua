@@ -10,8 +10,9 @@ local options = {
 
     ui = {
         cmp = {
-            icons_left = true,   -- only for non-atom styles!
-            style = "flat_dark", -- default/flat_light/flat_dark/atom/atom_colored
+            enabled = false,
+            icons_left = true, -- only for non-atom styles!
+            style = "default", -- default/flat_light/flat_dark/atom/atom_colored
             abbr_maxwidth = 60,
             format_colors = {
                 tailwind = true, -- will work for css lsp too

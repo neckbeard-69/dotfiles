@@ -5,7 +5,7 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 set $mod Mod4
 
 set $terminal ghostty
-set $file_manager nemo 
+set $file_manager thunar 
 set $browser brave
 floating_modifier $mod
 
@@ -34,11 +34,13 @@ input "type:touchpad" {
 input "type:keyboard" {
     xkb_layout us,iq
     xkb_options grp:alt_shift_toggle
+    repeat_rate 50
+    repeat_delay 250
 }
 
-output "eDP-1" {
-    scale 0.9
-}
+# output "eDP-1" {
+#     scale 0.9
+# }
 
 bar {
     status_command i3status-rs ~/.config/i3status-rust/config.toml
@@ -46,13 +48,13 @@ bar {
     modifier $mod
     font pango:JetBrainsMono Nerd Font, FontAwesome 12 
     colors {
-        separator #666666
-        background #222222
-        statusline #dddddd
-        focused_workspace #0088CC #0088CC #ffffff
-        active_workspace #333333 #333333 #ffffff
-        inactive_workspace #333333 #333333 #888888
-        urgent_workspace #2f343a #900000 #ffffff
+        separator            #4B565C
+            background           #2B3339
+            statusline           #D3C6AA
+            focused_workspace    #A7C080 #A7C080 #2B3339
+            active_workspace     #3C4841 #3C4841 #D3C6AA
+            inactive_workspace   #3C4841 #3C4841 #7A8478
+            urgent_workspace     #E67E80 #E67E80 #2B3339
     }
 }
 
@@ -64,7 +66,7 @@ bindsym $mod+b exec $browser
 bindsym $mod+f exec $file_manager 
 bindsym Print exec sway-screenshot -m region -o ~/Pictures
 bindsym $mod+return exec $terminal 
-bindsym ctrl+space exec rofi -show drun -theme gruvbox-dark-hard
+bindsym ctrl+space exec rofi -show drun 
 bindsym $mod+shift+b exec gammastep -l 0:0 -O 4500:4500
 bindsym $mod+q kill
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -81,10 +83,10 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # move focused window
-bindsym $mod+Shift+l move left
+bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
-bindsym $mod+Shift+h move right
+bindsym $mod+Shift+l move right
 bindsym $mod+m fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)

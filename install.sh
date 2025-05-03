@@ -33,7 +33,7 @@ done
 echo "Stowing complete. Now installing packages..."
 
 for dir in $directories; do
-    if [ -d "$dir" ] && [ "$(basename "$dir")" != ".git" ]; then
+    if [ -d "$dir" ] && [ "$(basename "$dir")" != ".git" ] && [ "$(basename "$dir")" != "rofi" ]; then
         echo "Installing package: $dir"
         sudo pacman -S --noconfirm $dir
     fi
@@ -47,7 +47,7 @@ packages=(
   sway swaybg autotiling swaync brightnessctl nwg-look
   xorg-xwayland xdg-desktop-portal xdg-desktop-portal-wlr
   wireplumber blueman bluez
-  rofi fzf bat zoxide ripgrep gammastep keyd
+  rofi-wayland fzf bat zoxide ripgrep gammastep keyd
   noto-fonts noto-fonts-extra noto-fonts-emoji ttf-jetbrains-mono-nerd font-manager
   qt5-base qt5-wayland qt6-base qt6-wayland
   thunar thunar-archive-plugin
@@ -77,9 +77,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 tmux source ~/.tmux.conf
 ~/.tmux/plugins/tpm/bin/install_plugins # install tmux plugins
 bat cache --build
-fish -c "
-    fish_vi_key_bindings
-    fisher install vitallium/tokyonight-fish
-    fish_config theme save "TokyoNight Storm"
-"
+curl -sS https://starship.rs/install.sh | sh
+fish -c "fish_vi_key_bindings"
 echo "Setup complete."

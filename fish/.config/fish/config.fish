@@ -19,7 +19,7 @@ end
 if not pgrep -u (whoami) ssh-agent > /dev/null
     eval (ssh-agent -c)
 end
-
+starship init fish | source
 ssh-add ~/.ssh/id_ed25519 2>/dev/null
 
 # addToPath $HOME/.local/bin/zig

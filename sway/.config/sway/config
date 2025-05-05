@@ -4,7 +4,7 @@ exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DE
 
 set $mod Mod4
 
-set $terminal ghostty
+set $terminal wezterm
 set $file_manager thunar 
 set $browser brave
 floating_modifier $mod
@@ -32,8 +32,8 @@ input "type:touchpad" {
 }
 
 input "type:keyboard" {
-    xkb_layout us,iq
-    xkb_options grp:alt_shift_toggle
+    # xkb_layout us,iq
+    # xkb_options grp:alt_shift_toggle
     repeat_rate 50
     repeat_delay 250
 }

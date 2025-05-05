@@ -19,8 +19,10 @@ block = "battery"
 full_format = " $icon $percentage "
 charging_format = " $icon $percentage 󱐋 "
 [block.theme_overrides]
-good_bg = "#a7c080"
+good_bg = "#83c092"
 good_fg = "#1e2326"
+idle_bg = "#83c092"
+idle_fg = "#1e2326"
 
 [[block]]
 block = "sound"

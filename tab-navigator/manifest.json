@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Navigator",
+  "version": "1.0",
+  "description": "Navigate tabs with custom keyboard shortcuts",
+  "permissions": ["tabs"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "next_tab": {
+      "suggested_key": {
+        "default": "Ctrl+Period",
+        "mac": "Command+Period"
+      },
+      "description": "Navigate to the next tab"
+    },
+    "previous_tab": {
+      "suggested_key": {
+        "default": "Ctrl+Comma",
+        "mac": "Command+Comma"
+      },
+      "description": "Navigate to the previous tab"
+    }
+  }
+}

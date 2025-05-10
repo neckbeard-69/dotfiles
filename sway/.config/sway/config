@@ -48,7 +48,7 @@ bar {
     modifier $mod
     font pango:JetBrainsMono Nerd Font, FontAwesome 12 
     colors {
-        separator            #4B565C
+            separator            #4B565C
             background           #2B3339
             statusline           #D3C6AA
             focused_workspace    #A7C080 #A7C080 #2B3339

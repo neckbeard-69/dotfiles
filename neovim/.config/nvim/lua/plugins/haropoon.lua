@@ -12,10 +12,10 @@ return {
             harpoon:list():add()
             print("buffer added")
         end)
-        set("n", "<A-j>", function()
+        set("n", "<A-n>", function()
             harpoon:list():next({ ui_nav_wrap = true })
         end)
-        set("n", "<A-k>", function()
+        set("n", "<A-p>", function()
             harpoon:list():prev({ ui_nav_wrap = true })
         end)
 

@@ -1,0 +1,93 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 35,
+  "spacing": 0,
+  "modules-left": [
+    "hyprland/workspaces",
+    "tray",
+  ],
+  "modules-center": ["hyprland/window"],
+  "modules-right": [
+    "network",
+    "battery",
+    "pulseaudio",
+    "clock"
+  ],
+  "hyprland/workspaces": {
+    "disable-scroll": false,
+    "all-outputs": true,
+    "on-click": "activate",
+
+  },
+  "custom/lock": {
+  "format": "  ",
+  "on-click": "hyprlock",
+  "tooltip": true,
+  "tooltip-format": "锁屏"
+  },
+  "custom/reboot": {
+    "format": "  ",
+    "on-click": "systemctl reboot",
+    "tooltip": true,
+    "tooltip-format": "重启"
+  },
+  "custom/power": {
+    "format": "  ",
+    "on-click": "systemctl poweroff",
+    "tooltip": true,
+    "tooltip-format": "关机"
+  },
+  "network": {
+    "format-wifi": " 󰤨  {essid} ",
+    "format-ethernet": "  Wired ",
+    "tooltip-format": "<span color='#FF1493'> 󰅧 </span>{bandwidthUpBytes}  <span color='#00BFFF'> 󰅢 </span>{bandwidthDownBytes}",
+    "format-linked": " 󱘖 {ifname} (No IP) ",
+    "format-disconnected": "   Disconnected ",
+    "format-alt": " 󰤨  {signalStrength}% ",
+    "interval": 1
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": " {icon} {capacity}% ",
+    "format-charging": " 󱐋{capacity}%",
+	  "interval": 1,
+    "format-icons": ["󰂎", "󰁼", "󰁿", "󰂁", "󰁹"],
+    "tooltip": true
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}% ",
+    "format-muted": " 󰖁 0% ",
+    "format-icons": {
+      "headphone": "  ",
+      "hands-free": "  ",
+      "headset": "  ",
+      "phone": "  ",
+      "portable": "  ",
+      "car": "  ",
+      "default": [
+        "  ",
+        "  ",
+        "  "
+      ]
+    },
+    "on-click-right": "pavucontrol -t 3",
+    "on-click": "pactl -- set-sink-mute 0 toggle",
+    "tooltip": true,
+    "tooltip-format": "当前系统声音: {volume}%"
+  },
+  "clock": {
+    "interval": 1,
+    "timezone": "Asia/Chengdu",
+    "format": "   {:%H:%M} ",
+    "tooltip": true,
+    "tooltip-format": "{:L%Y 年 %m 月 %d 日, %A}"
+  },
+  "tray": {
+    "icon-size": 17,
+    "spacing": 6
+  },
+}

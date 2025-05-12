@@ -74,9 +74,6 @@ sudo systemctl start keyd --now
 sudo keyd reload
 chsh -s /usr/bin/fish
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-tmux source ~/.tmux.conf
-~/.tmux/plugins/tpm/bin/install_plugins # install tmux plugins
-bat cache --build
 curl -sS https://starship.rs/install.sh | sh
 fish -c "fish_vi_key_bindings"
 echo "Setup complete."

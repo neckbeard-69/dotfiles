@@ -20,6 +20,8 @@ opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
 
+opt.scrolloff = 8
+
 opt.backspace = "indent,eol,start"
 
 opt.clipboard:append("unnamedplus")
@@ -28,17 +30,17 @@ vim.o.cmdheight = 0
 
 opt.swapfile = false
 vim.api.nvim_create_autocmd("TextYankPost", {
-    group = vim.api.nvim_create_augroup("highlight_yank", {}),
-    desc = "Hightlight selection on yank",
-    pattern = "*",
-    callback = function()
-        vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
-    end,
+	group = vim.api.nvim_create_augroup("highlight_yank", {}),
+	desc = "Hightlight selection on yank",
+	pattern = "*",
+	callback = function()
+		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
+	end,
 })
 
 vim.g.transparent_enabled = true
 function Enable_transparency()
-    vim.cmd([[
+	vim.cmd([[
         highlight Normal guibg=none
         highlight NonText guibg=none
         highlight Normal ctermbg=none

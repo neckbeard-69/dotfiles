@@ -1,29 +1,29 @@
 * {
-  font-family: JetBrainsMono Nerd Font;
-  font-size: 14px;
-  border-radius: 0;
-  min-height: 0;
-  border: none;
-  font-weight: bold;
+    font-family: JetBrainsMono Nerd Font;
+    font-size: 14px;
+    border-radius: 0;
+    min-height: 0;
+    border: none;
+    font-weight: bold;
 }
 
 #workspaces{
-  border: none;
-  box-shadow: none;
+    border: none;
+    box-shadow: none;
 }
 
 #tray{
-  margin: 6px 3px;
-  background-color: rgba(36, 36, 52, 1.0);
-  padding: 6px 12px; /* 保持内部间距 */
-  border-radius: 6px;
-  border-width: 0px;
+    margin: 6px 3px;
+    background-color: #242433;
+    padding: 6px 12px; /* 保持内部间距 */
+    border-radius: 6px;
+    border-width: 0px;
 }
 
 #waybar {
-  background-color: #272E33;
-  transition-property: background-color;
-  transition-duration: 0.5s;
+    background-color: #282F34;
+    transition-property: background-color;
+    transition-duration: 0.5s;
 }
 
 #window,
@@ -39,68 +39,68 @@
 #cpu,
 #network,
 #custom-lock{
-  border-radius: 4px;
-  margin: 6px 3px;
-  padding: 6px 12px;
-  background-color: #272E33;
-  color: #272E33;
+    border-radius: 4px;
+    margin: 6px 3px;
+    padding: 6px 12px;
+    background-color: #272E33;
+    color: #272E33;
 }
 
 #clock {
-  background-color: #7FBBB3;
+    background-color: #7FBBB3;
 }
 #battery{
-  background-color: #D699B6;
+    background-color: #D699B6;
 }
 #pulseaudio{
-  background-color: #A7C080;
+    background-color: #A7C080;
 }
 #network{
-  background-color: #E69875;
+    background-color: #E69875;
 }
 #window{
-  background-color: #83C092;
+    background-color: #83C092;
 }
 
 #waybar.hidden {
-  opacity: 0.5;
+    opacity: 0.5;
 }
 
 #workspaces button {
-  all: initial;
-  /* Remove GTK theme values (waybar #1351) */
-  min-width: 0;
-  /* Fix weird spacing in materia (waybar #450) */
-  box-shadow: inset 0 -3px transparent;
-  /* Use box-shadow instead of border so the text isn't offset */
-  padding: 6px 18px;
-  margin: 6px 3px;
-  border-radius: 4px;
-  background-color: #2E383c;
-  color: #D3C6AA;
+    all: initial;
+    /* Remove GTK theme values (waybar #1351) */
+    min-width: 0;
+    /* Fix weird spacing in materia (waybar #450) */
+    box-shadow: inset 0 -3px transparent;
+    /* Use box-shadow instead of border so the text isn't offset */
+    padding: 6px 18px;
+    margin: 6px 3px;
+    border-radius: 4px;
+    background-color: #2E383c;
+    color: #D3C6AA;
 }
 
 #workspaces button.active {
-  color: #2E383c;
-  background-color: #D3C6AA;
+    color: #2E383c;
+    background-color: #D3C6AA;
 }
 
 #workspaces button:hover {
-  box-shadow: inherit;
-  text-shadow: inherit;
-  color: #2E383c;
-  background-color: #D3C6AA;
+    box-shadow: inherit;
+    text-shadow: inherit;
+    color: #2E383c;
+    background-color: #D3C6AA;
 }
 
 tooltip {
-  border-radius: 8px;
-  padding: 16px;
-  background-color: #131822;
-  color: #C0C0C0;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #131822;
+    color: #C0C0C0;
 }
 
 tooltip label {
-  padding: 5px;
-  background-color: #131822;
-  color: #C0C0C0;
+    padding: 5px;
+    background-color: #131822;
+    color: #C0C0C0;
 }

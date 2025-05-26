@@ -7,7 +7,9 @@ if [[ "$answer" != "y" && "$answer" != "Y" ]]; then
     echo "Exiting ..."
     exit 1
 fi
-directories=$(find . -maxdepth 1 -type d -not -path '.' -exec basename {} \;)
+
+# Get non-dot directories
+directories=$(find . -maxdepth 1 -type d -not -path '.' -exec basename {} \; | grep -v '^\.')
 
 mkdir -p ~/cachyos-repos
 cd ~/cachyos-repos
@@ -24,7 +26,7 @@ stow fish
 fisher install jorgebucaran/autopair.fish
 
 for dir in $directories; do
-    if [ -d "$dir" ] && [ "$(basename "$dir")" != ".git" ]; then
+    if [ -d "$dir" ]; then
         echo "Stowing directory: $dir"
         stow $dir
     fi
@@ -33,7 +35,7 @@ done
 echo "Stowing complete. Now installing packages..."
 
 for dir in $directories; do
-    if [ -d "$dir" ] && [ "$(basename "$dir")" != ".git" ] && [ "$(basename "$dir")" != "rofi" ]; then
+    if [ -d "$dir" ]; then
         echo "Installing package: $dir"
         sudo pacman -S --noconfirm $dir
     fi
@@ -48,7 +50,7 @@ packages=(
   xorg-xwayland xdg-desktop-portal xdg-desktop-portal-wlr
   wireplumber blueman bluez
   rofi-wayland fzf bat zoxide ripgrep gammastep keyd
-  noto-fonts noto-fonts-extra noto-fonts-emoji ttf-jetbrains-mono-nerd font-manager
+  adw-gtk-theme noto-fonts noto-fonts-extra noto-fonts-emoji ttf-jetbrains-mono-nerd font-manager
   qt5-base qt5-wayland qt6-base qt6-wayland
   thunar thunar-archive-plugin
   cachyos-settings
@@ -66,6 +68,7 @@ for pkg in "${packages[@]}"; do
     read -rp "Press Enter to continue installing the next packages..."
   fi
 done
+
 echo "Installing extra AUR packages..."
 yay -S --noconfirm waypaper sway-screenshot exa
 sudo cp ./default.conf /etc/keyd/

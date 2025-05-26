@@ -1,22 +1,23 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
+
 config.keys = require("keybinds")
 
 config.color_scheme = "Everforest Dark (Gogh)"
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.window_padding = {
-	left = 0,
-	right = 0,
-	top = 2,
-	bottom = 1,
+    left = 0,
+    right = 0,
+    top = 0,
+    bottom = 0,
 }
 config.enable_tab_bar = false
 config.bold_brightens_ansi_colors = false
 config.font_size = 13
-config.enable_wayland = false
-config.window_background_opacity = 0.6
 config.colors = {
-	background = "#000000",
+    background = "#1e2122",
 }
+
+config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 config.max_fps = 120
 return config

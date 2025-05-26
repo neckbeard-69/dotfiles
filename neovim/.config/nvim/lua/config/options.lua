@@ -47,3 +47,10 @@ function Enable_transparency()
         highlight NonText ctermbg=none
     ]])
 end
+
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+-- 	pattern = { "*.js", "*.ts", "*.tsx", "*.jsx" },
+-- 	callback = function()
+-- 		require("conform").format()
+-- 	end,
+-- })

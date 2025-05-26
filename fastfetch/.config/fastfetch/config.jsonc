@@ -9,6 +9,9 @@
     },
     "display": {
         "separator": " ",
+        "size": {
+            "binaryPrefix": "si",
+        },
     },
     "modules": [
         "break",
@@ -70,16 +73,6 @@
           "format": "{1}x{2} {3}Hz [{6}]"
         },
         {
-            "key": "│ {#35}󰍛 CPU     {#keys}│",
-            "type": "cpu",
-            "format": "{1}"
-        },
-        {
-            "key": "│ {#35}󰢮 GPU     {#keys}│",
-            "type": "gpu",
-            "format": "{1} {2} [{6}]"
-        },
-        {
             "key": "│ {#35}󰑭 Memory  {#keys}│",
             "type": "memory"
         },
@@ -88,11 +81,6 @@
             "type": "disk",
             "folders": "/"
         },
-        // {
-        //     "key": "│ {#36}󰩟 network {#keys}│",
-        //     "type": "localip",
-        //     "format": "{ipv4} ({ifname})"
-        // },
         {
             "key": "├───────────┤",
             "type": "custom"

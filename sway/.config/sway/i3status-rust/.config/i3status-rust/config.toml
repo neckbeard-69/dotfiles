@@ -1,0 +1,42 @@
+icons_format = "{icon}"
+
+[theme]
+theme = "gruvbox-dark"
+[theme.overrides]
+idle_bg = "#2B3339"
+idle_fg = "#D3C6AA"
+
+good_fg = { link = "warning_fg" }
+good_bg = { link = "warning_bg" }
+warning_fg = { link = "good_fg" }
+warning_bg = { link = "good_bg" }
+
+[icons]
+icons = "awesome4"
+
+[[block]]
+block = "battery"
+full_format = " $icon $percentage "
+charging_format = " $icon $percentage 󱐋 "
+[block.theme_overrides]
+good_bg = "#83c092"
+good_fg = "#1e2326"
+idle_bg = "#83c092"
+idle_fg = "#1e2326"
+
+[[block]]
+block = "sound"
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+[block.theme_overrides]
+idle_bg = "#d699b6"
+idle_fg = "#1e2326"
+
+[[block]]
+block = "time"
+interval = 5
+format = " $timestamp.datetime(f:'%a %d/%m %R') "
+[block.theme_overrides]
+idle_bg = "#7fbbb3"
+idle_fg = "#1e2326"

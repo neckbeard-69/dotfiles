@@ -8,5 +8,3 @@ local fmt = require("luasnip.extras.fmt").fmt
 ls.add_snippets("go", {
 	s("ie", fmt("if err != nil {{\n\t{}\n}}", { i(0) })),
 })
-
-print("snips")

@@ -9,18 +9,18 @@ while [[ 0 -eq 0 ]]; do
 
 	if [[ $battery_status == 'Discharging' && $battery_charge -le 85 ]]; then
 		if   [[ $battery_charge -le 15 ]]; then
-			notify-send --icon="$path/battery_low.svg" --urgency=critical "Battery critical!" "${battery_charge}%"
+			notify-send --urgency=critical "Battery critical!" "${battery_charge}%"
 			sleep 180
 		elif [[ $battery_charge -le 25 ]]; then
-			notify-send --icon="$path/battery_low.svg" --urgency=critical "Battery critical!" "${battery_charge}%"
+			notify-send --urgency=critical "Battery critical!" "${battery_charge}%"
 			sleep 240
 		elif [[ $battery_charge -le 40 ]]; then
-			notify-send --icon="$path/battery_low.svg" "Battery low!" "${battery_charge}%"
+			notify-send "Battery low!" "${battery_charge}%"
 			sleep 360
 		elif [[ $battery_charge -le 60 ]]; then
-			notify-send --icon="$path/battery_low.svg" "Battery low!" "${battery_charge}%"
+			notify-send "Battery low!" "${battery_charge}%"
 			sleep 480
-			notify-send --icon="$path/battery_low.svg" "Battery low!" "${battery_charge}%"
+			notify-send "Battery low!" "${battery_charge}%"
 			sleep 600
 		fi
 	else

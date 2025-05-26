@@ -1,6 +1,6 @@
 local options = {
 	base46 = {
-		theme = "everforest", -- default theme
+		theme = "gruvchad", -- default theme
 		hl_add = {},
 		hl_override = {},
 		integrations = {},

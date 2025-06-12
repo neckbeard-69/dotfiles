@@ -31,6 +31,10 @@ input "type:touchpad" {
     natural_scroll enabled
 }
 
+input "type:mouse" {
+    pointer_accel 0.5
+}
+
 input "type:keyboard" {
     # xkb_layout us,iq
     # xkb_options grp:alt_shift_toggle
@@ -66,7 +70,7 @@ bindsym $mod+b exec $browser
 bindsym $mod+f exec $file_manager 
 bindsym Print exec sway-screenshot -m region -o ~/Pictures
 bindsym $mod+return exec $terminal 
-bindsym ctrl+space exec ulauncher
+bindsym ctrl+space exec rofi -show drun
 bindsym $mod+shift+b exec gammastep -l 0:0 -O 4500:4500
 bindsym $mod+q kill
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status

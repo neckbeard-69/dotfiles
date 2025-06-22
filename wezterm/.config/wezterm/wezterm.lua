@@ -3,7 +3,7 @@ local config = wezterm.config_builder()
 
 config.keys = require("keybinds")
 
-config.color_scheme = "Gruvbox Material (Gogh)"
+config.color_scheme = 'Tokyo Night'
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.window_padding = {
     left = 0,

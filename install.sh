@@ -50,7 +50,7 @@ packages=(
   xorg-xwayland xdg-desktop-portal xdg-desktop-portal-wlr
   wireplumber blueman bluez
   rofi-wayland fzf bat zoxide ripgrep gammastep keyd
-  adw-gtk-theme noto-fonts noto-fonts-extra noto-fonts-emoji ttf-jetbrains-mono-nerd font-manager
+  adw-gtk-theme ttf-jetbrains-mono-nerd font-manager
   qt5-base qt5-wayland qt6-base qt6-wayland
   thunar thunar-archive-plugin
   cachyos-settings

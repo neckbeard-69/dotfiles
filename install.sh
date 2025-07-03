@@ -49,7 +49,7 @@ packages=(
   sway swaybg autotiling swaync brightnessctl nwg-look
   xorg-xwayland xdg-desktop-portal xdg-desktop-portal-wlr
   wireplumber blueman bluez
-  rofi-wayland fzf bat zoxide ripgrep gammastep keyd
+  rofi-wayland fzf skim bat zoxide ripgrep gammastep keyd
   adw-gtk-theme ttf-jetbrains-mono-nerd font-manager
   qt5-base qt5-wayland qt6-base qt6-wayland
   thunar thunar-archive-plugin

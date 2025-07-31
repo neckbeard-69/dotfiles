@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
 
         if client.supports_method("textDocument/rename") then
-            set_lsp_keymap("n", "<leader>rn", require("nvchad.lsp.renamer"))
+            set_lsp_keymap("n", "<leader>rn", vim.lsp.buf.rename)
         end
 
         if client.supports_method("textDocument/implementation") then

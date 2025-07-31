@@ -13,8 +13,5 @@ keymap.set({ "n", "x", "o" }, "m", "%", { noremap = true })
 keymap.set("n", "<C-s>", ":w<CR>")
 keymap.set({ "n", "i", "v" }, "<C-z>", "")
 keymap.set("v", "p", "P")
-keymap.set("n", "<leader>th", function()
-    require("nvchad.themes").open()
-end, { desc = "telescope nvchad themes" })
 
 keymap.set({ "n", "t" }, "<leader>tt", ":belowright sp | term<CR>i") -- opens a terminal in a new pane

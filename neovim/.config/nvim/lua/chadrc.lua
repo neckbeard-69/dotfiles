@@ -11,7 +11,7 @@ local options = {
     ui = {
         cmp = {
             enabled = false,
-            icons_left = true, -- only for non-atom styles!
+            icons_left = true,   -- only for non-atom styles!
             style = "flat_dark", -- default/flat_light/flat_dark/atom/atom_colored
             abbr_maxwidth = 80,
             format_colors = {
@@ -26,7 +26,7 @@ local options = {
             theme = "default", -- default/vscode/vscode_colored/minimal
             -- default/round/block/arrow separators work only for default statusline theme
             -- round and block will work for minimal theme only
-            separator_style = "round",
+            separator_style = "default",
             order = nil,
             modules = nil,
         },
@@ -58,7 +58,7 @@ local options = {
     lsp = { signature = true },
 
     cheatsheet = {
-        theme = "grid",                                               -- simple/grid
+        theme = "grid",                                                     -- simple/grid
         excluded_groups = { "terminal (t)", "autopairs", "Nvim", "Opens" }, -- can add group name or with mode
     },
 

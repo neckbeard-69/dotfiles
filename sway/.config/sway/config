@@ -50,18 +50,18 @@ input "type:keyboard" {
 
 bar {
     status_command i3status-rs ~/.config/i3status-rust/config.toml
-    mode hide
-    modifier $mod
-    font pango:JetBrainsMono Nerd Font, FontAwesome 12 
-    colors {
-        separator            #4B565C
-            background           #2B3339
-            statusline           #D3C6AA
-            focused_workspace    #A7C080 #A7C080 #2B3339
-            active_workspace     #3C4841 #3C4841 #D3C6AA
-            inactive_workspace   #3C4841 #3C4841 #7A8478
-            urgent_workspace     #E67E80 #E67E80 #2B3339
-    }
+        mode hide
+        modifier $mod
+        font pango:JetBrainsMono Nerd Font, FontAwesome 12 
+        colors {
+            separator            #3b4261
+                background           #1a1b26
+                statusline           #c0caf5
+                focused_workspace    #7aa2f7 #7aa2f7 #1a1b26
+                active_workspace     #7dcfff #7dcfff #c0caf5
+                inactive_workspace   #3b4261 #3b4261 #c0caf5
+                urgent_workspace     #f7768e #f7768e #1a1b26
+        }
 }
 
 

@@ -1,11 +1,12 @@
 icons_format = "{icon}"
 
 [theme]
-theme = "gruvbox-dark"
+theme = "ctp-latte"
 [theme.overrides]
-idle_bg = "#1a1b26"
-idle_fg = "#c0caf5"
+idle_bg = "#1a1b26"    # Background
+idle_fg = "#c0caf5"    # Foreground (text)
 
+# Link good/warning colors to look consistent
 good_fg = { link = "warning_fg" }
 good_bg = { link = "warning_bg" }
 warning_fg = { link = "good_fg" }
@@ -19,8 +20,8 @@ block = "battery"
 full_format = " $icon $percentage "
 charging_format = " $icon $percentage 󱐋 "
 [block.theme_overrides]
-good_bg = "#9ece6a"
-good_fg = "#1a1b26"
+good_bg = "#9ece6a"    # Green (Charging/Full battery)
+good_fg = "#1a1b26"    # Contrast text
 idle_bg = "#9ece6a"
 idle_fg = "#1a1b26"
 
@@ -30,7 +31,7 @@ block = "sound"
 button = "left"
 cmd = "pavucontrol"
 [block.theme_overrides]
-idle_bg = "#bb9af7"
+idle_bg = "#bb9af7"    # Purple
 idle_fg = "#1a1b26"
 
 [[block]]
@@ -38,5 +39,5 @@ block = "time"
 interval = 5
 format = " $timestamp.datetime(f:'%a %d/%m %R') "
 [block.theme_overrides]
-idle_bg = "#7aa2f7"
+idle_bg = "#7aa2f7"    # Blue
 idle_fg = "#1a1b26"

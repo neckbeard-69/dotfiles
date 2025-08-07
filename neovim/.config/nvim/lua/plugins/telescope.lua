@@ -1,16 +1,17 @@
 return {
-	{ "nvim-lua/plenary.nvim" },
-	{
-		"nvim-telescope/telescope.nvim",
-		dependencies = {
-			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    { "nvim-lua/plenary.nvim" },
+    {
+        "nvim-telescope/telescope.nvim",
+        dependencies = {
+            { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 
-			"andrew-george/telescope-themes",
-			"nvim-telescope/telescope-smart-history.nvim",
-			"nvim-telescope/telescope-ui-select.nvim",
-		},
-		config = function()
-			require("custom.telescope")
-		end,
-	},
+            "andrew-george/telescope-themes",
+            "nvim-telescope/telescope-smart-history.nvim",
+            "nvim-telescope/telescope-ui-select.nvim",
+            "nvim-tree/nvim-web-devicons",
+        },
+        config = function()
+            require("custom.telescope")
+        end,
+    },
 }

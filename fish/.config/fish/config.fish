@@ -27,6 +27,7 @@ ssh-add ~/.ssh/id_ed25519 2>/dev/null
 # addToPath $HOME/.local/bin/vulkansdk
 addToPath $HOME/go/bin
 addToPath $HOME/.local/bin/pgadmin
+addToPath $HOME/.local/bin/laravel
 
 # Set environment variables
 set -x QT_QPA_PLATFORM wayland

@@ -1,0 +1,16 @@
+[Unit]
+Description=TUI display manager
+After=systemd-user-sessions.service plymouth-quit-wait.service
+After=getty@tty2.service
+Conflicts=getty@tty2.service
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/ly-dm
+StandardInput=tty
+TTYPath=/dev/tty2
+TTYReset=yes
+TTYVHangup=yes
+ExecStartPre=-/usr/bin/proptest -M i915 -D /dev/dri/card0 114 connector 110 1
+[Install]
+Alias=display-manager.service

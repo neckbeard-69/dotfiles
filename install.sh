@@ -49,17 +49,17 @@ echo "Installation complete."
 
 echo "Installing extra packages ..."
 packages=(
-  sway swaybg autotiling swaync brightnessctl nwg-look
-  xorg-xwayland xdg-desktop-portal xdg-desktop-portal-wlr
+  sway swaybg autotiling swaync brightnessctl nwg-look # sway stuff
+  xorg-xwayland xdg-desktop-portal xdg-desktop-portal-wlr # wayland stuff
   wireplumber blueman bluez
-  rofi-wayland fzf skim bat zoxide ripgrep gammastep keyd
-  adw-gtk-theme ttf-jetbrains-mono-nerd font-manager
-  qt5-base qt5-wayland qt6-base qt6-wayland
+  rofi-wayland fzf skim bat zoxide ripgrep gammastep keyd # tools
+  adw-gtk-theme ttf-jetbrains-mono-nerd
+  qt5-base qt5-wayland qt6-base qt6-wayland # dependencies
   cachyos-settings
-  vesktop 
+  discord 
   yay
-  brave-bin
-  go bun npm docker docker-compose
+  brave-bin # browser
+  go bun npm docker docker-compose # dev tools
 )
 
 for pkg in "${packages[@]}"; do
@@ -87,6 +87,8 @@ fish -c "fish_vi_key_bindings"
 # Some additional settings
 sudo systemctl enable docker --now
 sudo usermod -aG docker $USER
+
+cp ./ly.service /lib/systemd/system/ # enable full rbg in external monitor (connector and property nums should be changed if it did not work)
 
 read -p "Enter your email for git: " email
 read -p "Enter your name for git: " name

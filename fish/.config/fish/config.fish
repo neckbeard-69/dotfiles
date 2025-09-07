@@ -5,7 +5,7 @@ alias v=nvim
 alias .="cd .."
 alias ..="cd ../.."
 alias ...="cd ../../.."
-alias ls='exa'
+alias ls='exa --group-directories-first --icons --git --color=always -F'
 alias c="clear"
 alias e="exit"
 

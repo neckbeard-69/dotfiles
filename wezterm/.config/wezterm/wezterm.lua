@@ -13,7 +13,7 @@ config.window_padding = {
 }
 config.enable_tab_bar = false
 config.bold_brightens_ansi_colors = false
-config.font_size = 12
+config.font_size = 11
 config.window_background_opacity = 0.8
 
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }

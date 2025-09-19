@@ -63,13 +63,18 @@ local M = {
     },
     {
         key = 'Space',
-        mods = 'CTRL|ALT',
+        mods = MOD,
         action = wezterm.action.ActivateCopyMode,
     },
     {
         key = "s",
         mods = MOD,
         action = wezterm.action.EmitEvent("show_tab_bar"),
+    },
+    {
+        key = "t",
+        mods = MOD,
+        action = wezterm.action.SpawnWindow,
     },
     {
         key = "R",

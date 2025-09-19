@@ -11,6 +11,7 @@
   "mason-lspconfig.nvim": { "branch": "main", "commit": "f2fa60409630ec2d24acf84494fb55e1d28d593c" },
   "mason.nvim": { "branch": "main", "commit": "3671ab0d40aa5bd24b1686562bd0a23391ecf76a" },
   "mini.nvim": { "branch": "main", "commit": "c122e852517adaf7257688e435369c050da113b1" },
+  "nvim": { "branch": "main", "commit": "30fa4d122d9b22ad8b2e0ab1b533c8c26c4dde86" },
   "nvim-highlight-colors": { "branch": "main", "commit": "b42a5ccec7457b44e89f7ed3b3afb1b375bb2093" },
   "nvim-lspconfig": { "branch": "master", "commit": "3db16ceeea947517f0dc1404c24dcb5ab0c91d26" },
   "nvim-treesitter": { "branch": "master", "commit": "42fc28ba918343ebfd5565147a42a26580579482" },
@@ -23,6 +24,5 @@
   "telescope-themes": { "branch": "main", "commit": "65721365bd7a04a6c9679e76b6387b60320fd5f3" },
   "telescope-ui-select.nvim": { "branch": "master", "commit": "6e51d7da30bd139a6950adf2a47fda6df9fa06d2" },
   "telescope.nvim": { "branch": "master", "commit": "b4da76be54691e854d3e0e02c36b0245f945c2c7" },
-  "tokyonight.nvim": { "branch": "main", "commit": "057ef5d260c1931f1dffd0f052c685dcd14100a3" },
   "undotree": { "branch": "master", "commit": "fe9a9d0645f0f5532360b5e5f5c550d7bb4f1869" }
 }

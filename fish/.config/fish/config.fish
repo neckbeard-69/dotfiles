@@ -1,7 +1,7 @@
 set -g fish_greeting ""
 # source ~/.local/bin/vulkansdk/setup.fish
 eval "$(zoxide init --cmd cd fish)"
-alias v=nvim
+alias vim=nvim
 alias .="cd .."
 alias ..="cd ../.."
 alias ...="cd ../../.."

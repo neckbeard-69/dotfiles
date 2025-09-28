@@ -26,8 +26,9 @@ ssh-add ~/.ssh/id_ed25519 2>/dev/null
 # addToPath $HOME/.local/bin/gonm
 # addToPath $HOME/.local/bin/vulkansdk
 addToPath $HOME/go/bin
-addToPath $HOME/.local/bin/pgadmin
-addToPath $HOME/.local/bin/laravel
+# addToPath $HOME/.local/bin/laravel
+addToPath (ruby -r rubygems -e 'puts Gem.user_dir')/bin
+
 
 # Set environment variables
 set -x QT_QPA_PLATFORM wayland
@@ -40,8 +41,7 @@ set -x QT_QPA_PLATFORMTHEME qt5ct
 set -x WLR_DRM_NO_MODIFIERS 1
 set -x EDITOR nvim
 set -x VISUAL nvim
-eval (ssh-agent -c)
-clear
+# clear
 
 # keybinds
 bind ctrl-n 'fzf | xargs nvim'

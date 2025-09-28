@@ -1,100 +1,126 @@
-// Inspired by Catnap
 {
-    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
-    "logo": {
-        "padding": {
-            "top": 2,
-            "left": 2
-        }
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "source": "arch",
+    "type": "small",
+    "padding": {
+      "top": 1,
+      "left": 3
     },
-    "display": {
-        "separator": " ",
-        "size": {
-            "binaryPrefix": "si",
-        },
+    "color": {
+      "1": "blue",
+      "2": "cyan"
+    }
+  },
+  "display": {
+    "color": {
+      "separator": "blue"
     },
-    "modules": [
-        "break",
-        {
-          "type": "title",
-          "format": "{6}{7}{8}"
-        },
-        "break",
-        {
-            "key": "╭───────────╮",
-            "type": "custom"
-        },
-        {
-            "key": "│ {#31}󰌢 Machine {#keys}│",
-            "type": "host",
-            "format": "{1}"
-        },
-        {
-            "key": "│ {#34}{icon} Distro  {#keys}│",
-            "type": "os",
-            "format": "{2}"
-        },
-        {
-            "key": "│ {#35} Kernel  {#keys}│",
-            "type": "kernel"
-        },
-        {
-            "key": "│ {#34} OS Age  {#keys}│",
-            "type": "command",
-            "text": "birth_install=$(stat -c %W /); current=$(date +%s); time_progression=$((current - birth_install)); days_difference=$((time_progression / 86400)); echo $days_difference days"
-        },
-        {
-            "key": "│ {#36} WM      {#keys}│",
-            "type": "wm"
-        },
-        {
-            "key": "│ {#33}󰅐 Uptime  {#keys}│",
-            "type": "uptime"
-        },
-        {
-            "key": "│ {#33}󰏖 Pkgs    {#keys}│",
-            "type": "packages"
-        },
-        {
-            "key": "│ {#32} Shell   {#keys}│",
-            "type": "shell"
-        },
-        {
-            "key": "│ {#32} Term    {#keys}│",
-            "type": "terminal"
-        },
-        {
-          "key": "│ {#32} Font    {#keys}│",
-          "type": "terminalfont"
-        },
-        {
-          "key": "│ {#31} Display {#keys}│",
-          "type": "display",
-          "format": "{1}x{2} {3}Hz [{6}]"
-        },
-        {
-            "key": "│ {#35}󰑭 Memory  {#keys}│",
-            "type": "memory"
-        },
-        {
-            "key": "│ {#34}󰉉 Disk    {#keys}│",
-            "type": "disk",
-            "folders": "/"
-        },
-        {
-            "key": "├───────────┤",
-            "type": "custom"
-        },
-        {
-            "key": "│ {#39} colors  {#keys}│",
-            "type": "colors",
-            "symbol": "circle"
-        },
-        {
-            "key": "╰───────────╯",
-            "type": "custom"
-        },
-        "break",
-        "break"
-    ]
+    "separator": " ",
+    "constants": ["   »»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»»"]
+  },
+  "modules": [
+    "break",
+    {
+      "type": "kernel",
+      "key": "   Distro   ",
+      "keyColor": "magenta"
+    },
+    // {
+    //   "type": "custom",
+    //   "format": "{$1}",
+    //   "outputColor": "separator"
+    // },
+    {
+      "type": "uptime",
+      "key": "   Uptime   ",
+      "keyColor": "red"
+    },
+    {
+      "type": "shell",
+      "key": "   Shell    ",
+      "keyColor": "cyan"
+    },
+    // {
+    //   "type": "terminal",
+    //   "key": "   Terminal ",
+    //   "keyColor": "green"
+    // },
+    // {
+    //   "type": "terminalfont",
+    //   "key": "   Font     ",
+    //   "keyColor": "green"
+    // },
+    // {
+    //   "type": "packages",
+    //   "key": "   Packages ",
+    //   "keyColor": "green"
+    // },
+    // {
+    //   "type": "localip",
+    //   "key": "   Local IP ",
+    //   "keyColor": "green"
+    // },
+    // {
+    //   "type": "custom",
+    //   "format": "{$1}",
+    //   "outputColor": "separator"
+    // },
+    // {
+    //   "type": "display",
+    //   "key": "   Display  ",
+    //   "keyColor": "cyan"
+    // },
+    // {
+    //   "type": "cpu",
+    //   "key": "   CPU      ",
+    //   "keyColor": "blue"
+    // },
+    // {
+    //   "type": "gpu",
+    //   "key": "   GPU      ",
+    //   "keyColor": "cyan"
+    // },
+    {
+      "type": "memory",
+      "key": "   RAM      ",
+      "keyColor": "magenta"
+    },
+    // {
+    //   "type": "swap",
+    //   "key": "   SWAP     ",
+    //   "keyColor": "cyan"
+    // },
+    {
+      "type": "disk",
+      "key": "   Disk     ",
+      "keyColor": "green"
+    },
+    {
+      "type": "battery",
+      "key": "   Battery  ",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "colors",
+      "paddingLeft": 3,
+      "symbol": "diamond"
+    },
+    // {
+    //   "type": "custom",
+    //   "format": "     󰍛 󰋊 󰓇  󰄲",
+    //   "outputColor": "yellow"
+    // },
+
+    // {
+    //   "type": "custom",
+    //   "format": "{$1}",
+    //   "outputColor": "separator"
+    // },
+    "break"
+    // {
+    // "type": "colors"
+    // "paddingLeft": 7
+    // }
+  ]
 }

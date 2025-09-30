@@ -94,9 +94,9 @@ read -p "Enter your email for git: " email
 read -p "Enter your name for git: " name
 git config --global user.name "$name"
 git config --global user.email "$email"
-ssh-keygen -t ed25519 -C "github:$email" -f ~/.ssh/id_ed25519 -N ""
+ssh-keygen -t ed25519 -C "github:$email" -f ~/.ssh/github -N ""
 
-github_ssh_key=$(<~/.ssh/id_ed25519.pub)
+github_ssh_key=$(<~/.ssh/github.pub)
 echo -e "YOUR GITHUB SSH KEY:\n${GREEN}${github_ssh_key}${RESET}"
 
 echo "Setup complete. REBOOT FFS"

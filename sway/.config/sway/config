@@ -74,6 +74,7 @@ bindsym Print exec sway-screenshot -m region -o ~/Pictures
 bindsym $mod+return exec $terminal 
 bindsym ctrl+space exec rofi -show drun
 bindsym $mod+shift+b exec gammastep -l 0:0 -O 4500:4500
+bindsym $mod+p exec hyprpicker -a
 bindsym $mod+q kill
 bindsym $mod+n exec swaync-client -t
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status

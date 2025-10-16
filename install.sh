@@ -99,4 +99,6 @@ ssh-keygen -t ed25519 -C "github:$email" -f ~/.ssh/github -N ""
 github_ssh_key=$(<~/.ssh/github.pub)
 echo -e "YOUR GITHUB SSH KEY:\n${GREEN}${github_ssh_key}${RESET}"
 
+bash ./change-dns.sh
+
 echo "Setup complete. REBOOT FFS"

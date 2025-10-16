@@ -1,7 +1,7 @@
 local actions = require("telescope.actions")
 require("telescope").setup({
     defaults = {
-        file_ignore_patterns = { "%.png$", "%.jpg$", "%.jpeg$", "%.gif$", "%.svg$", "%.bmp$", "%.webp$" },
+        file_ignore_patterns = { "%.png$", "%.jpg$", "%.jpeg$", "%.gif$", "%.svg$", "%.bmp$", "%.webp$", "node_modules" },
         mappings = {
             i = {
                 ["<C-k>"] = actions.move_selection_previous,
@@ -15,14 +15,6 @@ require("telescope").setup({
         layout_config = {
             horizontal = {
                 prompt_position = "top",
-                preview_width = 0.55,
-            },
-            width = 0.87,
-            height = 0.80,
-        },
-        pickers = {
-            find_files = {
-                find_command = { "fd", "--type", "f", "--exclude", "node_modules" },
             },
         },
     },
@@ -30,10 +22,6 @@ require("telescope").setup({
 local builtin = require("telescope.builtin")
 local set = vim.keymap.set
 
-require("telescope").load_extension("ui-select")
-require("telescope").load_extension("fzf")
-require("telescope").load_extension("ui-select")
-require("telescope").load_extension("themes")
 
 set("n", "<leader>ff", builtin.find_files, {})
 set("n", "<leader>fs", builtin.live_grep, {})

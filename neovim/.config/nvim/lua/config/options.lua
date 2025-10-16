@@ -29,7 +29,7 @@ opt.backspace = "indent,eol,start"
 
 opt.clipboard:append("unnamedplus")
 
-vim.o.cmdheight = 0
+opt.cmdheight = 0
 
 opt.swapfile = false
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -40,3 +40,5 @@ vim.api.nvim_create_autocmd("TextYankPost", {
         vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
     end,
 })
+
+vim.opt.guicursor = "n-v-c-sm:block-blinkon1,i-ci-ve:block-blinkon1,r-cr-o:block-blinkon1"

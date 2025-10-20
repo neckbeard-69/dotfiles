@@ -50,9 +50,9 @@ echo "Installation complete."
 echo "Installing extra packages ..."
 packages=(
   sway swaybg autotiling swaync brightnessctl nwg-look # sway stuff
-  xorg-xwayland xdg-desktop-portal xdg-desktop-portal-wlr # wayland stuff
+  xorg-xwayland xdg-desktop-portal xdg-desktop-portal-wlr wl-clipboard # wayland stuff
   wireplumber blueman bluez
-  rofi-wayland fzf skim bat zoxide ripgrep gammastep keyd # tools
+  rofi-wayland fzf skim bat zoxide ripgrep gammastep keyd satty grim # tools
   adw-gtk-theme ttf-jetbrains-mono-nerd
   qt5-base qt5-wayland qt6-base qt6-wayland # dependencies
   cachyos-settings
@@ -79,7 +79,6 @@ sudo systemctl enable keyd
 sudo systemctl start keyd --now
 sudo keyd reload
 chsh -s /usr/bin/fish
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 curl -sS https://starship.rs/install.sh | sh
 fish -c "fish_vi_key_bindings"
 

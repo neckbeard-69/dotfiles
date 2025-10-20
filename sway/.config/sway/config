@@ -70,7 +70,7 @@ bar {
 bindsym $mod+Shift+x exec "swaymsg output eDP-1 disable; swaymsg output HDMI-A-1 resolution 1920x1080 position 0 0"
 bindsym $mod+b exec $browser 
 bindsym $mod+f exec $file_manager 
-bindsym Print exec sway-screenshot -m region -o ~/Pictures
+bindsym Print exec ~/dotfiles/screenshot.sh
 bindsym $mod+return exec $terminal 
 bindsym ctrl+space exec rofi -show drun
 bindsym $mod+shift+b exec gammastep -l 0:0 -O 4500:4500

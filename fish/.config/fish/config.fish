@@ -8,6 +8,8 @@ alias ...="cd ../../.."
 alias ls='exa --group-directories-first --icons --git --color=always -F'
 alias c="clear"
 alias e="exit"
+alias cat="/usr/bin/bat"
+alias bat="/usr/bin/cat"
 
 function addToPath
     set -l new_path (realpath $argv[1]) 

@@ -44,6 +44,7 @@ input "type:keyboard" {
     repeat_delay 250
 }
 
+
 # output "eDP-1" {
 #     scale 0.9
 # }

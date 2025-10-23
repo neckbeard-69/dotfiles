@@ -6,6 +6,7 @@ font-family = JetBrainsMono Nerd Font
 
 # window
 window-decoration = false
+background-opacity = 0.8
 window-theme = ghostty
 gtk-single-instance = true
 gtk-tabs-location = bottom

@@ -12,9 +12,13 @@ alias cat="/usr/bin/bat"
 alias bat="/usr/bin/cat"
 
 function addToPath
-    set -l new_path (realpath $argv[1]) 
-    if not contains $new_path $PATH
-        set -gx PATH $PATH $new_path 
+    if test -d $argv[1]
+        set -l new_path (realpath $argv[1])
+        if not contains $new_path $PATH
+            set -gx PATH $PATH $new_path
+        end
+    else
+        echo "Error: $argv[1] is not a directory"
     end
 end
 
@@ -24,13 +28,10 @@ end
 starship init fish | source
 ssh-add ~/.ssh/id_ed25519 2>/dev/null
 
-# addToPath $HOME/.local/bin/zig
-# addToPath $HOME/.local/bin/gonm
-# addToPath $HOME/.local/bin/vulkansdk
 addToPath $HOME/go/bin
-# addToPath $HOME/.local/bin/laravel
+addToPath ~/.local/bin/
 addToPath (ruby -r rubygems -e 'puts Gem.user_dir')/bin
-
+# addToPath $HOME/.bun/bin
 
 # Set environment variables
 set -x QT_QPA_PLATFORM wayland
@@ -57,4 +58,3 @@ end
 # pnpm end
 
 
-addToPath $HOME/.bun/bin

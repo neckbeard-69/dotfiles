@@ -24,12 +24,9 @@ window#waybar {
     color: #cdd6f4;
 }
 
-#workspaces button:hover {
-    color: #1e1e2e;
-    background-color: #cdd6f4;
-}
 
-#workspaces button.active {
+#workspaces button.active,
+#workspaces button:hover {
     color: #1e1e2e;
     background-color: #89b4fa;
 }

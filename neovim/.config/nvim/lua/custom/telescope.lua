@@ -15,13 +15,20 @@ require("telescope").setup({
         layout_config = {
             horizontal = {
                 prompt_position = "top",
+                preview_width = 0.55,
             },
+            width = 0.87,
+            height = 0.80,
         },
     },
 })
 local builtin = require("telescope.builtin")
 local set = vim.keymap.set
 
+require("telescope").load_extension("ui-select")
+require("telescope").load_extension("fzf")
+require("telescope").load_extension("ui-select")
+require("telescope").load_extension("themes")
 
 set("n", "<leader>ff", builtin.find_files, {})
 set("n", "<leader>fs", builtin.live_grep, {})
@@ -31,6 +38,7 @@ set("n", "<space>fh", builtin.help_tags)
 set("n", "<space>fb", builtin.buffers)
 set("n", "<space>fd", builtin.lsp_document_symbols)
 set("n", "<space>fm", builtin.marks)
+set("n", "<space>fe", builtin.diagnostics, {})
 set("n", "<leader>fi", function()
     builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
         winblend = 10,

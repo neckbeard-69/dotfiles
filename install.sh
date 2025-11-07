@@ -57,6 +57,7 @@ packages=(
   qt5-base qt5-wayland qt6-base qt6-wayland # dependencies
   cachyos-settings
   discord 
+  quickshell
   yay
   brave-bin # browser
   go bun npm docker docker-compose # dev tools

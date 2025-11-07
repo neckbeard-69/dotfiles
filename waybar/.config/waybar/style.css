@@ -32,20 +32,17 @@ window#waybar {
 }
 
 #workspaces button.urgent {
-    background-color: #1e1e2e;
-    color: #f38ba8;
+    color: #1e1e2e;
+    background-color: #f38ba8;
 }
 
 #clock,
-#pulseaudio,
-#custom-logo,
-#custom-power,
-#custom-spotify,
+#battery,
 #custom-notification,
-#cpu,
 #tray,
 #memory,
 #window,
+#pulseaudio,
 #mpris {
     padding: 0.3rem 0.6rem;
     margin: 0.4rem 0.25rem;
@@ -71,8 +68,9 @@ window#waybar.empty #window {
     background-color: transparent;
 }
 
-#cpu {
+#battery {
     color: #94e2d5;
+    font-size: 14px;
 }
 
 #memory {
@@ -91,20 +89,9 @@ window#waybar.empty #window {
     color: #cdd6f4;
 }
 
+
 #pulseaudio {
-    color: #b4befe;
-}
-
-#pulseaudio.muted {
-    color: #a6adc8;
-}
-
-#custom-logo {
-    color: #89b4fa;
-}
-
-#custom-power {
-    color: #f38ba8;
+    color: #cdd6f4;
 }
 
 tooltip {

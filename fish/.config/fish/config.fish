@@ -31,7 +31,7 @@ ssh-add ~/.ssh/id_ed25519 2>/dev/null
 addToPath $HOME/go/bin
 addToPath ~/.local/bin/
 addToPath (ruby -r rubygems -e 'puts Gem.user_dir')/bin
-# addToPath $HOME/.bun/bin
+addToPath $HOME/.bun/bin
 
 # Set environment variables
 set -x QT_QPA_PLATFORM wayland

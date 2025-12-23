@@ -11,6 +11,7 @@ return {
             ["<C-k>"] = { "select_prev", "fallback" },
             ["<CR>"] = { "accept", "fallback" },
             ["<TAB>"] = { "accept", "fallback" },
+            ["<A-CR>"] = { "show", "fallback" },
         },
         appearance = {
             nerd_font_variant = "mono",

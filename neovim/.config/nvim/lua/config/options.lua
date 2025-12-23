@@ -17,7 +17,7 @@ opt.smartcase = true
 opt.cursorline = true
 
 opt.signcolumn = "yes"
-opt.winborder = "double"
+opt.winborder = "rounded"
 
 
 opt.termguicolors = true

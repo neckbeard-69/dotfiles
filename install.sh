@@ -52,14 +52,14 @@ packages=(
   sway swaybg autotiling swaync brightnessctl nwg-look # sway stuff
   xorg-xwayland xdg-desktop-portal xdg-desktop-portal-wlr wl-clipboard # wayland stuff
   wireplumber blueman bluez
-  rofi-wayland fzf skim bat zoxide ripgrep gammastep keyd satty grim # tools
+  fzf skim bat zoxide ripgrep wlsunset keyd satty grim cliphist # tools
   adw-gtk-theme ttf-jetbrains-mono-nerd
   qt5-base qt5-wayland qt6-base qt6-wayland # dependencies
   cachyos-settings
   discord 
   quickshell
   yay
-  brave-bin # browser
+  helium-browser-bin # browser
   go bun npm docker docker-compose # dev tools
 )
 

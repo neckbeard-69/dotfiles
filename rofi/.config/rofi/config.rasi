@@ -5,35 +5,50 @@
  ********************************************************************************/
 
 * {
-    selected-normal-foreground:  rgba(125, 207, 255, 1);     /* blue highlight */
-    foreground:                  rgba(224, 234, 252, 1);     /* bright */
+    selected-normal-foreground:  rgba(213, 196, 161, 1);     /* light fg (gruvbox light2) */
+    foreground:                  rgba(235, 219, 178, 1);     /* fg */
     normal-foreground:           @foreground;
-    alternate-normal-background: rgba(36, 40, 59, 1);        /* #24283b */
-    red:                         rgba(247, 118, 142, 1);     /* #f7768e */
-    selected-urgent-foreground:  rgba(125, 207, 255, 1);     /* bright blue */
-    blue:                        rgba(125, 207, 255, 1);     /* #7dcfff */
-    urgent-foreground:           rgba(247, 118, 142, 1);     /* #f7768e */
-    alternate-urgent-background: rgba(36, 40, 59, 1);        /* #24283b */
-    active-foreground:           rgba(125, 207, 255, 1);     /* blue */
-    lightbg:                     rgba(217, 222, 239, 1);
-    selected-active-foreground:  rgba(125, 207, 255, 1);
-    alternate-active-background: rgba(36, 40, 59, 1);
-    background:                  rgba(26, 27, 38, 0.93);     /* #1a1b26 */
-    bordercolor:                 rgba(125, 207, 255, 1);     /* #7dcfff */
+
+    alternate-normal-background: rgba(40, 40, 40, 1);        /* #282828 */
+    red:                         rgba(204, 36, 29, 1);        /* #cc241d (gruvbox red) */
+    selected-urgent-foreground:  rgba(204, 36, 29, 1);
+
+    blue:                        rgba(69, 133, 136, 1);       /* #458588 (gruvbox blue/aqua tone) */
+    urgent-foreground:           rgba(204, 36, 29, 1);
+    alternate-urgent-background: rgba(40, 40, 40, 1);        /* #282828 */
+
+    active-foreground:           rgba(146, 131, 116, 1);      /* #928374 (gruvbox gray) */
+    lightbg:                     rgba(60, 56, 54, 1);         /* #3c3836 */
+
+    selected-active-foreground:  rgba(213, 196, 161, 1);
+    alternate-active-background: rgba(40, 40, 40, 1);
+
+    background:                  rgba(40, 40, 40, 0.93);       /* gruvbox bg */
+    bordercolor:                 rgba(168, 153, 132, 1);       /* #a89984 */
+
     alternate-normal-foreground: @foreground;
-    normal-background:           rgba(36, 40, 59, 0.06);
-    lightfg:                     rgba(200, 210, 255, 1);     /* bright dim text */
-    selected-normal-background:  rgba(65, 72, 104, 1);       /* #414868 */
+    normal-background:           rgba(60, 56, 54, 0.06);       /* subtle bg */
+
+    lightfg:                     rgba(235, 219, 178, 1);       /* fg again */
+
+    selected-normal-background:  rgba(50, 48, 47, 1);          /* #32302f */
+
     border-color:                @bordercolor;
     spacing:                     2;
-    separatorcolor:              rgba(65, 72, 104, 1);
-    urgent-background:           rgba(26, 27, 38, 1);        /* #1a1b26 */
-    selected-urgent-background:  rgba(247, 118, 142, 1);
+
+    separatorcolor:              rgba(50, 48, 47, 1);          /* #32302f */
+
+    urgent-background:           rgba(40, 40, 40, 1);          /* bg */
+    selected-urgent-background:  rgba(204, 36, 29, 1);         /* red */
+
     alternate-urgent-foreground: @urgent-foreground;
+
     background-color:            rgba(0, 0, 0, 0);
+
     alternate-active-foreground: @active-foreground;
-    active-background:           rgba(26, 27, 38, 1);
-    selected-active-background:  rgba(65, 72, 104, 1);       /* #414868 */
+    active-background:           rgba(40, 40, 40, 1);
+
+    selected-active-background:  rgba(50, 48, 47, 1);          /* #32302f */
 }
 
 window {
@@ -153,5 +168,5 @@ scrollbar {
     border:       0;
     handle-width: 8px;
     padding:      0;
-    handle-color: rgba(125, 207, 255, 0.8);  /* bright blue scrollbar handle */
+    handle-color: @blue;
 }

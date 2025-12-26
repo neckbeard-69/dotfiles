@@ -39,6 +39,8 @@ set("n", "<space>fb", builtin.buffers)
 set("n", "<space>fd", builtin.lsp_document_symbols)
 set("n", "<space>fm", builtin.marks)
 set("n", "<space>fe", builtin.diagnostics, {})
+set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>")
+set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>")
 set("n", "<leader>fi", function()
     builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
         winblend = 10,

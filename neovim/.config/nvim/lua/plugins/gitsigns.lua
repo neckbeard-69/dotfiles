@@ -12,7 +12,7 @@ return {
 
         vim.api.nvim_set_hl(0, "GitSignsCurrentLineBlame", { fg = "#7a7a7a", italic = true })
 
-        vim.keymap.set("n", "<leader>gb", function()
+        vim.keymap.set("n", "<leader>bt", function()
             -- require("gitsigns").blame_line({ full = true })
             require("gitsigns").toggle_current_line_blame()
         end)

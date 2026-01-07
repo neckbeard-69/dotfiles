@@ -20,7 +20,7 @@ return {
         end)
 
         for i = 1, 9 do
-            set("n", string.format("<leader>%d", i), function()
+            set("n", string.format("<A-%d>", i), function()
                 harpoon:list():select(i)
             end)
         end

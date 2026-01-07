@@ -1,30 +1,31 @@
 function tms
-    if test (count $argv) -eq 1
-        set selected $argv[1]
+    if test (count $argv) -gt 0
+        set paths $argv
     else
-        set selected (find ~/Desktop/code -mindepth 1 -maxdepth 1 -type d | fzf)
+        set paths ~/Desktop/code
     end
 
-    if test -z "$selected"
+    if type -q fd
+        set selected_path (fd . $paths --min-depth 1 --max-depth 1 --type d | fzf)
+    else
+        set selected_path (find $paths -mindepth 1 -maxdepth 1 -type d | fzf)
+    end
+
+    if test -z "$selected_path"
         return 0
     end
 
-    set selected_name (basename $selected | string replace '.' '_')
+    set session_name (basename "$selected_path" | string replace -a '.' '_')
 
-    set tmux_running (pgrep tmux)
-
-    if test -z "$TMUX" -a -z "$tmux_running"
-        tmux new-session -s $selected_name -c $selected
+    # If we're outside Zellij
+    if test -z "$ZELLIJ_PANE_PID"
+        cd "$selected_path"
+        # Attach or create session
+        zellij attach "$session_name" -c
         return 0
     end
 
-    if not tmux has-session -t $selected_name ^/dev/null
-        tmux new-session -ds $selected_name -c $selected
-    end
-
-    if test -n "$TMUX"
-        tmux switch-client -t $selected_name
-    else
-        tmux attach-session -t $selected_name
-    end
+    zellij action new-pane
+    zellij action write-chars "cd '$selected_path'" 
+    zellij action write 10
 end

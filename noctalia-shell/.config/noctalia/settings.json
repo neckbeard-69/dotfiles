@@ -251,6 +251,7 @@
         ],
         "onlySameOutput": true,
         "pinnedApps": [
+            "discord"
         ],
         "pinnedStatic": false,
         "size": 1
@@ -305,7 +306,7 @@
         "bluetoothRssiPollIntervalMs": 10000,
         "bluetoothRssiPollingEnabled": false,
         "wifiDetailsViewMode": "grid",
-        "wifiEnabled": false
+        "wifiEnabled": true
     },
     "nightLight": {
         "autoSchedule": true,

@@ -14,14 +14,7 @@ fi
 # Get non-dot directories
 directories=$(find . -maxdepth 1 -type d -not -path '.' -exec basename {} \; | grep -v '^\.')
 
-mkdir -p ~/cachyos-repos
-cd ~/cachyos-repos
-echo "adding cachyos repos..."
-curl https://mirror.cachyos.org/cachyos-repo.tar.xz -o cachyos-repo.tar.xz
-tar xvf cachyos-repo.tar.xz && cd cachyos-repo
-sudo ./cachyos-repo.sh
-cd ~/dotfiles
-
+rm -rf ~/.config/fish
 echo "Installing stow"
 sudo pacman -S --noconfirm stow
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
@@ -46,21 +39,21 @@ done
 
 echo "Installation complete."
 
-
+sudo pacman -Rns paru
 echo "Installing extra packages ..."
 packages=(
-  sway swaybg autotiling swaync brightnessctl nwg-look # sway stuff
+  swaybg swaync brightnessctl nwg-look 
   xorg-xwayland xdg-desktop-portal xdg-desktop-portal-wlr wl-clipboard # wayland stuff
   wireplumber blueman bluez
   fzf skim bat zoxide ripgrep wlsunset keyd satty grim cliphist # tools
   adw-gtk-theme ttf-jetbrains-mono-nerd
   qt5-base qt5-wayland qt6-base qt6-wayland # dependencies
-  cachyos-settings
   discord 
   quickshell
   yay
   helium-browser-bin # browser
-  go bun npm docker docker-compose # dev tools
+  go bun pnpm npm docker docker-compose gh-cli # dev tools
+  ly
 )
 
 for pkg in "${packages[@]}"; do
@@ -74,7 +67,7 @@ for pkg in "${packages[@]}"; do
 done
 
 echo "Installing extra AUR packages..."
-yay -S --noconfirm waypaper sway-screenshot exa
+yay -S --noconfirm waypaper exa
 sudo cp ./default.conf /etc/keyd/
 sudo systemctl enable keyd
 sudo systemctl start keyd --now
@@ -88,7 +81,6 @@ fish -c "fish_vi_key_bindings"
 sudo systemctl enable docker --now
 sudo usermod -aG docker $USER
 
-cp ./ly.service /lib/systemd/system/ # enable full rbg in external monitor (connector and property nums should be changed if it did not work)
 
 read -p "Enter your email for git: " email
 read -p "Enter your name for git: " name

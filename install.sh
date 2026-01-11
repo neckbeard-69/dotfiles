@@ -86,5 +86,6 @@ git config --global user.email "$email"
 
 
 bash ./change-dns.sh
+xdg-user-dirs-update
 
 echo "Setup complete. REBOOT FFS"

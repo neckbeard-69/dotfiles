@@ -1,0 +1,24 @@
+{
+  "name": "Ctrl Comma Tab Switcher",
+  "version": "1.0",
+  "manifest_version": 3,
+  "description": "Switch tabs using Ctrl+Comma and Ctrl+Period.",
+  "permissions": ["tabs"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "next_tab": {
+      "suggested_key": {
+        "default": "Ctrl+Period"
+      },
+      "description": "Go to next tab"
+    },
+    "prev_tab": {
+      "suggested_key": {
+        "default": "Ctrl+Comma"
+      },
+      "description": "Go to previous tab"
+    }
+  }
+}

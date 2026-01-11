@@ -1,9 +1,6 @@
 #!/bin/bash
 # AN ARCH LINUX ONLY SCRIPT (BTW :3)
 
-GREEN="\033[0;32m"
-RESET="\033[0m"
-
 echo -n "Are you sure you want to proceed with the installation? (y/n)"
 read -r answer
 if [[ "$answer" != "y" && "$answer" != "Y" ]]; then

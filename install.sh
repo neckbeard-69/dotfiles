@@ -52,7 +52,7 @@ packages=(
   quickshell
   yay
   helium-browser-bin # browser
-  go bun pnpm npm docker docker-compose gh-cli # dev tools
+  go bun pnpm npm docker docker-compose gh-cli lazygit lazydocker # dev tools
   ly
 )
 
@@ -86,10 +86,7 @@ read -p "Enter your email for git: " email
 read -p "Enter your name for git: " name
 git config --global user.name "$name"
 git config --global user.email "$email"
-ssh-keygen -t ed25519 -C "github:$email" -f ~/.ssh/github -N ""
 
-github_ssh_key=$(<~/.ssh/github.pub)
-echo -e "YOUR GITHUB SSH KEY:\n${GREEN}${github_ssh_key}${RESET}"
 
 bash ./change-dns.sh
 

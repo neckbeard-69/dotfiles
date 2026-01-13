@@ -8,7 +8,7 @@ show_startup_tips false
 
 keybinds clear-defaults=true {
     locked {
-        bind "Ctrl g" { SwitchToMode "normal"; }
+        bind "Alt g" { SwitchToMode "normal"; }
     }
     pane {
         // bind "w" { ToggleFloatingPanes; SwitchToMode "normal"; }
@@ -133,7 +133,7 @@ keybinds clear-defaults=true {
         bind "Alt 8" { GoToTab 8; SwitchToMode "normal"; }
         bind "Alt 9" { GoToTab 9; SwitchToMode "normal"; }
         bind "Alt t" { ToggleFloatingPanes; }
-        bind "Ctrl g" { SwitchToMode "locked"; }
+        bind "Alt g" { SwitchToMode "locked"; }
         bind "Alt p" { NewPane; }
         bind "Alt c" { NewTab; }
         bind "Ctrl q" { Detach; }

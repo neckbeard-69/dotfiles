@@ -77,6 +77,7 @@ fish -c "fish_vi_key_bindings"
 # Some additional settings
 sudo systemctl enable docker --now
 sudo usermod -aG docker $USER
+sudo systemctl enable ly@tty1.service
 
 
 read -p "Enter your email for git: " email
@@ -88,4 +89,4 @@ git config --global user.email "$email"
 bash ./change-dns.sh
 xdg-user-dirs-update
 
-echo "Setup complete. REBOOT FFS"
+reboot

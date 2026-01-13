@@ -9,6 +9,7 @@
         "iconMode": "tabler",
         "ignoreMouseInput": false,
         "pinnedApps": [
+            "discord"
         ],
         "position": "center",
         "screenshotAnnotationTool": "",

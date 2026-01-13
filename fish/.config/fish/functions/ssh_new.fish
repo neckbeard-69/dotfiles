@@ -11,4 +11,6 @@ function ssh_new
     if test "$choice" = "y"
             cat ~/.ssh/$keyname.pub
     end
+    cat ~/.ssh/$keyname.pub | wl-copy
+    echo "The ssh key has been successfully generated and copied to the clipboard"
 end

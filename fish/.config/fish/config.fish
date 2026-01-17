@@ -54,4 +54,9 @@ if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+set -gx ANDROID_HOME $HOME/Android/Sdk
 
+addToPath $ANDROID_HOME/cmdline-tools/latest/bin
+addToPath $ANDROID_HOME/platform-tools
+addToPath $ANDROID_HOME/build-tools/34.0.0
+addToPath $ANDROID_HOME/emulator

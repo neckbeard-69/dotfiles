@@ -36,20 +36,20 @@ done
 
 echo "Installation complete."
 
-sudo pacman -Rns paru
+sudo pacman -Rns paru --noconfirm
 echo "Installing extra packages ..."
 packages=(
-  swaybg swaync brightnessctl nwg-look 
+  swaybg brightnessctl nwg-look 
   xorg-xwayland xdg-desktop-portal xdg-desktop-portal-wlr wl-clipboard # wayland stuff
   wireplumber blueman bluez
-  fzf skim bat zoxide ripgrep wlsunset keyd satty grim cliphist # tools
+  fzf skim bat zoxide ripgrep wlsunset keyd satty grim cliphist qt5ct # tools
   adw-gtk-theme ttf-jetbrains-mono-nerd
   qt5-base qt5-wayland qt6-base qt6-wayland # dependencies
   discord 
   quickshell
   yay
   helium-browser-bin # browser
-  go bun pnpm npm docker docker-compose gh-cli lazygit lazydocker # dev tools
+  go bun pnpm npm docker docker-compose github-cli lazygit lazydocker # dev tools
   ly
 )
 

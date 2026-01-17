@@ -338,11 +338,11 @@
             "normal": true
         },
         "sounds": {
-            "criticalSoundFile": "/home/mohammed/Music/nofification.mp3",
+            "criticalSoundFile": "/home/mohammed/Music/notification.mp3",
             "enabled": true,
             "excludedApps": "discord,firefox,chrome,chromium,edge",
-            "lowSoundFile": "/home/mohammed/Music/nofification.mp3",
-            "normalSoundFile": "/home/mohammed/Music/nofification.mp3",
+            "lowSoundFile": "/home/mohammed/Music/notification.mp3",
+            "normalSoundFile": "/home/mohammed/Music/notification.mp3",
             "separateSounds": false,
             "volume": 0.35
         }

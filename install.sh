@@ -42,7 +42,7 @@ packages=(
   swaybg brightnessctl nwg-look 
   xorg-xwayland xdg-desktop-portal xdg-desktop-portal-wlr wl-clipboard # wayland stuff
   wireplumber blueman bluez
-  fzf skim bat zoxide ripgrep wlsunset keyd satty grim cliphist qt5ct # tools
+  fzf skim bat zoxide ripgrep wlsunset keyd satty grim cliphist qt5ct localsend flatpak # tools
   adw-gtk-theme ttf-jetbrains-mono-nerd
   qt5-base qt5-wayland qt6-base qt6-wayland # dependencies
   discord 
@@ -88,5 +88,17 @@ git config --global user.email "$email"
 
 bash ./change-dns.sh
 xdg-user-dirs-update
+mkdir -p ~/go/bin
+mkdir -p ~/.bun/bin
+mkdir -p ~/.local/bin
+
+# fix noctalia shell launcher and flatpak
+mkdir -p ~/.local/share/applications
+ln -s /var/lib/flatpak/exports/share/applications/*.desktop ~/.local/share/applications/
+
+# open localsend ports
+sudo ufw allow 53317/tcp
+sudo ufw allow 53317/udp
+sudo ufw reload
 
 reboot

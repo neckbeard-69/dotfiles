@@ -42,6 +42,7 @@ packages=(
   swaybg brightnessctl nwg-look 
   xorg-xwayland xdg-desktop-portal xdg-desktop-portal-wlr wl-clipboard # wayland stuff
   wireplumber blueman bluez
+  thunar
   fzf skim bat zoxide ripgrep wlsunset keyd satty grim cliphist qt5ct localsend flatpak # tools
   adw-gtk-theme ttf-jetbrains-mono-nerd
   qt5-base qt5-wayland qt6-base qt6-wayland # dependencies
@@ -95,6 +96,8 @@ mkdir -p ~/.local/bin
 # fix noctalia shell launcher and flatpak
 mkdir -p ~/.local/share/applications
 ln -s /var/lib/flatpak/exports/share/applications/*.desktop ~/.local/share/applications/
+
+curl -fsSL https://install.danklinux.com | sh
 
 # open localsend ports
 sudo ufw allow 53317/tcp

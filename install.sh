@@ -18,14 +18,21 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 stow fish
 fisher install jorgebucaran/autopair.fish
 
+curl -fsSL https://install.danklinux.com | sh
+
 for dir in $directories; do
-    if [ -d "$dir" ]; then
-        echo "Stowing directory: $dir"
-        stow $dir
+    if [[ -d "$HOME/.config/$dir" ]]; then
+        echo "Removing existing ~/.config/$dir ..."
+        rm -rf "$HOME/.config/$dir"
+    elif [[ -d "$HOME/$dir" ]]; then
+        echo "Removing existing ~/$dir ..."
+        rm -rf "$HOME/$dir"
     fi
+
+    echo "Stowing $dir ..."
+    stow "$dir"
 done
 
-curl -fsSL https://install.danklinux.com | sh
 echo "Stowing complete. Now installing packages..."
 
 for dir in $directories; do

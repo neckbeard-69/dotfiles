@@ -25,6 +25,7 @@ for dir in $directories; do
     fi
 done
 
+curl -fsSL https://install.danklinux.com | sh
 echo "Stowing complete. Now installing packages..."
 
 for dir in $directories; do
@@ -97,7 +98,6 @@ mkdir -p ~/.local/bin
 mkdir -p ~/.local/share/applications
 ln -s /var/lib/flatpak/exports/share/applications/*.desktop ~/.local/share/applications/
 
-curl -fsSL https://install.danklinux.com | sh
 
 # open localsend ports
 sudo ufw allow 53317/tcp

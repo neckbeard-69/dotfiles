@@ -6,7 +6,7 @@ opt.number = true
 -- tabs & indentation
 opt.tabstop = 4
 opt.shiftwidth = 4
-opt.expandtab = true
+opt.expandtab = false
 opt.autoindent = false
 opt.wrap = false
 opt.mouse = "v"
@@ -33,12 +33,12 @@ opt.cmdheight = 0
 
 opt.swapfile = false
 vim.api.nvim_create_autocmd("TextYankPost", {
-    group = vim.api.nvim_create_augroup("highlight_yank", {}),
-    desc = "Hightlight selection on yank",
-    pattern = "*",
-    callback = function()
-        vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
-    end,
+	group = vim.api.nvim_create_augroup("highlight_yank", {}),
+	desc = "Hightlight selection on yank",
+	pattern = "*",
+	callback = function()
+		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
+	end,
 })
 
 vim.api.nvim_set_hl(0, "CursorLine", { bg = "#1f1f1f" })

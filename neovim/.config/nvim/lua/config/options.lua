@@ -19,7 +19,6 @@ opt.cursorline = true
 opt.signcolumn = "yes"
 opt.winborder = "rounded"
 
-
 opt.termguicolors = true
 opt.background = "dark"
 
@@ -40,11 +39,3 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
 	end,
 })
-
-vim.api.nvim_set_hl(0, "CursorLine", { bg = "#1f1f1f" })
-
-local color = vim.api.nvim_get_hl_by_name("Statusline", true).background
-
-vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = "#000000", bold = true, bg = "#ffffff" })
-
-vim.api.nvim_set_hl(0, "TelescopeSelection", { bg = "#1f1f1f", bold = true })

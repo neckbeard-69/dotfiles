@@ -1,31 +1,40 @@
 function tms
-    if test (count $argv) -gt 0
-        set paths $argv
+    if test (count $argv) -eq 1
+        set selected $argv[1]
     else
-        set paths ~/Desktop/code
+        set selected (find ~/Desktop/code -mindepth 1 -maxdepth 1 -type d | fzf)
     end
 
-    if type -q fd
-        set selected_path (fd . $paths --min-depth 1 --max-depth 1 --type d | fzf)
-    else
-        set selected_path (find $paths -mindepth 1 -maxdepth 1 -type d | fzf)
-    end
-
-    if test -z "$selected_path"
+    if test -z "$selected"
         return 0
     end
 
-    set session_name (basename "$selected_path" | string replace -a '.' '_')
+    set selected_name (basename $selected | string replace '.' '_')
 
-    # If we're outside Zellij
-    if test -z "$ZELLIJ_PANE_PID"
-        cd "$selected_path"
-        # Attach or create session
-        zellij attach "$session_name" -c
+    set tmux_running (pgrep tmux)
+
+    if test -z "$TMUX" -a -z "$tmux_running"
+        tmux new-session -s $selected_name -c $selected -d
+
+        tmux new-window -t $selected_name:2 -n "Shell" -c $selected
+        tmux new-window -t $selected_name:3 -n "Lazygit" -c $selected
+        tmux new-window -t $selected_name:4 -n "Server" -c $selected
+
+        tmux attach-session -t $selected_name
         return 0
     end
 
-    zellij action new-pane
-    zellij action write-chars "cd '$selected_path'" 
-    zellij action write 10
+    if not tmux has-session -t $selected_name ^/dev/null
+        tmux new-session -ds $selected_name -c $selected
+
+        tmux new-window -t $selected_name:2 -n "Shell" -c $selected
+        tmux new-window -t $selected_name:3 -n "Lazygit" -c $selected
+        tmux new-window -t $selected_name:4 -n "Server" -c $selected
+    end
+
+    if test -n "$TMUX"
+        tmux switch-client -t $selected_name
+    else
+        tmux attach-session -t $selected_name
+    end
 end

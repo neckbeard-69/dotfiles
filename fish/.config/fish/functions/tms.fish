@@ -16,9 +16,9 @@ function tms
     if test -z "$TMUX" -a -z "$tmux_running"
         tmux new-session -s $selected_name -c $selected -d
 
-        tmux new-window -t $selected_name:2 -n "Shell" -c $selected
-        tmux new-window -t $selected_name:3 -n "Lazygit" -c $selected
-        tmux new-window -t $selected_name:4 -n "Server" -c $selected
+        tmux new-window -t $selected_name:2 -c $selected
+		tmux new-window -t $selected_name:3 -c $selected
+        tmux new-window -t $selected_name:4 -c $selected
 
         tmux attach-session -t $selected_name
         return 0
@@ -27,9 +27,9 @@ function tms
     if not tmux has-session -t $selected_name ^/dev/null
         tmux new-session -ds $selected_name -c $selected
 
-        tmux new-window -t $selected_name:2 -n "Shell" -c $selected
-        tmux new-window -t $selected_name:3 -n "Lazygit" -c $selected
-        tmux new-window -t $selected_name:4 -n "Server" -c $selected
+        tmux new-window -t $selected_name:2 -c $selected
+		tmux new-window -t $selected_name:3 -c $selected
+        tmux new-window -t $selected_name:4 -c $selected
     end
 
     if test -n "$TMUX"

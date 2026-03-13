@@ -52,7 +52,7 @@ packages=(
   wireplumber blueman bluez
   thunar
   fzf skim bat zoxide ripgrep wlsunset keyd satty grim cliphist qt5ct localsend flatpak # tools
-  adw-gtk-theme ttf-jetbrains-mono-nerd
+  adw-gtk-theme ttf-jetbrains-mono-nerd cosmic-files
   qt5-base qt5-wayland qt6-base qt6-wayland # dependencies
   discord 
   quickshell

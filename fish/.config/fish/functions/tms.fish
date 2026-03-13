@@ -2,7 +2,15 @@ function tms
     if test (count $argv) -eq 1
         set selected $argv[1]
     else
-        set selected (find ~/Desktop/code -mindepth 1 -maxdepth 1 -type d | fzf)
+        set base ~/Desktop/code
+
+        # First-level directories
+        set level1 (find $base -mindepth 1 -maxdepth 1 -type d)
+
+        # Second-level only if named backend or frontend
+        set level2 (find $base -mindepth 2 -maxdepth 2 -type d \( -name backend -o -name frontend \))
+
+        set selected (printf "%s\n" $level1 $level2 | fzf)
     end
 
     if test -z "$selected"
@@ -10,14 +18,13 @@ function tms
     end
 
     set selected_name (basename $selected | string replace '.' '_')
-
     set tmux_running (pgrep tmux)
 
     if test -z "$TMUX" -a -z "$tmux_running"
         tmux new-session -s $selected_name -c $selected -d
 
         tmux new-window -t $selected_name:2 -c $selected
-		tmux new-window -t $selected_name:3 -c $selected
+        tmux new-window -t $selected_name:3 -c $selected
         tmux new-window -t $selected_name:4 -c $selected
 
         tmux attach-session -t $selected_name
@@ -28,7 +35,7 @@ function tms
         tmux new-session -ds $selected_name -c $selected
 
         tmux new-window -t $selected_name:2 -c $selected
-		tmux new-window -t $selected_name:3 -c $selected
+        tmux new-window -t $selected_name:3 -c $selected
         tmux new-window -t $selected_name:4 -c $selected
     end
 

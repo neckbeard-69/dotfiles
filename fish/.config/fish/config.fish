@@ -7,8 +7,8 @@ alias ...="cd ../../.."
 alias ls='exa --group-directories-first --icons --git --color=always -F'
 alias c="clear"
 alias e="exit"
-alias cat="/usr/bin/bat"
-alias bat="/usr/bin/cat"
+# alias cat="/usr/bin/bat"
+# alias bat="/usr/bin/cat"
 
 function addToPath
     if test -d $argv[1]
@@ -33,7 +33,7 @@ addToPath $HOME/.bun/bin
 
 # Set environment variables
 set -x QT_QPA_PLATFORM wayland
-set -x XDG_CURRENT_SESSION_TYPE wayland
+set -x XDG_CURRENT_DESKTOP Hyprland
 set -x GDK_BACKEND "wayland,x11"
 set -x MOZ_ENABLE_WAYLAND 1
 set -x QT_QPA_PLATFORMTHEME qt5ct

@@ -32,7 +32,7 @@ for dir in $directories; do
     echo "Stowing $dir ..."
     stow "$dir"
 done
-
+stow .dms
 echo "Stowing complete. Now installing packages..."
 
 for dir in $directories; do

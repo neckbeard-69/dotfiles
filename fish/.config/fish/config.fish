@@ -30,7 +30,10 @@ ssh-add ~/.ssh/id_ed25519 2>/dev/null
 addToPath $HOME/go/bin
 addToPath ~/.local/bin/
 addToPath $HOME/.bun/bin
-
+addToPath $HOME/.local/bin/flutter/bin/
+set -x ANDROID_HOME /opt/android-sdk/latest
+set -x ANDROID_SDK_ROOT $ANDROID_HOME
+addToPath $ANDROID_HOME/cmdline-tools/latest/bin
 # Set environment variables
 set -x QT_QPA_PLATFORM wayland
 set -x XDG_CURRENT_DESKTOP Hyprland

@@ -1,25 +1,35 @@
-#!/bin/bash
-# AN ARCH LINUX ONLY SCRIPT (BTW :3)
+#!/usr/bin/env bash
+# this script is ai genereated, maybe broken
+set -e
 
-echo -n "Are you sure you want to proceed with the installation? (y/n)"
+echo -n "Are you sure you want to proceed with the installation? (y/n): "
 read -r answer
 if [[ "$answer" != "y" && "$answer" != "Y" ]]; then
-    echo "Exiting ..."
+    echo "Exiting..."
     exit 1
 fi
+
+echo "Updating system..."
+sudo dnf upgrade --refresh -y
+
+echo "Installing base tools..."
+sudo dnf install -y \
+    stow curl git fish dnf-plugins-core
+
+# Enable COPR repos (Hyprland ecosystem + extras)
+echo "Enabling COPR repositories..."
+sudo dnf copr enable -y solopasha/hyprland
+sudo dnf copr enable -y atim/starship
+sudo dnf copr enable -y varlad/zellij || true
+sudo dnf copr enable avengemedia/dms -y
+sudo dnf copr enable alternateved/keyd -y
+sudo dnf copr enable atim/lazygit -y
+sudo dnf copr enable atim/lazydocker -y
 
 # Get non-dot directories
 directories=$(find . -maxdepth 1 -type d -not -path '.' -exec basename {} \; | grep -v '^\.')
 
-rm -rf ~/.config/fish
-echo "Installing stow"
-sudo pacman -S --noconfirm stow
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-stow fish
-fisher install jorgebucaran/autopair.fish
-
-curl -fsSL https://install.danklinux.com | sh
-
+# Stow dotfiles
 for dir in $directories; do
     if [[ -d "$HOME/.config/$dir" ]]; then
         echo "Removing existing ~/.config/$dir ..."
@@ -32,83 +42,82 @@ for dir in $directories; do
     echo "Stowing $dir ..."
     stow "$dir"
 done
+
 stow .dms
-echo "Stowing complete. Now installing packages..."
+sudo dnf install quickshell
+sudo dnf install dms
 
-for dir in $directories; do
-    if [ -d "$dir" ]; then
-        echo "Installing package: $dir"
-        sudo pacman -S --noconfirm $dir
-    fi
-done
+echo "Installing packages..."
 
-echo "Installation complete."
-
-sudo pacman -Rns paru --noconfirm
-echo "Installing extra packages ..."
 packages=(
-  swaybg brightnessctl nwg-look 
-  xorg-xwayland xdg-desktop-portal xdg-desktop-portal-wlr wl-clipboard # wayland stuff
+  # Hyprland / Wayland
+  hyprland swaybg brightnessctl
+  xorg-x11-server-Xwayland xdg-desktop-portal xdg-desktop-portal-hyprland wl-clipboard
+  hyprshot
+
+  # System
   wireplumber blueman bluez
-  thunar
-  fzf skim bat zoxide ripgrep wlsunset keyd satty grim cliphist qt5ct localsend flatpak # tools
-  adw-gtk-theme ttf-jetbrains-mono-nerd nautilus file-roller unzip p7zip unrar
-  qt5-base qt5-wayland qt6-base qt6-wayland # dependencies
-  discord 
-  quickshell
-  yay
-  helium-browser-bin # browser
-  go bun pnpm npm docker docker-compose github-cli lazygit lazydocker # dev tools
-  ly
+
+  # CLI tools
+  fzf bat zoxide ripgrep
+  wlsunset grim slurp cliphist
+  keyd satty
+
+  # UI / fonts
+  jetbrains-mono-fonts
+  # Apps
+  flatpak discord
+
+  # Dev tools
+  golang nodejs nodejs-npm pnpm docker-cli docker-compose lazygit lazydocker
+
+  # Terminal / misc
+  tmux neovim starship
 )
 
 for pkg in "${packages[@]}"; do
-  if sudo pacman -Si "$pkg" &>/dev/null; then
     echo "Installing $pkg..."
-    sudo pacman -S --noconfirm --needed "$pkg"
-  else
-    echo "Warning: Package '$pkg' not found."
-    read -rp "Press Enter to continue installing the next packages..."
-  fi
+    sudo dnf install -y "$pkg" || echo "Warning: Failed to install $pkg"
 done
 
-echo "Installing extra AUR packages..."
-yay -S --noconfirm waypaper exa
+echo "Installing Bun..."
+curl -fsSL https://bun.sh/install | bash
+
+# keyd setup
 sudo cp ./default.conf /etc/keyd/
-sudo systemctl enable keyd
-sudo systemctl start keyd --now
+sudo systemctl enable keyd --now
 sudo keyd reload
-chsh -s /usr/bin/fish
-curl -sS https://starship.rs/install.sh | sh
-fish -c "fish_vi_key_bindings"
 
-
-# Some additional settings
+# Enable services
 sudo systemctl enable docker --now
-sudo usermod -aG docker $USER
-sudo systemctl enable ly@tty1.service
+sudo usermod -aG docker "$USER"
 
+# Set shell
+chsh -s /usr/bin/fish
 
+# Git config
 read -p "Enter your email for git: " email
 read -p "Enter your name for git: " name
 git config --global user.name "$name"
 git config --global user.email "$email"
 
-
+# DNS script
 bash ./change-dns.sh
-xdg-user-dirs-update
+
+# Create dirs
 mkdir -p ~/go/bin
 mkdir -p ~/.bun/bin
 mkdir -p ~/.local/bin
 
-# fix noctalia shell launcher and flatpak
+# Flatpak fix
 mkdir -p ~/.local/share/applications
-ln -s /var/lib/flatpak/exports/share/applications/*.desktop ~/.local/share/applications/
+ln -sf /var/lib/flatpak/exports/share/applications/*.desktop ~/.local/share/applications/
 
+# Firewall (firewalld)
+echo "Opening LocalSend ports..."
+sudo firewall-cmd --permanent --add-port=53317/tcp
+sudo firewall-cmd --permanent --add-port=53317/udp
+sudo firewall-cmd --reload
 
-# open localsend ports
-sudo ufw allow 53317/tcp
-sudo ufw allow 53317/udp
-sudo ufw reload
-
+echo "Done. Rebooting..."
 reboot

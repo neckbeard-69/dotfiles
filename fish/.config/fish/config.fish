@@ -4,36 +4,33 @@ alias vim=nvim
 alias .="cd .."
 alias ..="cd ../.."
 alias ...="cd ../../.."
-alias ls='exa --group-directories-first --icons --git --color=always -F'
+alias ls='eza --group-directories-first --icons --git --color=always -F'
 alias c="clear"
 alias e="exit"
-# alias cat="/usr/bin/bat"
-# alias bat="/usr/bin/cat"
+alias emu="env QT_QPA_PLATFORM=xcb emulator -avd flutter_emulator"
 
-function addToPath
-    if test -d $argv[1]
-        set -l new_path (realpath $argv[1])
-        if not contains $new_path $PATH
-            set -gx PATH $PATH $new_path
-        end
-    else
-        echo "Error: $argv[1] is not a directory"
+eval (ssh-agent -c) >/dev/null 2>&1
+
+for key in ~/.ssh/*
+    if test -f $key; and not string match -q '*.pub' $key; and not string match -q 'known_hosts*' $key
+        ssh-add $key >/dev/null 2>&1
     end
 end
-
-if not pgrep -u (whoami) ssh-agent > /dev/null
-    eval (ssh-agent -c)
-end
 starship init fish | source
-ssh-add ~/.ssh/id_ed25519 2>/dev/null
 
-addToPath $HOME/go/bin
-addToPath ~/.local/bin/
-addToPath $HOME/.bun/bin
-addToPath $HOME/.local/bin/flutter/bin/
-set -x ANDROID_HOME /opt/android-sdk/latest
-set -x ANDROID_SDK_ROOT $ANDROID_HOME
-addToPath $ANDROID_HOME/cmdline-tools/latest/bin
+fish_add_path $HOME/go/bin
+fish_add_path ~/.local/bin/
+fish_add_path $HOME/.bun/bin
+fish_add_path -g -p ~/flutter/bin/
+set -gx ANDROID_SDK_ROOT $HOME/Android
+set -gx ANDROID_HOME $HOME/Android
+
+fish_add_path $ANDROID_HOME/cmdline-tools/latest/bin
+fish_add_path $ANDROID_HOME/platform-tools
+fish_add_path $ANDROID_HOME/emulator
+fish_add_path $ANDROID_HOME/build-tools/33.0.2/
+fish_add_path $HOME/dotfiles/.bin
+
 # Set environment variables
 set -x QT_QPA_PLATFORM wayland
 set -x XDG_CURRENT_DESKTOP Hyprland
@@ -51,7 +48,9 @@ bind ctrl-f 'cd (fzf | xargs dirname)'
 # pnpm
 set -gx PNPM_HOME "/home/mohammed/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
-set -gx ANDROID_HOME $HOME/Android/Sdk
+# set -gx ANDROID_HOME $HOME/Android/Sdk
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv fish)"

@@ -1,8 +1,9 @@
-theme = dankcolors
+theme = Gruvbox Dark Hard
 shell-integration-features = no-cursor
 cursor-style = block 
 font-size = 12
-font-family = JetBrainsMono Nerd Font
+background = #000000
+background-opacity = 0.8
 
 # window
 window-decoration = false

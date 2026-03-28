@@ -3,13 +3,8 @@ function tms
         set selected $argv[1]
     else
         set base ~/Desktop/code
-
-        # First-level directories
         set level1 (find $base -mindepth 1 -maxdepth 1 -type d)
-
-        # Second-level only if named backend or frontend
         set level2 (find $base -mindepth 2 -maxdepth 2 -type d \( -name backend -o -name frontend \))
-
         set selected (printf "%s\n" $level1 $level2 | fzf)
     end
 

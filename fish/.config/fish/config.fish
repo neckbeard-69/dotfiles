@@ -53,4 +53,3 @@ end
 # pnpm end
 # set -gx ANDROID_HOME $HOME/Android/Sdk
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv fish)"

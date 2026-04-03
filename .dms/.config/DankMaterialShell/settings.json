@@ -6,7 +6,8 @@
     "catppuccin": {
       "flavor": "macchiato",
       "accent": "maroon"
-    }
+    },
+    "gruvboxMaterial": "medium"
   },
   "matugenScheme": "scheme-tonal-spot",
   "runUserMatugenTemplates": true,

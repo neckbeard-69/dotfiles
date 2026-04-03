@@ -1,0 +1,36 @@
+#!/bin/bash
+
+OUTPUT_DIR="${XDG_PICTURES_DIR:-$HOME/Pictures}"
+EDIT=false
+
+for arg in "$@"; do
+    case $arg in
+        --edit)
+            EDIT=true
+            shift
+            ;;
+    esac
+done
+
+if [[ ! -d "$OUTPUT_DIR" ]]; then
+    mkdir -p "$OUTPUT_DIR"
+fi
+
+TEMP_FILE="$(mktemp /tmp/screenshot-XXXXXX.png)"
+FINAL_FILE="$OUTPUT_DIR/screenshot-$(date +'%Y-%m-%d_%H-%M-%S').png"
+
+grim -g "$(slurp)" "$TEMP_FILE"
+
+if [ "$EDIT" = true ]; then
+    satty --filename "$TEMP_FILE" \
+        --output-filename "$FINAL_FILE" \
+        --early-exit \
+        --actions-on-enter save-to-clipboard \
+        --save-after-copy \
+        --copy-command 'wl-copy'
+else
+    cp "$TEMP_FILE" "$FINAL_FILE"
+    wl-copy < "$FINAL_FILE"
+fi
+
+rm -f "$TEMP_FILE"

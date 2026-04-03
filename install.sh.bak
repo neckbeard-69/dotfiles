@@ -14,9 +14,6 @@ directories=$(find . -maxdepth 1 -type d -not -path '.' -exec basename {} \; | g
 rm -rf ~/.config/fish
 echo "Installing stow"
 sudo pacman -S --noconfirm stow
-fish -c "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
-stow fish
-fisher install jorgebucaran/autopair.fish
 
 curl -fsSL https://install.danklinux.com | sh
 
@@ -80,6 +77,7 @@ sudo systemctl start keyd --now
 sudo keyd reload
 chsh -s /usr/bin/fish
 curl -sS https://starship.rs/install.sh | sh
+starship preset nerd-font-symbols -o ~/.config/starship.toml
 fish -c "fish_vi_key_bindings"
 
 

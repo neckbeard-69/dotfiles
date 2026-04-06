@@ -1,8 +1,14 @@
-require("config.options")
-require("config.lazy")
-require("config.keymaps")
-require("custom.snippets.go")
-require("autocmd.macro")
+require("options")
+require("keymaps")
+
+local plugins = vim.fn.stdpath("config") .. "/lua/plugins"
+
+for _, file in ipairs(vim.fn.readdir(plugins)) do
+	if file:match("%.lua$") then
+		local module = "plugins." .. file:gsub("%.lua$", "")
+		require(module)
+	end
+end
 
 vim.cmd([[
   hi Normal guibg=none ctermbg=none

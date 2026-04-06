@@ -6,11 +6,13 @@ require("mason").setup({
 			package_uninstalled = " ",
 		},
 	},
-    ensure_installed = {
-        "ts_ls",
-        "gopls",
-        "lua_ls",
-        "emmet_ls",
-        "clangd",
-    },
+})
+require("mason-lspconfig").setup({
+	ensure_installed = {
+		"ts_ls",
+		"gopls",
+		"lua_ls",
+		"emmet_ls",
+		"clangd",
+	},
 })

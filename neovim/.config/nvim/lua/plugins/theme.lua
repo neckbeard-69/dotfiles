@@ -1,8 +1,11 @@
 return {
-	"neanias/everforest-nvim",
+	"navarasu/onedark.nvim",
 	lazy = false,
 	priority = 1000,
 	config = function()
-		vim.cmd.colorscheme("everforest")
+		require('onedark').setup {
+			style = 'deep'
+		}
+		vim.cmd.colorscheme("onedark")
 	end,
 }

@@ -52,4 +52,3 @@ if not string match -q -- $PNPM_HOME $PATH
 end
 # pnpm end
 # set -gx ANDROID_HOME $HOME/Android/Sdk
-

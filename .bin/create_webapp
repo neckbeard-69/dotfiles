@@ -60,7 +60,7 @@ else
 fi
 
 # Use custom exec if provided, otherwise default behavior
-EXEC_COMMAND="${CUSTOM_EXEC:-helium --app=$APP_URL}"
+EXEC_COMMAND="${CUSTOM_EXEC:-helium-browser --app=$APP_URL}"
 
 # Create application .desktop file
 DESKTOP_FILE="$HOME/.local/share/applications/$APP_NAME.desktop"

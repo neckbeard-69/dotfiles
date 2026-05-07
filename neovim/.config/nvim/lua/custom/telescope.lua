@@ -1,26 +1,27 @@
 local actions = require("telescope.actions")
 require("telescope").setup({
-    defaults = {
-        file_ignore_patterns = { "%.png$", "%.jpg$", "%.jpeg$", "%.gif$", "%.svg$", "%.bmp$", "%.webp$", "node_modules" },
-        mappings = {
-            i = {
-                ["<C-k>"] = actions.move_selection_previous,
-                ["<C-j>"] = actions.move_selection_next,
-            },
-        },
-        prompt_prefix = "   ",
-        selection_caret = " ",
-        entry_prefix = " ",
-        sorting_strategy = "ascending",
-        layout_config = {
-            horizontal = {
-                prompt_position = "top",
-                preview_width = 0.55,
-            },
-            width = 0.87,
-            height = 0.80,
-        },
-    },
+	defaults = {
+		file_ignore_patterns = { "%.png$", "%.jpg$", "%.jpeg$", "%.gif$", "%.svg$",
+			"%.bmp$", "%.webp$", "node_modules", "build", "macos", "linux", "ios", "android", "windows" },
+		mappings = {
+			i = {
+				["<C-k>"] = actions.move_selection_previous,
+				["<C-j>"] = actions.move_selection_next,
+			},
+		},
+		prompt_prefix = "   ",
+		selection_caret = " ",
+		entry_prefix = " ",
+		sorting_strategy = "ascending",
+		layout_config = {
+			horizontal = {
+				prompt_position = "top",
+				preview_width = 0.55,
+			},
+			width = 0.87,
+			height = 0.80,
+		},
+	},
 })
 local builtin = require("telescope.builtin")
 local set = vim.keymap.set
@@ -42,10 +43,10 @@ set("n", "<space>fe", builtin.diagnostics, {})
 set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>")
 set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>")
 set("n", "<leader>fi", function()
-    builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-        winblend = 10,
-        previewer = false,
-    }))
+	builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+		winblend = 10,
+		previewer = false,
+	}))
 end, { desc = "[/] Fuzzily search in current buffer" })
 
 -- set("n", "<space>fg", require("custom.telescope.multi-ripgrep"))

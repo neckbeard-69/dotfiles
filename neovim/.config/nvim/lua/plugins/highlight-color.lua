@@ -1,8 +1,9 @@
 return {
-    -- 'brenoprata10/nvim-highlight-colors',
-    "mohammed-r9/nvim-highlight-colors",
-    branch = "feat/add-oklch-support",
-    config = function()
-        require('nvim-highlight-colors').setup({})
-    end
+	-- "mohammed-r9/colorizer.nvim",
 }
+
+-- return {
+-- 	{
+-- 		dir = "~/Desktop/code/colorizer.nvim",
+-- 	}
+-- }

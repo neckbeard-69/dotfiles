@@ -1,0 +1,2 @@
+#!/bin/bash
+m4 ~/.config/tmux/tmux.keybinds.templ.conf > ~/.config/tmux/tmux.keybinds.conf

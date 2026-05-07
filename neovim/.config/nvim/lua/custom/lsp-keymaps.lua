@@ -14,51 +14,20 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.keymap.set(mode, lhs, rhs, opts)
 		end
 
-		if client.supports_method("textDocument/rename") then
-			set_lsp_keymap("n", "<leader>rn", function()
-				vim.cmd("Lspsaga rename")
-			end)
-		end
+		set_lsp_keymap("n", "<leader>rn", function()
+			vim.cmd("Lspsaga rename")
+		end)
 
-		if client.supports_method("textDocument/implementation") then
-			set_lsp_keymap("n", "<leader>im", builtin.lsp_implementations)
-		end
-
-		if client.supports_method("textDocument/codeAction") then
-			set_lsp_keymap({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
-		end
-
-		if client.supports_method("textDocument/declaration") then
-			set_lsp_keymap("n", "<leader>gD", vim.lsp.buf.declaration)
-		end
-
-		if client.supports_method("textDocument/definition") then
-			set_lsp_keymap("n", "<leader>gd", builtin.lsp_definitions)
-		end
-
-		if client.supports_method("textDocument/typeDefinition") then
-			set_lsp_keymap("n", "<leader>td", builtin.lsp_type_definitions)
-		end
-
-		if client.supports_method("textDocument/references") then
-			set_lsp_keymap("n", "<leader>gr", builtin.lsp_references)
-		end
-
-		if client.supports_method("textDocument/documentSymbol") then
-			set_lsp_keymap("n", "<leader>ds", builtin.lsp_document_symbols)
-		end
-
-		if client.supports_method("workspace/symbol") then
-			set_lsp_keymap("n", "<leader>ws", builtin.lsp_workspace_symbols)
-		end
-
-		if client.supports_method("textDocument/signatureHelp") then
-			set_lsp_keymap("i", "<C-s>", vim.lsp.buf.signature_help)
-		end
-
-		if client.supports_method("workspace/diagnostic/refresh") then
-			set_lsp_keymap("n", "<leader>dr", builtin.diagnostics)
-		end
+		set_lsp_keymap("n", "<leader>im", builtin.lsp_implementations)
+		set_lsp_keymap({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
+		set_lsp_keymap("n", "<leader>gD", vim.lsp.buf.declaration)
+		set_lsp_keymap("n", "<leader>gd", builtin.lsp_definitions)
+		set_lsp_keymap("n", "<leader>td", builtin.lsp_type_definitions)
+		set_lsp_keymap("n", "<leader>gr", builtin.lsp_references)
+		set_lsp_keymap("n", "<leader>ds", builtin.lsp_document_symbols)
+		set_lsp_keymap("n", "<leader>ws", builtin.lsp_workspace_symbols)
+		set_lsp_keymap("i", "<C-s>", vim.lsp.buf.signature_help)
+		set_lsp_keymap("n", "<leader>dr", builtin.diagnostics)
 	end,
 	vim.keymap.set("n", "<leader>l", function()
 		local config = vim.diagnostic.config() or {}

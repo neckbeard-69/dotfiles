@@ -2,8 +2,8 @@ theme = Atom One Dark
 shell-integration-features = no-cursor
 cursor-style = block 
 font-size = 12
-background = #000000
-background-opacity = 0.9
+background = #1A212E
+# background-opacity = 0.9
 
 # window
 window-decoration = false

@@ -26,7 +26,7 @@ hl.config({
 	},
 	decoration = {
 		inactive_opacity = 0.9,
-
+		rounding = 4,
 		blur = {
 			enabled = false
 		}
@@ -34,6 +34,7 @@ hl.config({
 	animations = {
 		enabled = false
 	}
+
 })
 hl.workspace_rule({
 	workspace = "w[tv1]",

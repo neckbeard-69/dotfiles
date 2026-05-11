@@ -45,14 +45,11 @@ bind(main_mod .. " + SHIFT + k", hl.dsp.window.move({ direction = "up" }))
 bind(main_mod .. " + SHIFT + j", hl.dsp.window.move({ direction = "down" }))
 
 -- Group / Tab Controls
-bind(main_mod .. " + w", hl.dsp.exec_raw("hyprctl dispatch togglegroup"))
+bind(main_mod .. " + w", hl.dsp.group.toggle())
 -- Reusing h/l for group cycling as per your original config
-bind(main_mod .. " + h", hl.dsp.exec_raw("hyprctl dispatch changegroupactive b"))
-bind(main_mod .. " + l", hl.dsp.exec_raw("hyprctl dispatch changegroupactive f"))
+bind(main_mod .. " + h", hl.dsp.group.prev())
+bind(main_mod .. " + l", hl.dsp.group.next())
 
--- Special Workspace (Scratchpad)
-bind(main_mod .. " + s", hl.dsp.exec_raw("hyprctl dispatch togglespecialworkspace magic"))
-bind(main_mod .. " + SHIFT + s", hl.dsp.exec_raw("hyprctl dispatch movetoworkspace special:magic"))
 
 -- Multimedia Keys
 hl.bind("XF86AudioRaiseVolume", exec("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
@@ -75,3 +72,5 @@ for i = 1, 10 do
 	bind(main_mod .. " + " .. key, hl.dsp.focus({ workspace = i }))
 	bind(main_mod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
+hl.bind(main_mod .. "+ period", hl.dsp.layout("move +col"))
+hl.bind(main_mod .. "+ comma", hl.dsp.layout("move -col"))

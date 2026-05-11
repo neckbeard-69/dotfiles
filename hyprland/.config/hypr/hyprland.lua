@@ -1,1 +1,2 @@
-require("hyprland")
+require("binds")
+require("options")

@@ -60,6 +60,9 @@ packages=(
   discord 
   quickshell
   yay
+  power-profiles-daemon pipewire-pulse
+  xdg-desktop-portal-hyprland
+  pavucontrol
   helium-browser-bin # browser
   go bun pnpm npm docker docker-compose github-cli lazygit lazydocker # dev tools
   ly
@@ -99,6 +102,7 @@ read -p "Enter your name for git: " name
 git config --global user.name "$name"
 git config --global user.email "$email"
 
+sudo systemctl enable --now power-profiles-daemon.service
 
 bash ./change-dns.sh
 xdg-user-dirs-update
@@ -110,10 +114,11 @@ mkdir -p ~/.local/bin
 mkdir -p ~/.local/share/applications
 ln -s /var/lib/flatpak/exports/share/applications/*.desktop ~/.local/share/applications/
 
-
 # open localsend ports
 sudo ufw allow 53317/tcp
 sudo ufw allow 53317/udp
 sudo ufw reload
-
+mkdir -p ~/.config/fontconfig/conf.d/
+cp ./10-arabic-priority.conf ~/.config/fontconfig/conf.d/
+fc-cache -fv
 reboot

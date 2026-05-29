@@ -9,16 +9,16 @@ end)
 
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 
-hl.device({
-	name = "dell0815:00-044e:120a-touchpad",
-	natural_scroll = true
-})
 
 hl.config({
 	input = {
 		repeat_rate = 50,
 		repeat_delay = 250,
 		sensitivity = 0,
+
+		touchpad = {
+			natural_scroll = true
+		}
 	},
 	general = {
 		gaps_in = 5,
@@ -33,7 +33,7 @@ hl.config({
 	},
 	animations = {
 		enabled = false
-	}
+	},
 
 })
 hl.workspace_rule({

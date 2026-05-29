@@ -22,19 +22,25 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		set_lsp_keymap({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
 		set_lsp_keymap("n", "<leader>gD", vim.lsp.buf.declaration)
 		set_lsp_keymap("n", "<leader>gd", builtin.lsp_definitions)
+		set_lsp_keymap("n", "K", function()
+			vim.lsp.buf.hover({
+				border = "rounded",
+				focusable = true,
+			})
+		end)
 		set_lsp_keymap("n", "<leader>td", builtin.lsp_type_definitions)
 		set_lsp_keymap("n", "<leader>gr", builtin.lsp_references)
 		set_lsp_keymap("n", "<leader>ds", builtin.lsp_document_symbols)
 		set_lsp_keymap("n", "<leader>ws", builtin.lsp_workspace_symbols)
 		set_lsp_keymap("i", "<C-s>", vim.lsp.buf.signature_help)
 		set_lsp_keymap("n", "<leader>dr", builtin.diagnostics)
+		vim.keymap.set("n", "<leader>l", function()
+			vim.diagnostic.open_float({
+				focusable = true,
+				border = "rounded",
+				source = "if_many",
+				header = "",
+			})
+		end)
 	end,
-	vim.keymap.set("n", "<leader>l", function()
-		local config = vim.diagnostic.config() or {}
-		if config.virtual_text then
-			vim.diagnostic.config({ virtual_text = false, virtual_lines = true })
-		else
-			vim.diagnostic.config({ virtual_text = true, virtual_lines = false })
-		end
-	end, { desc = "Toggle lsp_lines" }),
 })

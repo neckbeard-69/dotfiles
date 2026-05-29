@@ -8,6 +8,14 @@ if [[ "$answer" != "y" && "$answer" != "Y" ]]; then
     exit 1
 fi
 
+mkdir ~/repos
+cd ~/c-repos
+curl https://mirror.cachyos.org/cachyos-repo.tar.xz -o cachyos-repo.tar.xz
+tar xvf cachyos-repo.tar.xz && cd cachyos-repo
+sudo ./cachyos-repo.sh
+cd ~/dotfiles
+rm -rf ~/repos
+
 # Get non-dot directories
 directories=$(find . -maxdepth 1 -type d -not -path '.' -exec basename {} \; | grep -v '^\.')
 
@@ -40,7 +48,6 @@ done
 
 echo "Installation complete."
 
-sudo pacman -Rns paru --noconfirm
 echo "Installing extra packages ..."
 packages=(
   swaybg brightnessctl nwg-look 

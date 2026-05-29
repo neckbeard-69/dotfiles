@@ -13,3 +13,4 @@ require("autocmd.macro")
 --   hi LineNr guibg=none ctermbg=none
 --   hi EndOfBuffer guibg=none ctermbg=none
 -- ]])
+--

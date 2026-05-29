@@ -14,14 +14,14 @@ return {
 		set({ "n", "x" }, "<leader>j", function() mc.lineSkipCursor(1) end)
 
 		-- Add or skip adding a new cursor by matching word/selection
-		set({ "n", "x" }, "<A-n>", function() mc.matchAddCursor(1) end)
-		set({ "n", "x" }, "<A-s>", function() mc.matchSkipCursor(1) end)
-		set({ "n", "x" }, "<A-N>", function() mc.matchAddCursor(-1) end)
+		set({ "n", "x" }, "<A-;>", function() mc.matchAddCursor(1) end)
+		set({ "n", "x" }, "<A-l>", function() mc.matchSkipCursor(1) end)
+		set({ "n", "x" }, "<leader>;", function() mc.matchAddCursor(-1) end)
 		set({ "n", "x" }, "<A-S>", function() mc.matchSkipCursor(-1) end)
 
 
 		-- Disable and enable cursors.
-		set({ "n", "x" }, "<c-q>", mc.toggleCursor)
+		set({ "n", "x" }, "<A-e>", mc.toggleCursor)
 
 		-- Mappings defined in a keymap layer only apply when there are
 		-- multiple cursors. This lets you have overlapping mappings.

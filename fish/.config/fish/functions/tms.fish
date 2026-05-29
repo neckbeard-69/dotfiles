@@ -16,12 +16,14 @@ function tms
     set tmux_running (pgrep tmux)
 
     if test -z "$TMUX" -a -z "$tmux_running"
-        tmux new-session -s $selected_name -c $selected -d
+        tmux new-session -d -s "$selected_name" -c "$selected"
 
-        tmux new-window -t $selected_name:2 -c $selected
-        tmux new-window -t $selected_name:3 -c $selected
-        tmux new-window -t $selected_name:4 -c $selected
+        tmux new-window -t "$selected_name:1" -c "$selected"
+        tmux new-window -t "$selected_name:2" -n shell -c "$selected"
+        tmux new-window -t "$selected_name:3" -n lazygit -c "$selected" lazygit
+        tmux new-window -t "$selected_name:4" -n server -c "$selected"
 
+        tmux select-window -t "$selected_name:1"
         tmux attach-session -t $selected_name
         return 0
     end
@@ -30,8 +32,9 @@ function tms
         tmux new-session -ds $selected_name -c $selected
 
         tmux new-window -t $selected_name:2 -c $selected
-        tmux new-window -t $selected_name:3 -c $selected
+        tmux new-window -t "$selected_name:3" -n lazygit -c "$selected" lazygit
         tmux new-window -t $selected_name:4 -c $selected
+
     end
 
     if test -n "$TMUX"

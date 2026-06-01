@@ -22,12 +22,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		set_lsp_keymap({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
 		set_lsp_keymap("n", "<leader>gD", vim.lsp.buf.declaration)
 		set_lsp_keymap("n", "<leader>gd", builtin.lsp_definitions)
-		set_lsp_keymap("n", "K", function()
-			vim.lsp.buf.hover({
-				border = "rounded",
-				focusable = true,
-			})
-		end)
+		-- set_lsp_keymap("n", "K", function()
+		-- 	vim.lsp.buf.hover({
+		-- 		border = "rounded",
+		-- 		focusable = true,
+		-- 	})
+		-- end)
 		set_lsp_keymap("n", "<leader>td", builtin.lsp_type_definitions)
 		set_lsp_keymap("n", "<leader>gr", builtin.lsp_references)
 		set_lsp_keymap("n", "<leader>ds", builtin.lsp_document_symbols)

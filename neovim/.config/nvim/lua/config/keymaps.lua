@@ -12,5 +12,9 @@ keymap.set({ "n", "x", "o" }, "m", "%", { remap = true })
 keymap.set("n", "<C-s>", ":w<CR>")
 keymap.set({ "n", "i", "v" }, "<C-z>", "")
 keymap.set("v", "p", "P")
+keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+keymap.set("v", "<", "<gv")
+keymap.set("v", ">", ">gv")
 
 -- keymap.set({ "n", "t" }, "<leader>tt", ":belowright sp | term<CR>i") -- opens a terminal in a new pane

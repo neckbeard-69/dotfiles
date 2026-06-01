@@ -1,8 +1,7 @@
-theme = Atom One Dark
+theme = Kanagawa Wave
 shell-integration-features = no-cursor
 cursor-style = block 
 font-size = 12
-background = #1A212E
 # background-opacity = 0.9
 
 # window

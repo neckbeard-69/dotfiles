@@ -1,6 +1,6 @@
 return {
 	"lukas-reineke/indent-blankline.nvim",
-	main = "ibl",
+	ft = { "dart" },
 	---@module "ibl"
 	---@type ibl.config
 	opts = {},
@@ -28,7 +28,7 @@ return {
 		end)
 
 		vim.g.rainbow_delimiters = { highlight = highlight }
-		require("ibl").setup { scope = { highlight = highlight } }
+		require("ibl").setup { enabled = false, scope = { highlight = highlight } }
 
 		hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
 	end,

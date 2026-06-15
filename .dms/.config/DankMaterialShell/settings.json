@@ -203,7 +203,7 @@
   "dankLauncherV2BorderColor": "primary",
   "dankLauncherV2ShowFooter": true,
   "dankLauncherV2UnloadOnClose": false,
-  "useAutoLocation": true,
+  "useAutoLocation": false,
   "weatherEnabled": true,
   "networkPreference": "ethernet",
   "iconTheme": "System Default",
@@ -223,7 +223,7 @@
       "cursorHideTimeout": 0
     }
   },
-  "launcherLogoMode": "compositor",
+  "launcherLogoMode": "os",
   "launcherLogoCustomPath": "",
   "launcherLogoColorOverride": "primary",
   "launcherLogoColorInvertOnMode": false,
@@ -367,10 +367,18 @@
       "matchType": "contains",
       "action": "default",
       "urgency": "default"
+    },
+    {
+      "enabled": true,
+      "field": "appName",
+      "pattern": "",
+      "matchType": "contains",
+      "action": "default",
+      "urgency": "default"
     }
   ],
-  "osdAlwaysShowValue": false,
-  "osdPosition": 5,
+  "osdAlwaysShowValue": true,
+  "osdPosition": 0,
   "osdVolumeEnabled": true,
   "osdMediaVolumeEnabled": true,
   "osdMediaPlaybackEnabled": false,

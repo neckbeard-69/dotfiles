@@ -1,3 +1,4 @@
+vim.g.mapleader = " "
 local opt = vim.opt
 
 opt.relativenumber = true
@@ -29,8 +30,10 @@ opt.backspace = "indent,eol,start"
 opt.clipboard:append("unnamedplus")
 
 opt.cmdheight = 0
+opt.splitbelow = true
 
 opt.swapfile = false
+
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup("highlight_yank", {}),
 	desc = "Hightlight selection on yank",
@@ -39,3 +42,4 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 100 })
 	end,
 })
+

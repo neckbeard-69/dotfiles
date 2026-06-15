@@ -1,16 +1,21 @@
-require("config.options")
-require("config.lazy")
-require("config.keymaps")
-require("custom.snippets.go")
-require("autocmd.macro")
+require("custom.keymaps")
+require("custom.options")
+require("lsp")
+require("custom.macro")
 
--- vim.cmd([[
---   hi Normal guibg=none ctermbg=none
---   hi NormalNC guibg=none ctermbg=none
---   hi NormalFloat guibg=none ctermbg=none
---   hi FloatBorder guibg=none ctermbg=none
---   hi SignColumn guibg=none ctermbg=none
---   hi LineNr guibg=none ctermbg=none
---   hi EndOfBuffer guibg=none ctermbg=none
--- ]])
---
+-- plugins
+vim.cmd.packadd("nvim.undotree")
+require("plugins.mini")
+require("plugins.fuzzy")
+require("plugins.colorscheme")
+require("plugins.gitsigns")
+require("plugins.compile-mode")
+require("plugins.md")
+require("plugins.multi-cursor")
+require("plugins.todo-comment")
+require("plugins.treesitter")
+require("plugins.neotest")
+require("plugins.comfy-line-nums")
+require("plugins.completion")
+require("plugins.harpoon")
+require("plugins.luasnip")

@@ -1,8 +1,8 @@
-vim.pack.add{
-  { src = 'https://github.com/neovim/nvim-lspconfig' },
-}
+vim.pack.add({
+	{ src = "https://github.com/neovim/nvim-lspconfig" },
+})
 
-local lsps = {"lua_ls", "gopls", "ts_ls"}
+local lsps = { "lua_ls", "gopls", "ts_ls", "golangci_lint_ls" }
 
 for _, lsp in ipairs(lsps) do
 	vim.lsp.enable(lsp)
@@ -21,13 +21,17 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			opts.buffer = buf
 			vim.keymap.set(mode, lhs, rhs, opts)
 		end
-
+		local fzf = require("fzf-lua")
 		set_lsp_keymap("n", "<leader>rn", vim.lsp.buf.rename)
 
 		set_lsp_keymap({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action)
 		set_lsp_keymap("n", "<leader>gD", vim.lsp.buf.declaration)
-		set_lsp_keymap("n", "<leader>gd", vim.lsp.buf.definition)
 		set_lsp_keymap("i", "<C-s>", vim.lsp.buf.signature_help)
+		set_lsp_keymap("n", "<leader>gd", fzf.lsp_definitions)
+		set_lsp_keymap("n", "<leader>gi", fzf.lsp_implementations)
+		set_lsp_keymap("n", "<leader>gt", fzf.lsp_typedefs)
+		set_lsp_keymap("n", "<leader>gR", fzf.lsp_references)
+		set_lsp_keymap("n", "<leader>gO", fzf.lsp_document_symbols)
 		vim.keymap.set("n", "<leader>l", function()
 			vim.diagnostic.open_float({
 				focusable = true,

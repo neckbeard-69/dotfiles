@@ -1,4 +1,4 @@
-vim.pack.add({"https://github.com/ibhagwan/fzf-lua"})
+vim.pack.add({ "https://github.com/ibhagwan/fzf-lua" })
 
 local fzf = require("fzf-lua")
 
@@ -6,6 +6,7 @@ fzf.setup({
 	fzf_bin = "sk",
 	ui_select = true,
 	file_icons = "mini",
+	fzf_colors = true,
 })
 
 vim.keymap.set("n", "<leader><leader>", fzf.oldfiles, { silent = true })

@@ -5,7 +5,7 @@ function tms
         set base ~/Projects/
         set level1 (find $base -mindepth 1 -maxdepth 1 -type d)
         set level2 (find $base -mindepth 2 -maxdepth 2 -type d \( -name backend -o -name frontend \))
-        set selected (printf "%s\n" $level1 $level2 | fzf)
+        set selected (printf "%s\n" $level1 $level2 | sk)
     end
 
     if test -z "$selected"

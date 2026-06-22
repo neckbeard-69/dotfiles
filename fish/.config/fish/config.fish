@@ -8,6 +8,7 @@ alias ls='eza --group-directories-first --icons --git --color=always -F'
 alias c="clear"
 alias e="exit"
 alias emu="env QT_QPA_PLATFORM=xcb emulator -avd flutter_emulator"
+alias lst="ls -T"
 
 eval (ssh-agent -c) >/dev/null 2>&1
 
@@ -43,9 +44,6 @@ set -x WLR_DRM_NO_MODIFIERS 1
 set -x EDITOR nvim
 set -x VISUAL nvim
 
-# keybinds
-bind ctrl-n 'fzf | xargs nvim'
-bind ctrl-f 'cd (fzf | xargs dirname)'
 
 # pnpm
 set -gx PNPM_HOME "/home/mohammed/.local/share/pnpm"

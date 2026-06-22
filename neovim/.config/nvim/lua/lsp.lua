@@ -15,7 +15,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			return
 		end
 		local buf = args.buf
-
 		local function set_lsp_keymap(mode, lhs, rhs, opts)
 			opts = opts or {}
 			opts.buffer = buf

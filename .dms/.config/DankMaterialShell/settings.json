@@ -6,7 +6,7 @@
     "catppuccin": {
       "dark": {
         "flavor": "mocha",
-        "accent": "flamingo"
+        "accent": "maroon"
       }
     },
     "gruvboxMaterial": "medium"
@@ -208,8 +208,8 @@
   "networkPreference": "ethernet",
   "iconTheme": "System Default",
   "cursorSettings": {
-    "theme": "System Default",
-    "size": 24,
+    "theme": "macOS",
+    "size": 28,
     "niri": {
       "hideWhenTyping": false,
       "hideAfterInactiveMs": 0
@@ -230,7 +230,7 @@
   "launcherLogoBrightness": 0.5,
   "launcherLogoContrast": 1,
   "launcherLogoSizeOffset": 0,
-  "fontFamily": "Inter Variable",
+  "fontFamily": "Noto Sans Arabic UI",
   "monoFontFamily": "JetBrainsMonoNL Nerd Font",
   "fontWeight": 400,
   "fontScale": 1,
@@ -277,7 +277,7 @@
   "muxCustomCommand": "",
   "muxSessionFilter": "",
   "runDmsMatugenTemplates": true,
-  "matugenTemplateGtk": true,
+  "matugenTemplateGtk": false,
   "matugenTemplateNiri": true,
   "matugenTemplateHyprland": true,
   "matugenTemplateMangowc": true,
@@ -285,7 +285,7 @@
   "matugenTemplateQt6ct": true,
   "matugenTemplateFirefox": true,
   "matugenTemplatePywalfox": true,
-  "matugenTemplateZenBrowser": true,
+  "matugenTemplateZenBrowser": false,
   "matugenTemplateVesktop": true,
   "matugenTemplateEquibop": true,
   "matugenTemplateGhostty": false,
@@ -304,7 +304,7 @@
   "dockSmartAutoHide": false,
   "dockGroupByApp": false,
   "dockOpenOnOverview": false,
-  "dockPosition": 1,
+  "dockPosition": 0,
   "dockSpacing": 4,
   "dockBottomGap": 0,
   "dockMargin": 0,
@@ -430,10 +430,8 @@
       "name": "Main Bar",
       "enabled": true,
       "position": 1,
-      "screenPreferences": [
-        "all"
-      ],
-      "showOnLastDisplay": true,
+      "screenPreferences": [],
+      "showOnLastDisplay": false,
       "leftWidgets": [
         {
           "id": "launcherButton",
@@ -483,7 +481,7 @@
       "fontScale": 1.07,
       "autoHide": true,
       "autoHideDelay": 250,
-      "showOnWindowsOpen": false,
+      "showOnWindowsOpen": true,
       "openOnOverview": false,
       "visible": true,
       "popupGapsAuto": true,
@@ -495,7 +493,8 @@
       "shadowIntensity": 0,
       "shadowOpacity": 60,
       "shadowColorMode": "text",
-      "shadowCustomColor": "#000000"
+      "shadowCustomColor": "#000000",
+      "clickThrough": false
     }
   ],
   "desktopClockEnabled": false,

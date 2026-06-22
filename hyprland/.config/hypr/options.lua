@@ -9,7 +9,6 @@ end)
 
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
 
-
 hl.config({
 	input = {
 		repeat_rate = 50,
@@ -17,28 +16,27 @@ hl.config({
 		sensitivity = 0,
 
 		touchpad = {
-			natural_scroll = true
-		}
+			natural_scroll = true,
+		},
 	},
 	general = {
-		gaps_in = 5,
-		gaps_out = 5,
+		gaps_in = 3,
+		gaps_out = 3,
 	},
 	decoration = {
 		inactive_opacity = 0.9,
 		rounding = 4,
 		blur = {
-			enabled = false
-		}
+			enabled = false,
+		},
 	},
 	animations = {
-		enabled = false
+		enabled = false,
 	},
-
 })
 hl.workspace_rule({
 	workspace = "w[tv1]",
 	gaps_in = 0,
 	gaps_out = 0,
-	no_border = true
+	no_border = true,
 })

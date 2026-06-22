@@ -6,7 +6,7 @@ vim.pack.add({
 
 	-- dependencies
 	"https://github.com/L3MON4D3/LuaSnip",
-	"https://github.com/rafamadriz/friendly-snippets"
+	"https://github.com/rafamadriz/friendly-snippets",
 })
 
 require("blink.cmp").setup({
@@ -26,7 +26,7 @@ require("blink.cmp").setup({
 		menu = {
 			draw = {
 				columns = {
-					{ "label",     "label_description", gap = 3 },
+					{ "label", "label_description", gap = 3 },
 					{ "kind_icon", "kind" },
 				},
 			},
@@ -37,6 +37,6 @@ require("blink.cmp").setup({
 	},
 	snippets = { preset = "luasnip" },
 
-	fuzzy = { implementation = "prefer_rust_with_warning" },
+	fuzzy = { implementation = "prefer_rust" },
 	signature = { enabled = true },
 })

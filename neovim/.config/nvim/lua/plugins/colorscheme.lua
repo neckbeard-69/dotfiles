@@ -1,6 +1,6 @@
-vim.pack.add({"https://github.com/rebelot/kanagawa.nvim"})
+vim.pack.add({ "https://github.com/rebelot/kanagawa.nvim" })
 
-require('kanagawa').setup {
+require("kanagawa").setup({
 	terminalColors = true,
 	colors = { theme = { all = { ui = { bg_gutter = "none" } } } },
 
@@ -31,6 +31,6 @@ require('kanagawa').setup {
 				BlinkCmpSignatureHelpBorder = { fg = "#3b3b4f", bg = "#1F1F28" },
 			}
 		end,
-	})
-}
+	}),
+})
 vim.cmd.colorscheme("kanagawa-wave")

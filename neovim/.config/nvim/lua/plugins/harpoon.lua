@@ -1,10 +1,9 @@
 vim.pack.add({
 	{
 		src = "https://github.com/ThePrimeagen/harpoon",
-		version = "harpoon2"
-	}
+		version = "harpoon2",
+	},
 })
-
 
 local harpoon = require("harpoon")
 harpoon:setup()
@@ -18,12 +17,12 @@ set("n", "<leader>ha", function()
 	print("buffer added")
 end)
 
-set("n", "<A-n>", function()
-	harpoon:list():next({ ui_nav_wrap = true })
-end)
-set("n", "<A-p>", function()
-	harpoon:list():prev({ ui_nav_wrap = true })
-end)
+-- set("n", "<A-n>", function()
+-- 	harpoon:list():next({ ui_nav_wrap = true })
+-- end)
+-- set("n", "<A-p>", function()
+-- 	harpoon:list():prev({ ui_nav_wrap = true })
+-- end)
 
 for i = 1, 9 do
 	set("n", string.format("<A-%d>", i), function()

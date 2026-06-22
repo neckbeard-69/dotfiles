@@ -16,6 +16,9 @@ exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id swaync 
 # exec --no-startup-id autotiling 
 exec --no-startup-id bash ~/dotfiles/.bin/battery-alert
+exec --no-startup-id swayosd-server
+
+output * bg ./wallpaper.jpg fill
 # for_window [app_id=".*"] border none
 
 # options: 
@@ -48,21 +51,21 @@ input "type:keyboard" {
 #     scale 0.9
 # }
 
-# bar {
-#     status_command i3status-rs ~/.config/i3status-rust/config.toml
-#     mode hide
-#     modifier $mod
-#     font pango:JetBrainsMono Nerd Font, FontAwesome 12 
-#     colors {
-#         separator            #4B565C
-#             background           #2B3339
-#             statusline           #D3C6AA
-#             focused_workspace    #A7C080 #A7C080 #2B3339
-#             active_workspace     #3C4841 #3C4841 #D3C6AA
-#             inactive_workspace   #3C4841 #3C4841 #7A8478
-#             urgent_workspace     #E67E80 #E67E80 #2B3339
-#     }
-# }
+bar {
+    status_command i3status-rs
+    mode hide
+    modifier $mod
+    font pango:JetBrainsMono Nerd Font, FontAwesome 12 
+    colors {
+        separator            #4B565C
+            background           #2B3339
+            statusline           #D3C6AA
+            focused_workspace    #A7C080 #A7C080 #2B3339
+            active_workspace     #3C4841 #3C4841 #D3C6AA
+            inactive_workspace   #3C4841 #3C4841 #7A8478
+            urgent_workspace     #E67E80 #E67E80 #2B3339
+    }
+}
 
 
 # keybinds:
@@ -76,12 +79,20 @@ bindsym $mod+space exec rofi -show drun
 # bindsym $mod+shift+b exec gammastep -l 0:0 -O 4500:4500
 bindsym $mod+q kill
 bindsym $mod+n exec swaync-client -t
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym F4 exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+
+# BRIGHTNESS
+bindsym XF86MonBrightnessUp exec swayosd-client --brightness +5
+bindsym XF86MonBrightnessDown exec swayosd-client --brightness -5
+
+# VOLUME
+bindsym XF86AudioRaiseVolume exec swayosd-client --output-volume +5
+bindsym XF86AudioLowerVolume exec swayosd-client --output-volume -5
+
+# OUTPUT MUTE
+bindsym XF86AudioMute exec swayosd-client --output-volume mute-toggle
+
+# MICROPHONE MUTE
+bindsym F4 exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && swayosd-client --input-volume mute-toggle
 
 # change focus
 bindsym $mod+h focus left
@@ -104,7 +115,7 @@ bindsym $mod+e layout toggle split
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+v focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent

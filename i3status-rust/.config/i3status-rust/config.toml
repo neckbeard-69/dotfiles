@@ -1,0 +1,42 @@
+icons_format = "{icon}"
+
+[theme]
+theme = "gruvbox-dark"
+[theme.overrides]
+idle_bg = "#1F1F28" # sumiInk1
+idle_fg = "#DCD7BA" # oldWhite
+
+good_fg = { link = "warning_fg" }
+good_bg = { link = "warning_bg" }
+warning_fg = { link = "good_fg" }
+warning_bg = { link = "good_bg" }
+
+[icons]
+icons = "awesome4"
+
+[[block]]
+block = "battery"
+full_format = " $icon $percentage "
+charging_format = " $icon $percentage 󱐋 "
+[block.theme_overrides]
+good_bg = "#76946A" # autumnGreen
+good_fg = "#1F1F28" # sumiInk1
+idle_bg = "#76946A" # autumnGreen
+idle_fg = "#1F1F28" # sumiInk1
+
+[[block]]
+block = "sound"
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+[block.theme_overrides]
+idle_bg = "#938AA9" # oniViolet (or #E46876 for sakuraPink / #E82424 for springCrimson)
+idle_fg = "#1F1F28"
+
+[[block]]
+block = "time"
+interval = 5
+format = " $timestamp.datetime(f:'%a %d/%m %R') "
+[block.theme_overrides]
+idle_bg = "#7E9CD8" # crystalBlue
+idle_fg = "#1F1F28"

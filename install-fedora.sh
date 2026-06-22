@@ -2,10 +2,10 @@
 # a script to set up my work laptop on fedora
 
 # stow configs ---
-stow neovim fish tmux .sway ghostty
+stow neovim fish tmux sway ghostty mako
 # ---
 
-sudo dnf install sway neovim fish tmux stow docker lazygit lazydocker swaync rofi git ufw grim slurp
+sudo dnf install sway neovim fish tmux stow docker lazygit lazydocker rofi git ufw grim slurp mako swaybg wlsunset
 
 # Go ---
 sudo dnf install golang
@@ -19,9 +19,14 @@ sudo dnf copr enable scottames/ghostty
 sudo dnf install ghostty
 # ---
 
+# swayosd ---
+dnf copr enable erikreider/swayosd
+dnf install swayosd
+# ---
+
 # i3status-rust ---
-# sudo dnf copr enable alternateved/i3status-rust
-# sudo dnf install i3status-rust
+sudo dnf copr enable alternateved/i3status-rust
+sudo dnf install i3status-rust
 # ---
 
 # satty ---

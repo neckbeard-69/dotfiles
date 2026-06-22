@@ -1,0 +1,45 @@
+group-by=app-name
+layer=overlay
+anchor=top-right
+max-visible=5
+
+font=Inter 11
+markup=1
+
+width=420
+height=100
+outer-margin=20
+padding=16
+margin=12
+border-size=1
+border-radius=14
+
+icons=1
+max-icon-size=48
+icon-location=left
+icon-border-radius=10
+
+default-timeout=5000
+ignore-timeout=1
+history=1
+max-history=10
+sort=-time
+
+format=<b>%s</b>\n%b
+
+background-color=#2E3440FF
+text-color=#ECEFF4FF
+border-color=#88C0D0FF
+progress-color=over #88C0D0FF
+
+[urgency=critical]
+background-color=#4C566AFF
+text-color=#ECEFF4FF
+border-color=#BF616AFF
+default-timeout=0
+
+[grouped]
+format=(%g) <b>%s</b>\n%b
+
+[hidden]
+format=󰇚 %h more notifications

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sleep 10
+sleep 3
 
 notify-send --urgency=low "Script Started" "Battery alert script is now running"
 

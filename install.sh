@@ -36,7 +36,6 @@ for dir in $directories; do
     echo "Stowing $dir ..."
     stow "$dir"
 done
-stow .dms
 echo "Stowing complete. Now installing packages..."
 
 for dir in $directories; do
@@ -90,7 +89,6 @@ starship preset nerd-font-symbols -o ~/.config/starship.toml
 fish -c "fish_vi_key_bindings"
 
 
-curl -fsSL https://install.danklinux.com | sh
 # Some additional settings
 sudo systemctl enable docker --now
 sudo usermod -aG docker $USER

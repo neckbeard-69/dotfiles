@@ -1,4 +1,4 @@
-vim.pack.add({"https://github.com/nvim-mini/mini.nvim"})
+vim.pack.add({ "https://github.com/nvim-mini/mini.nvim" })
 
 require("mini.ai").setup()
 require("mini.statusline").setup()
@@ -15,6 +15,7 @@ require("mini.files").setup({
 	},
 	options = {
 		permanent_delete = false,
+		use_as_default_explorer = true,
 	},
 	windows = {
 		preview = false,
@@ -28,4 +29,3 @@ vim.keymap.set("n", "<CR>", function()
 	MiniFiles.go_in({ close_on_file = true })
 	-- MiniFiles.trim_left()
 end)
-

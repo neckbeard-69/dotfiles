@@ -3,7 +3,7 @@ require("custom.options")
 require("lsp")
 require("custom.macro")
 
-require("vim._core.ui2").enable({})
+-- require("vim._core.ui2").enable({})
 -- plugins
 vim.cmd.packadd("nvim.undotree")
 vim.cmd.packadd("nvim.difftool")

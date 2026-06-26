@@ -6,7 +6,7 @@ set $mod Mod4
 
 set $terminal ghostty
 set $file_manager nautilus 
-set $browser zen-browser
+set $browser brave-origin
 floating_modifier $mod
 
 # start on load:
@@ -20,6 +20,14 @@ exec --no-startup-id swayosd-server
 
 output * bg ./wallpaper.jpg fill
 # for_window [app_id=".*"] border none
+
+# window rules
+for_window [workspace="1"] {
+	floating enable
+	move position cetner
+} 
+for_window [workspace="1" app_id="brave_origin"] floating disable
+
 
 # options: 
 
@@ -55,16 +63,16 @@ bar {
     status_command i3status-rs
     mode hide
     modifier $mod
-    font pango:JetBrainsMono Nerd Font, FontAwesome 12 
-    colors {
-        separator            #4B565C
-            background           #2B3339
-            statusline           #D3C6AA
-            focused_workspace    #A7C080 #A7C080 #2B3339
-            active_workspace     #3C4841 #3C4841 #D3C6AA
-            inactive_workspace   #3C4841 #3C4841 #7A8478
-            urgent_workspace     #E67E80 #E67E80 #2B3339
-    }
+    font pango:JetBrainsMono Nerd Font, FontAwesome 10
+	colors {
+		separator            #54546D
+		background           #1F1F28
+		statusline           #DCD7BA
+		focused_workspace    #7E9CD8 #7E9CD8 #1F1F28
+		active_workspace     #2A2A37 #2A2A37 #DCD7BA
+		inactive_workspace   #2A2A37 #2A2A37 #727169
+		urgent_workspace     #E82424 #E82424 #DCD7BA
+	}
 }
 
 

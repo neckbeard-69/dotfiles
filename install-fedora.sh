@@ -5,6 +5,7 @@
 stow neovim fish tmux sway ghostty mako
 # ---
 
+sudo dnf update
 sudo dnf install sway neovim fish tmux stow docker lazygit lazydocker rofi git ufw grim slurp mako swaybg wlsunset
 
 # Go ---
@@ -17,6 +18,12 @@ sudo dnf install golangci-lint
 # ghostty ---
 sudo dnf copr enable scottames/ghostty
 sudo dnf install ghostty
+# ---
+
+# brave origin ---
+sudo dnf install dnf-plugins-core
+sudo dnf config-manager addrepo --from-repofile=https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+sudo dnf install brave-origin
 # ---
 
 # swayosd ---
@@ -37,12 +44,6 @@ sudo dnf install satty
 # keyd ---
 sudo dnf copr enable alternateved/keyd
 sudo dnf install keyd
-# ---
-
-
-# zen browser ---
-sudo dnf copr enable sneexy/zen-browser
-sudo dnf install zen-browser
 # ---
 
 # other

@@ -51,3 +51,8 @@ vim.filetype.add({
 		[".env.*"] = "dosini",
 	},
 })
+vim.filetype.add({
+	pattern = {
+		[".*/%.config/sway/.*%.conf"] = "swayconfig",
+	},
+})

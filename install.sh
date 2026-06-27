@@ -57,6 +57,7 @@ packages=(
   adw-gtk-theme ttf-jetbrains-mono-nerd nautilus file-roller unzip p7zip unrar
   qt5-base qt5-wayland qt6-base qt6-wayland # dependencies
   discord 
+	rofi-wayland
   quickshell
   yay
   power-profiles-daemon pipewire-pulse

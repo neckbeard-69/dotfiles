@@ -1,4 +1,4 @@
-# Edit this configuration file to define what should be installed on
+
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
@@ -21,6 +21,7 @@
   programs.niri.enable = true;
   programs.firefox.enable = false;
   programs.fish.enable = true;
+	programs.openvpn3.enable = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -30,12 +31,21 @@
   services.displayManager.gdm.enable = false;
   services.displayManager.ly.enable = true;
   services.xserver.enable = true;
+services.resolved.enable = true;
   services.xserver.xkb = {
     layout = "us";
     variant = "";
   };
   services.printing.enable = true;
   services.keyd.enable = true;
+
+	xdg.portal = {
+		enable = true;
+		xdgOpenUsePortal = true;
+		extraPortals = with pkgs; [
+			xdg-desktop-portal-gtk
+		];
+};
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -101,7 +111,8 @@
 	lazydocker
 	rustc
 	gcc
-	openvpn3
+	eza
+	wl-clipboard
   ];
 
   # Open ports in the firewall.

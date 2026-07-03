@@ -2,6 +2,6 @@
 
 # link nixos config
 sudo rm /etc/nixos/configuration.nix
-ln -s ./configuration.nix /etc/nixos
+sudo ln -s /home/mohammed/dotfiles/nix/configuration.nix /etc/nixos/configuration.nix
 
 sudo nixos-rebuild switch

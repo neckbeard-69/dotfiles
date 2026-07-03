@@ -1,28 +1,33 @@
 #!/bin/sh
 
+cd ../
+
 echo "linking fish.."
 rm -rf ~/.config/fish
-stow ../fish
+stow fish
 
 echo "linking nvim..."
-stow ../neovim
+stow neovim
 
 echo "linking ghostty..."
-stow ../ghostty
+stow ghostty
 
 echo "linking niri..."
-stow ../niri
+stow niri
 
 echo "linking tmux..."
-stow ../tmux
+stow tmux
 
 echo "linking yazi..."
-stow ../yazi
+stow yazi
 
 echo "linking dms.."
-stow ../dms
+stow dms
 
 echo "linking fastfech..."
-stow ../fastfetch
+stow fastfetch
 
 starship preset nerd-font-symbols -o ~/.config/starship.toml
+
+sudo mkdir -p /etc/keyd
+sudo cp ./default.conf /etc/keyd/

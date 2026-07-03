@@ -28,6 +28,11 @@ spawn-at-startup "swaybg" \
 environment {
     XDG_CURRENT_DESKTOP "niri"
 }
+
+cursor {
+	xcursor-theme "Adwaita"
+}
+
 input {
 
     keyboard {
@@ -297,7 +302,7 @@ layout {
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
-spawn-sh-at-startup "dms"
+spawn-sh-at-startup "dms run"
 spawn-sh-at-startup "$HOME/dotfiles/.bin/battery-alert"
 hotkey-overlay {
 	// Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
@@ -387,7 +392,7 @@ binds {
     // Applications
     Mod+Return { spawn "ghostty"; }
     Mod+Space { spawn-sh "dms ipc launcher toggle"; }
-    Mod+B { spawn "brave-origin"; }
+    Mod+B { spawn "brave"; }
     Mod+F { spawn "nautilus"; }
     Mod+N { spawn "swaync-client" "-t"; }
     Mod+Delete { spawn-sh "loginctl lock-session"; }

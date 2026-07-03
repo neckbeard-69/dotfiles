@@ -1,3 +1,5 @@
+#!/bin/sh
+
 echo "linking fish.."
 rm -rf ~/.config/fish
 stow ../fish

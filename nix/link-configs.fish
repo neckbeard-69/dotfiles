@@ -17,4 +17,10 @@ stow ../tmux
 echo "linking yazi..."
 stow ../yazi
 
+echo "linking dms.."
+stow ../dms
+
+echo "linking fastfech..."
+stow ../fastfetch
+
 starship preset nerd-font-symbols -o ~/.config/starship.toml

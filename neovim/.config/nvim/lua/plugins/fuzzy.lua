@@ -24,7 +24,6 @@ vim.keymap.set("n", "<leader>ff", fzf.files, { silent = true })
 vim.keymap.set("n", "<leader>fc", fzf.changes, { silent = true })
 vim.keymap.set("n", "<leader>fs", fzf.colorschemes, { silent = true })
 vim.keymap.set("n", "<leader>fh", fzf.helptags, { silent = true })
-vim.keymap.set("n", "<leader>fr", fzf.registers, { silent = true })
 vim.keymap.set("n", "<leader>fk", fzf.keymaps, { silent = true })
 vim.keymap.set("n", "<leader>fo", fzf.nvim_options, { silent = true })
 

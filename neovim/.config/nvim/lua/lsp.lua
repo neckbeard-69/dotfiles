@@ -29,7 +29,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		set_lsp_keymap("n", "<leader>gd", fzf.lsp_definitions)
 		set_lsp_keymap("n", "<leader>gi", fzf.lsp_implementations)
 		set_lsp_keymap("n", "<leader>gt", fzf.lsp_typedefs)
-		set_lsp_keymap("n", "<leader>gR", fzf.lsp_references)
+		set_lsp_keymap("n", "<leader>fr", fzf.lsp_references)
 		set_lsp_keymap("n", "<leader>gO", fzf.lsp_document_symbols)
 		vim.keymap.set("n", "<leader>l", function()
 			vim.diagnostic.open_float({

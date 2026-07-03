@@ -36,7 +36,7 @@ fish_add_path $HOME/.pub-cache/bin
 
 # Set environment variables
 set -x QT_QPA_PLATFORM wayland
-set -x XDG_CURRENT_DESKTOP sway
+set -x XDG_CURRENT_DESKTOP niri
 set -x GDK_BACKEND "wayland,x11"
 set -x MOZ_ENABLE_WAYLAND 1
 set -x QT_QPA_PLATFORMTHEME qt5ct
@@ -52,3 +52,6 @@ if not string match -q -- $PNPM_HOME $PATH
 end
 # pnpm end
 # set -gx ANDROID_HOME $HOME/Android/Sdk
+
+# Added by GitButler installer
+but completions fish | source

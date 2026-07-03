@@ -1,36 +1,15 @@
-#!/bin/bash
+#!/usr/bin/env fish
 
-OUTPUT_DIR="${XDG_PICTURES_DIR:-$HOME/Pictures}"
-EDIT=false
+set satty_args \
+    -f - \
+    --copy-command wl-copy \
+    -o "$HOME/Pictures/Screenshots/%Y%m%d_%H%M%S.png"
 
-for arg in "$@"; do
-    case $arg in
-        --edit)
-            EDIT=true
-            shift
-            ;;
-    esac
-done
+if test "$argv[1]" = "full"
+    grim - | satty $satty_args
+    exit 0
+end
 
-if [[ ! -d "$OUTPUT_DIR" ]]; then
-    mkdir -p "$OUTPUT_DIR"
-fi
+set region (slurp); or exit 0
 
-TEMP_FILE="$(mktemp /tmp/screenshot-XXXXXX.png)"
-FINAL_FILE="$OUTPUT_DIR/screenshot-$(date +'%Y-%m-%d_%H-%M-%S').png"
-
-grim -g "$(slurp)" "$TEMP_FILE"
-
-if [ "$EDIT" = true ]; then
-    satty --filename "$TEMP_FILE" \
-        --output-filename "$FINAL_FILE" \
-        --early-exit \
-        --actions-on-enter save-to-clipboard \
-        --save-after-copy \
-        --copy-command 'wl-copy'
-else
-    cp "$TEMP_FILE" "$FINAL_FILE"
-    wl-copy < "$FINAL_FILE"
-fi
-
-rm -f "$TEMP_FILE"
+grim -g "$region" - | satty $satty_args

@@ -1,5 +1,12 @@
 vim.pack.add({ "https://github.com/catppuccin/nvim" })
+ vim.cmd.colorscheme("catppuccin")
 
+
+
+
+
+-- In case I'm back to kanagawa
+--
 -- require("kanagawa").setup({
 -- 	terminalColors = true,
 -- 	colors = { theme = { all = { ui = { bg_gutter = "none" } } } },
@@ -33,6 +40,3 @@ vim.pack.add({ "https://github.com/catppuccin/nvim" })
 -- 		end,
 -- 	}),
 -- })
- vim.cmd.colorscheme("catppuccin")
---
-

@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "Deleting system generations older than the newest 2..."
+sudo nix-env \
+  --profile /nix/var/nix/profiles/system \
+  --delete-generations +2
+
+echo "Deleting user generations older than the newest 2..."
+nix-env \
+  --profile ~/.local/state/nix/profiles/profile \
+  --delete-generations +2 2>/dev/null || true
+
+echo "Collecting garbage..."
+sudo nix-collect-garbage
+
+echo "Optimizing store..."
+sudo nix-store --optimise
+
+echo "Rebuilding boot menu..."
+sudo nixos-rebuild boot
+
+echo "Done."

@@ -27,6 +27,14 @@ spawn-at-startup "swaybg" \
     "-m" "fill"
 environment {
     XDG_CURRENT_DESKTOP "niri"
+    XDG_SESSION_DESKTOP "niri"
+    XDG_SESSION_TYPE "wayland"
+}
+
+window-rule {
+    match app-id="^$" title="^$"
+    open-floating true
+    default-floating-position x=20 y=20 relative-to="top-right"
 }
 
 cursor {
@@ -385,6 +393,12 @@ window-rule {
 	clip-to-geometry true
 }
 
+gestures {
+    hot-corners {
+        off
+    }
+}
+
 binds {
     // Show hotkey overlay
     Mod+Shift+Slash { show-hotkey-overlay; }
@@ -394,11 +408,10 @@ binds {
     Mod+Space { spawn-sh "dms ipc launcher toggle"; }
     Mod+B { spawn "brave"; }
     Mod+F { spawn "nautilus"; }
-    Mod+N { spawn "swaync-client" "-t"; }
     Mod+Delete { spawn-sh "loginctl lock-session"; }
 
     // External screenshot script
-    Print { spawn-sh "$HOME/dotfiles/.bin/screenshot"; }
+    Print { spawn "screenshot"; }
 
     // External monitor setup
     Mod+Shift+X {

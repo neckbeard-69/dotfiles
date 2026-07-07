@@ -19,10 +19,24 @@
 
   # programs
   programs.niri.enable = true;
-  programs.firefox.enable = false;
+  programs.hyprland.enable = true;
   programs.fish.enable = true;
 	programs.openvpn3.enable = true;
+	programs.obs-studio = {
+	  enable = true;
 
+	  plugins = with pkgs.obs-studio-plugins; [
+		obs-backgroundremoval
+		obs-pipewire-audio-capture
+		obs-gstreamer
+		obs-vkcapture
+	  ];
+	};
+environment.sessionVariables = {
+  XDG_SESSION_TYPE = "wayland";
+  XDG_CURRENT_DESKTOP = "Hyprland";
+  XDG_SESSION_DESKTOP = "Hyprland";
+};
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -31,31 +45,36 @@
   services.displayManager.gdm.enable = false;
   services.displayManager.ly.enable = true;
   services.xserver.enable = true;
-services.resolved.enable = true;
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+	services.flatpak.enable = true;
+	services.resolved.enable = true;
+	  services.xserver.xkb = {
+		layout = "us";
+		variant = "";
   };
   services.printing.enable = true;
   services.keyd.enable = true;
 
-	xdg.portal = {
-		enable = true;
-		xdgOpenUsePortal = true;
-		extraPortals = with pkgs; [
-			xdg-desktop-portal-gtk
-		];
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+    wireplumber.enable = true;
+  };
+
+
+# Portal configuration
+xdg.portal = {
+  enable = true;
+  wlr.enable = false;
+  extraPortals = [
+    pkgs.xdg-desktop-portal-gtk
+    # pkgs.xdg-desktop-portal-gnome # Often used for fallback 
+  ];
+  config.common.default = "*";
 };
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
   virtualisation.docker.enable = true;
   networking.networkmanager.enable = true;
 
@@ -113,6 +132,20 @@ services.resolved.enable = true;
 	gcc
 	eza
 	wl-clipboard
+	pavucontrol
+	slurp
+	grim
+	satty
+	air
+	jetbrains-mono
+	libnotify
+	cargo
+	lazysql
+	postgresql
+	beekeeper-studio
+	foliate
+    xdg-desktop-portal
+    xdg-desktop-portal-hyprland
   ];
 
   # Open ports in the firewall.

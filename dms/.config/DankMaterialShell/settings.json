@@ -205,10 +205,10 @@
   "dankLauncherV2UnloadOnClose": false,
   "useAutoLocation": false,
   "weatherEnabled": true,
-  "networkPreference": "auto",
+  "networkPreference": "wifi",
   "iconTheme": "System Default",
   "cursorSettings": {
-    "theme": "System Default",
+    "theme": "Adwaita",
     "size": 24,
     "niri": {
       "hideWhenTyping": false,
@@ -271,7 +271,7 @@
   "gtkThemingEnabled": false,
   "qtThemingEnabled": false,
   "syncModeWithPortal": true,
-  "terminalsAlwaysDark": false,
+  "terminalsAlwaysDark": true,
   "muxType": "tmux",
   "muxUseCustomCommand": false,
   "muxCustomCommand": "",

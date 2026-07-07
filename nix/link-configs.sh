@@ -31,3 +31,7 @@ starship preset nerd-font-symbols -o ~/.config/starship.toml
 
 sudo mkdir -p /etc/keyd
 sudo cp ./default.conf /etc/keyd/
+
+
+mkdir -p ~/.local/share/applications
+ln -s /var/lib/flatpak/exports/share/applications/*.desktop ~/.local/share/applications/

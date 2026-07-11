@@ -74,6 +74,8 @@ for i = 1, 10 do
 end
 hl.bind(main_mod .. "+ period", hl.dsp.layout("move +col"))
 hl.bind(main_mod .. "+ comma", hl.dsp.layout("move -col"))
+hl.bind(main_mod .. " + equal", hl.dsp.layout("colresize 1.0"))
+hl.bind(main_mod .. " + minus", hl.dsp.layout("colresize 0.5"))
 
 hl.bind(main_mod .. " + l", hl.dsp.layout("focus r"))
 hl.bind(main_mod .. " + h", hl.dsp.layout("focus l"))

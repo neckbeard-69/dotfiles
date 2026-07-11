@@ -42,7 +42,6 @@ environment.sessionVariables = {
 
   # services
   services.xserver.desktopManager.gnome.enable = true;
-  services.displayManager.gdm.enable = false;
   services.displayManager.ly.enable = true;
   services.xserver.enable = true;
 	services.flatpak.enable = true;
@@ -52,7 +51,21 @@ environment.sessionVariables = {
 		variant = "";
   };
   services.printing.enable = true;
-  services.keyd.enable = true;
+
+  services.keyd = {
+	enable = true;
+	keyboards = {
+			default = {
+				ids = ["*"];
+				settings = {
+					main = {
+						capslock = "overload(control, esc)";
+						esc = "capslock";
+					};
+				};
+			};
+		};
+	};
 
   services.pipewire = {
     enable = true;
@@ -67,11 +80,16 @@ xdg.portal = {
   wlr.enable = false;
   extraPortals = [
     pkgs.xdg-desktop-portal-gtk
-    # pkgs.xdg-desktop-portal-gnome # Often used for fallback 
   ];
   config.common.default = "*";
 };
+  systemd.packages = [
+    pkgs.pritunl-client
+  ];
 
+  systemd.targets.multi-user.wants = [
+    "pritunl-client.service"
+  ];
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -146,6 +164,9 @@ xdg.portal = {
 	foliate
     xdg-desktop-portal
     xdg-desktop-portal-hyprland
+	cloc
+	btop
+	repgrep
   ];
 
   # Open ports in the firewall.

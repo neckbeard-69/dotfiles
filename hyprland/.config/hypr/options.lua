@@ -1,4 +1,5 @@
 hl.on("hyprland.start", function()
+	hl.exec_cmd("hyprctl setcursor Adwaita 24")
 	hl.exec_cmd("dms run")
 	hl.exec_cmd("ystemctl --user start hyprland-session.target")
 	hl.exec_cmd("ystemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP")
@@ -8,8 +9,6 @@ hl.on("hyprland.start", function()
 end)
 
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
-hl.env("HYPRCURSOR_THEME", "Adwaita")
-hl.env("HYPRCURSOR_SIZE", "24")
 
 
 hl.config({

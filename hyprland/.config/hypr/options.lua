@@ -1,5 +1,4 @@
 hl.on("hyprland.start", function()
-	hl.exec_cmd("hyprctl setcursor Adwaita 24")
 	hl.exec_cmd("dms run")
 	hl.exec_cmd("ystemctl --user start hyprland-session.target")
 	hl.exec_cmd("ystemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP")
@@ -7,9 +6,6 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("bus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland")
 	hl.exec_cmd("/home/mohammed/dotfiles/.bin/battery-alert &")
 end)
-
-hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
-
 
 hl.config({
 	input = {
@@ -44,8 +40,8 @@ hl.config({
 
 })
 hl.monitor({
-  output = "eDP-1",
-  mode = "1920x1080@60",
-  position = "0x0",
-  scale = 1.2,
+	output = "eDP-1",
+	mode = "1920x1080@60",
+	position = "0x0",
+	scale = 1.2,
 })

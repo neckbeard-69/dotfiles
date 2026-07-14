@@ -197,7 +197,7 @@
   },
   "appDrawerSectionViewModes": {},
   "niriOverviewOverlayEnabled": true,
-  "dankLauncherV2Size": "compact",
+  "dankLauncherV2Size": "micro",
   "dankLauncherV2BorderEnabled": false,
   "dankLauncherV2BorderThickness": 2,
   "dankLauncherV2BorderColor": "primary",
@@ -205,7 +205,7 @@
   "dankLauncherV2UnloadOnClose": false,
   "useAutoLocation": false,
   "weatherEnabled": true,
-  "networkPreference": "ethernet",
+  "networkPreference": "wifi",
   "iconTheme": "System Default",
   "cursorSettings": {
     "theme": "Adwaita",
@@ -223,13 +223,13 @@
       "cursorHideTimeout": 0
     }
   },
-  "launcherLogoMode": "apps",
+  "launcherLogoMode": "os",
   "launcherLogoCustomPath": "",
   "launcherLogoColorOverride": "",
   "launcherLogoColorInvertOnMode": false,
   "launcherLogoBrightness": 0.5,
   "launcherLogoContrast": 1,
-  "launcherLogoSizeOffset": 0,
+  "launcherLogoSizeOffset": 4,
   "fontFamily": "Inter Variable",
   "monoFontFamily": "Fira Code",
   "fontWeight": 400,
@@ -237,7 +237,7 @@
   "notepadUseMonospace": true,
   "notepadFontFamily": "",
   "notepadFontSize": 14,
-  "notepadShowLineNumbers": false,
+  "notepadShowLineNumbers": true,
   "notepadTransparencyOverride": -1,
   "notepadLastCustomTransparency": 0.7,
   "soundsEnabled": true,
@@ -546,7 +546,11 @@
   "desktopWidgetGridSettings": {},
   "desktopWidgetInstances": [],
   "desktopWidgetGroups": [],
-  "builtInPluginSettings": {},
+  "builtInPluginSettings": {
+    "dms_settings_search": {
+      "trigger": "?"
+    }
+  },
   "clipboardEnterToPaste": false,
   "launcherPluginVisibility": {},
   "launcherPluginOrder": [],

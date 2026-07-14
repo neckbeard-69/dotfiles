@@ -166,7 +166,9 @@ xdg.portal = {
     xdg-desktop-portal-hyprland
 	cloc
 	btop
-	repgrep
+	ripgrep
+	nodejs
+	lua-language-server
   ];
 
   # Open ports in the firewall.

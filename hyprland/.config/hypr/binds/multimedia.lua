@@ -19,7 +19,7 @@ local binds = {
 	},
 	{
 		key = "F4",
-		action = exec("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
+		action = exec("dms ipc call audio micmute"),
 		opts = { locked = true, repeating = true },
 	},
 	{

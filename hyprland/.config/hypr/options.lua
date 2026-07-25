@@ -4,7 +4,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("ystemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP")
 	hl.exec_cmd("bus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 	hl.exec_cmd("bus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland")
-	hl.exec_cmd("/home/mohammed/dotfiles/.bin/battery-alert &")
+	-- hl.exec_cmd("/home/mohammed/dotfiles/.bin/battery-alert &")
 end)
 
 hl.config({
@@ -36,6 +36,9 @@ hl.config({
 	scrolling = {
 		column_width = 1.0,
 		wrap_focus = true
+	},
+	misc = {
+		disable_autoreload = true,
 	}
 
 })

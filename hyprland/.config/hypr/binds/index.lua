@@ -5,10 +5,21 @@ require("binds.multimedia")
 local exec = hl.dsp.exec_cmd
 
 local main_mod = "SUPER"
+local function reload_config(_)
+	return function()
+		hl.exec_cmd("hyprctl reload")
+		hl.notification.create({
+			text = "\n\tConfig Reloaded\t\n",
+			timeout = 2500,
+			color = "#a00aff",
+			font_size = 16,
+		})
+	end
+end
 
 ---@type Bind[]
 local binds = {
-	{ key = "SUPER + SHIFT + r", action = hl.dsp.exec_raw("hyprctl reload") },
+	{ key = "SUPER + SHIFT + r", action = reload_config() },
 	{ key = main_mod .. " + c",  action = hl.dsp.exec_raw("dms color pick -a") },
 	{ key = "Print",             action = exec("~/dotfiles/.bin/screenshot --edit") },
 	{ key = main_mod .. " + s",  action = exec("~/dotfiles/.bin/screenshot") },

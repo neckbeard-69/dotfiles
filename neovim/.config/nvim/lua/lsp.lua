@@ -2,7 +2,7 @@ vim.pack.add({
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
 })
 
-local lsps = { "lua_ls", "gopls", "ts_ls", "golangci_lint_ls" }
+local lsps = { "lua_ls", "gopls", "ts_ls", "golangci_lint_ls", "nil_ls" }
 
 for _, lsp in ipairs(lsps) do
 	vim.lsp.enable(lsp)
@@ -41,4 +41,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end)
 	end,
 })
-

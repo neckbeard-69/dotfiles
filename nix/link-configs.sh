@@ -27,6 +27,9 @@ stow dms
 echo "linking fastfech..."
 stow fastfetch
 
+echo "linking vs codium..."
+stow vs-codium
+
 starship preset nerd-font-symbols -o ~/.config/starship.toml
 
 sudo mkdir -p /etc/keyd

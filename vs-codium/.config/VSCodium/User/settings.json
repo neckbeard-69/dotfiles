@@ -1,0 +1,87 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+// --- VS Code Vim Keymaps ---
+"vim.leader": "<space>", 
+  // Normal Mode Remaps
+
+  "vim.normalModeKeyBindingsNonRecursive": [
+    { "before": ["<leader>", "n", "h"], "after": [":", "n", "o", "h", "<CR>"] },
+    { "before": ["<C-d>"], "after": ["<C-d>", "z", "z"] },
+    { "before": ["<C-u>"], "after": ["<C-u>", "z", "z"] },
+    { "before": ["<C-j>"], "after": ["G"] },
+    { "before": ["<C-k>"], "after": ["g", "g"] },
+    { "before": ["<C-l>"], "after": ["$"] },
+    { "before": ["<C-h>"], "after": ["0"] },
+    { "before": ["<C-s>"], "after": [":", "w", "<CR>"] },
+    { "before": ["<C-z>"], "after": [] },
+    { "before": ["<leader>", "<leader>"], "commands": ["workbench.action.openRecent"] }, // oldfiles
+    { "before": ["<leader>", "g", "g"], "commands": ["workbench.action.findInFiles"] }, // grep
+    { "before": ["<leader>", "g", "l"], "commands": ["workbench.action.findInFiles"] }, // live_grep
+    { "before": ["<leader>", "g", "b"], "commands": ["actions.find"] }, // grep_curbuf
+    { "before": ["<leader>", "g", "w"], "commands": ["workbench.action.findInFiles", { "args": { "query": "${selectedText}" } }] }, // grep_cword (requires selecting word or native behavior)
+    { "before": ["<leader>", "g", "q"], "commands": ["workbench.action.problems.focus"] }, // grep_quickfix -> VS Code Problems Pane
+    
+    { "before": ["<leader>", "f", "f"], "commands": ["workbench.action.quickOpen"] }, // files (Go to File)
+    { "before": ["<leader>", "f", "c"], "commands": ["workbench.action.showAllSymbols"] }, // changes / symbols
+    { "before": ["<leader>", "f", "s"], "commands": ["workbench.action.selectTheme"] }, // colorschemes
+    { "before": ["<leader>", "f", "h"], "commands": ["workbench.action.openGlobalKeybindings"] }, // helptags / documentation alternative
+    { "before": ["<leader>", "f", "k"], "commands": ["workbench.action.openGlobalKeybindings"] }, // keymaps
+    { "before": ["<leader>", "f", "o"], "commands": ["workbench.action.openSettingsJson"] }, // nvim_options -> settings.json
+    
+    { "before": ["<leader>", "p"], "commands": ["workbench.action.showCommands"] }, // builtin -> Command Palette
+    { "before": ["<leader>", "d"], "commands": ["workbench.actions.view.problems"] }, // diagnostics_document
+    { "before": ["<leader>", "D"], "commands": ["workbench.actions.view.problems"] },
+    // --- LSP / Intellisense Keymaps ---
+    { "before": ["<leader>", "r", "n"], "commands": ["editor.action.rename"] },
+    { "before": ["<leader>", "c", "a"], "commands": ["editor.action.quickFix"] }, // Code Actions
+    { "before": ["<leader>", "g", "D"], "commands": ["editor.action.revealDeclaration"] },
+    { "before": ["<leader>", "g", "d"], "commands": ["editor.action.goToDeclaration"] }, // fzf.lsp_definitions -> Go to Def
+    { "before": ["<leader>", "g", "i"], "commands": ["editor.action.goToImplementation"] },
+    { "before": ["<leader>", "g", "t"], "commands": ["editor.action.goToTypeDefinition"] },
+    { "before": ["<leader>", "f", "r"], "commands": ["references-view.findReferences"] }, // fzf.lsp_references -> Peak/Find References
+    { "before": ["<leader>", "g", "O"], "commands": ["workbench.action.gotoSymbol"] }, // fzf.lsp_document_symbols -> Outline
+    { "before": ["<leader>", "l"], "commands": ["editor.action.showHover"] },
+    { "before": ["K"], "commands": ["editor.action.showHover"] }
+  ],
+  "vim.normalModeKeyBindings": [
+    { "before": ["m"], "after": ["%"] },
+{ "before": ["<leader>", "c", "a"], "commands": ["editor.action.quickFix"] } // Code Actions for visual selection
+  ],
+
+  // Visual Mode Remaps
+  "vim.visualModeKeyBindingsNonRecursive": [
+    { "before": ["<C-d>"], "after": ["<C-d>", "z", "z"] },
+    { "before": ["<C-u>"], "after": ["<C-u>", "z", "z"] },
+    { "before": ["<C-j>"], "after": ["G"] },
+    { "before": ["<C-k>"], "after": ["g", "g"] },
+    { "before": ["<C-l>"], "after": ["$"] },
+    { "before": ["<C-h>"], "after": ["0"] },
+    { "before": ["<C-z>"], "after": [] },
+    { "before": ["p"], "after": ["P"] },
+    { "before": ["J"], "commands": ["editor.action.moveLinesDownTarget"] }, // Cleaner VS Code native alternative
+    { "before": ["K"], "commands": ["editor.action.moveLinesUpTarget"] },   // Cleaner VS Code native alternative
+    { "before": ["<"], "after": ["<", "g", "v"] },
+    { "before": ["<"], "after": [">", "g", "v"] },
+    { "before": ["<leader>", "g", "v"], "commands": ["workbench.action.findInFiles"] } 
+  ],
+  "vim.visualModeKeyBindings": [
+    { "before": ["m"], "after": ["%"] }
+  ],
+
+  // Operator-Pending & Extra Modes (Mapped to Normal for VS Code's limits)
+  "vim.operatorPendingModeKeyBindingsNonRecursive": [
+    { "before": ["<C-j>"], "after": ["G"] },
+    { "before": ["<C-k>"], "after": ["g", "g"] },
+    { "before": ["<C-l>"], "after": ["$"] },
+    { "before": ["<C-h>"], "after": ["0"] },
+    { "before": ["m"], "after": ["%"] }
+  ],
+
+  // Insert Mode Remaps
+  "vim.insertModeKeyBindingsNonRecursive": [
+    { "before": ["<C-z>"], "after": [] }
+  ],
+  "editor.lineNumbers": "relative",
+  "editor.fontSize": 16,
+  "highlightOnCopy.timeout": 100,
+}

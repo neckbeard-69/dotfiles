@@ -17,7 +17,6 @@ for key in ~/.ssh/*
         ssh-add $key >/dev/null 2>&1
     end
 end
-starship init fish | source
 
 fish_add_path $HOME/go/bin
 fish_add_path ~/.local/bin/
@@ -52,3 +51,4 @@ if not string match -q -- $PNPM_HOME $PATH
 end
 # pnpm end
 # set -gx ANDROID_HOME $HOME/Android/Sdk
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv fish)"

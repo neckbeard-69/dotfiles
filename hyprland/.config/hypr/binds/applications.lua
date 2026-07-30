@@ -2,7 +2,7 @@ local exec = hl.dsp.exec_cmd
 
 local main_mod = "SUPER"
 local terminal = "ghostty"
-local browser = "brave"
+local browser = "brave-origin"
 local file_manager = "nautilus"
 local launcher = "dms ipc call spotlight toggle"
 

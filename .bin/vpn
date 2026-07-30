@@ -1,0 +1,30 @@
+#!/usr/bin/env fish
+
+function usage
+    echo "Usage:"" vpn <command>"
+    echo "Available commands:"
+    echo "  start"
+    echo "  stop"
+    echo "  restart"
+end
+
+if test (count $argv) -eq 0
+    usage
+    exit 1
+end
+
+set config_name baly_vpn
+
+switch $argv[1]
+    case start
+        openvpn3 session-start --config $config_name
+    case stop
+        openvpn3 session-manage --disconnect --config $config_name
+    case restart
+        openvpn3 session-manage --disconnect --config $config_name
+        openvpn3 session-start --config $config_name
+    case '*'
+        usage
+        exit 1
+end
+ 

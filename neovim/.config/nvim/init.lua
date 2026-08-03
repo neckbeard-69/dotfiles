@@ -1,7 +1,7 @@
-require("custom.keymaps")
 require("custom.options")
 require("lsp")
 require("custom.macro")
+require("custom.keymaps")
 
 -- require("vim._core.ui2").enable({})
 -- plugins

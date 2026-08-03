@@ -26,13 +26,13 @@ _pure_set_default pure_truncate_prompt_current_directory_keeps -1
 _pure_set_default pure_enable_git true
 _pure_set_default pure_symbol_git_unpulled_commits "⇣"
 _pure_set_default pure_symbol_git_unpushed_commits "⇡"
-_pure_set_default pure_symbol_git_dirty "*"
+_pure_set_default pure_symbol_git_dirty " ✘"
 _pure_set_default pure_symbol_git_stash "≡"
-_pure_set_default pure_color_git_unpulled_commits pure_color_info
-_pure_set_default pure_color_git_unpushed_commits pure_color_info
-_pure_set_default pure_color_git_branch pure_color_mute
-_pure_set_default pure_color_git_dirty pure_color_mute
-_pure_set_default pure_color_git_stash pure_color_info
+_pure_set_default pure_color_git_branch pure_color_warning        # no color — just reads as text
+_pure_set_default pure_color_git_dirty pure_color_danger           # dim, not alarming
+_pure_set_default pure_color_git_stash pure_color_mute           # dim, background info
+_pure_set_default pure_color_git_unpulled_commits pure_color_mute
+_pure_set_default pure_color_git_unpushed_commits pure_color_info    # the one subtle accent — cyan, barely-there pop
 _pure_set_default pure_show_numbered_git_indicator false
 
 # Remote info (user@hostname) for SSH and containers (Docker/LXC)
@@ -111,7 +111,7 @@ _pure_set_default pure_enable_single_line_prompt false
 
 # Detect when running in container (e.g. docker, podman, LXC/LXD)
 _pure_set_default pure_enable_container_detection true
-_pure_set_default pure_symbol_container_prefix "" # suggestion: '🐋' or '📦'
+_pure_set_default pure_symbol_container_prefix "" # suggestion: '🐋' or '📦'
 
 # Detect when running in SSH
 _pure_set_default pure_symbol_ssh_prefix "" # suggestion: 'ssh:/' or '🔗🔐🔒🌐'

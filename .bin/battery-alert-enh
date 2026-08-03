@@ -1,0 +1,180 @@
+#!/usr/bin/env fish
+#
+# battery-monitor.fish
+#
+# Watches a laptop battery and sends desktop notifications when:
+#   - the charger is plugged in
+#   - the charger is unplugged
+#   - the battery drops to a "low" threshold
+#   - the battery drops to a "critical" threshold
+#   - the battery reaches 100% for the first time since being unplugged
+#
+# Requires: notify-send (libnotify) + a running notification daemon
+#           (e.g. mako or dunst) under Hyprland.
+#
+# Usage:
+#   fish ~/.config/hypr/scripts/battery-monitor.fish &
+#
+# Or, better, autostart it from hyprland.conf:
+#   exec-once = fish ~/.config/hypr/scripts/battery-monitor.fish
+
+# ---------------------------------------------------------------------------
+# Configuration
+# ---------------------------------------------------------------------------
+sleep 5
+notify-send "Batter alert script started"
+set -l low_threshold 20      # percent
+set -l critical_threshold 10 # percent
+set -l ac_poll_interval 1    # seconds — how often to check charger plug/unplug (fast)
+set -l battery_poll_interval 15 # seconds — how often to check capacity/full (slower is fine)
+
+# ---------------------------------------------------------------------------
+# Detect battery and AC adapter
+# ---------------------------------------------------------------------------
+
+set -l battery_name ""
+set -l ac_name ""
+
+# Use globbing (not `ls`) so this can't be broken by an aliased/colorized `ls`.
+for supply_path in /sys/class/power_supply/*
+    set -l supply (basename $supply_path)
+    set -l type (cat $supply_path/type 2>/dev/null)
+    if test "$type" = "Battery"; and test -z "$battery_name"
+        set battery_name $supply
+    end
+    if test "$type" = "Mains"; and test -z "$ac_name"
+        set ac_name $supply
+    end
+end
+
+if test -z "$battery_name"
+    echo "battery-monitor: no battery found, exiting." >&2
+    exit 1
+end
+
+set -l battery_path /sys/class/power_supply/$battery_name
+set -l ac_path ""
+if test -n "$ac_name"
+    set ac_path /sys/class/power_supply/$ac_name
+end
+
+# ---------------------------------------------------------------------------
+# Helpers
+# ---------------------------------------------------------------------------
+
+function notify --argument-names urgency title body
+    notify-send -a "Battery" -u $urgency "$title" "$body"
+end
+
+function get_capacity --argument-names bat_path
+    cat $bat_path/capacity 2>/dev/null
+end
+
+function get_status --argument-names bat_path
+    # Charging, Discharging, Not charging, Full, Unknown
+    cat $bat_path/status 2>/dev/null
+end
+
+function get_ac_online --argument-names adapter_path bat_status
+    if test -n "$adapter_path"
+        set -l online (cat $adapter_path/online 2>/dev/null)
+        if test "$online" = "1"
+            echo "online"
+        else
+            echo "offline"
+        end
+    else
+        # Fallback when there is no separate AC device: infer from battery status
+        if test "$bat_status" = "Charging"; or test "$bat_status" = "Full"
+            echo "online"
+        else
+            echo "offline"
+        end
+    end
+end
+
+# ---------------------------------------------------------------------------
+# State (persists across loop iterations)
+# ---------------------------------------------------------------------------
+
+set -l prev_ac_state ""
+set -l notified_low 0
+set -l notified_critical 0
+set -l notified_full 0
+set -l ticks_since_battery_check 999 # force a battery check on first iteration
+
+echo "battery-monitor: watching $battery_name"(test -n "$ac_name"; and echo " / $ac_name")"..."
+
+# ---------------------------------------------------------------------------
+# Main loop
+# ---------------------------------------------------------------------------
+
+# The AC state is checked every $ac_poll_interval seconds (cheap sysfs read,
+# so this can be sub-second for near-instant plug/unplug notifications).
+# The fuller battery check (capacity, low/critical/full) only needs to run
+# every $battery_poll_interval seconds — it piggybacks on the same loop
+# using a tick counter instead of its own sleep.
+
+set -l ticks_per_battery_check (math "$battery_poll_interval / $ac_poll_interval")
+
+while true
+    set -l bat_status (get_status $battery_path)
+    set -l ac_state (get_ac_online $ac_path $bat_status)
+    set -l capacity (get_capacity $battery_path)
+
+    if test -z "$capacity"; or test -z "$bat_status"
+        sleep $ac_poll_interval
+        continue
+    end
+
+    # --- Charger plugged / unplugged (checked every tick) ----------------
+    if test -n "$prev_ac_state"; and test "$ac_state" != "$prev_ac_state"
+        if test "$ac_state" = "online"
+            notify normal "Charger connected" "Battery at $capacity%"
+        else
+            notify normal "Charger disconnected" "Battery at $capacity%"
+        end
+    end
+    set prev_ac_state $ac_state
+
+    # --- Battery-level checks (throttled to battery_poll_interval) -------
+    set ticks_since_battery_check (math "$ticks_since_battery_check + 1")
+    if test $ticks_since_battery_check -ge $ticks_per_battery_check
+        set ticks_since_battery_check 0
+
+        # Low / critical battery (only while discharging)
+        if test "$bat_status" = "Discharging"
+            if test "$capacity" -le "$critical_threshold"
+                if test $notified_critical -eq 0
+                    notify critical "Battery critically low ($capacity%)" "Plug in the charger now."
+                    set notified_critical 1
+                    set notified_low 1
+                end
+            else if test "$capacity" -le "$low_threshold"
+                if test $notified_low -eq 0
+                    notify normal "Battery low ($capacity%)" "Consider plugging in soon."
+                    set notified_low 1
+                end
+            else
+                set notified_low 0
+                set notified_critical 0
+            end
+        else
+            # Charging/Full/Not charging: reset so warnings fire again next time it drains
+            set notified_low 0
+            set notified_critical 0
+        end
+
+        # Full battery (once per charge cycle)
+        if test "$bat_status" = "Full"; or test "$capacity" -ge 100
+            if test $notified_full -eq 0
+                notify normal "Battery full" "You can unplug the charger."
+                set notified_full 1
+            end
+        else
+            set notified_full 0
+        end
+    end
+
+    sleep $ac_poll_interval
+end

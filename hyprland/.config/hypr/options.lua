@@ -5,6 +5,7 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("ystemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP")
 	hl.exec_cmd("bus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
 	hl.exec_cmd("bus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland")
+	hl.exec_cmd("~/dotfiles/.bin/battery-alert-enh")
 	-- hl.exec_cmd("/home/mohammed/dotfiles/.bin/battery-alert &")
 end)
 
